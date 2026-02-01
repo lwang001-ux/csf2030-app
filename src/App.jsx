@@ -470,11 +470,11 @@ const SKILLS = [
     primary: "Explore how smart assistants work; sort and categorize objects to understand 'data'",
     middle: "Use AI tools for creative projects; analyze simple datasets; discuss AI in daily life",
     high: "Build basic ML models; analyze big data sets; debate AI ethics and bias" },
-  { id: "techlit", name: "Technological literacy", category: "technology", x: 69, y: 72, quadrant: "core",  // chart: 55, 72
+  { id: "techlit", name: "Technological literacy", category: "technology", x: 73, y: 72, quadrant: "core",  // chart: 58, 72
     primary: "Navigate tablets safely; understand what devices do; basic typing skills",
     middle: "Digital citizenship lessons; troubleshoot common tech issues; intro to coding",
     high: "Understand networks and systems; cybersecurity basics; evaluate tech solutions" },
-  { id: "creative", name: "Creative thinking", category: "cognitive", x: 71, y: 70, quadrant: "core",  // chart: 57, 70
+  { id: "creative", name: "Creative thinking", category: "cognitive", x: 75, y: 70, quadrant: "core",  // chart: 60, 70
     primary: "Open-ended art projects; 'what if' questions; building with loose parts",
     middle: "Design challenges; brainstorming protocols; remix existing ideas",
     high: "Innovation labs; entrepreneurship projects; creative constraints challenges" },
@@ -486,55 +486,55 @@ const SKILLS = [
     primary: "Growth mindset stories; 'not yet' language; celebrate mistakes as learning",
     middle: "Reflection journals on setbacks; goal-setting with obstacles; flexibility exercises",
     high: "Case studies of resilient leaders; design projects with pivots; stress management" },
-  { id: "talent", name: "Talent management", category: "management", x: 60, y: 63, quadrant: "core",  // chart: 48, 63
+  { id: "talent", name: "Talent management", category: "management", x: 60, y: 65, quadrant: "core",  // chart: 48, 65
     primary: "Recognize classmates' strengths; buddy reading; helper jobs",
     middle: "Peer tutoring programs; strength inventories; collaborative roles",
     high: "Lead project teams; mentor younger students; delegate effectively" },
-  { id: "leadership", name: "Leadership and social influence", category: "workingWithOthers", x: 73, y: 58, quadrant: "core",  // chart: 58, 58
+  { id: "leadership", name: "Leadership and social influence", category: "workingWithOthers", x: 73, y: 60, quadrant: "core",  // chart: 58, 60
     primary: "Line leader roles; sharing circle facilitator; class meetings",
     middle: "Student council; club leadership; persuasive presentations",
     high: "Community initiatives; advocacy campaigns; organizational leadership" },
-  { id: "analytical", name: "Analytical thinking", category: "cognitive", x: 73, y: 68, quadrant: "core",  // chart: 58, 68
+  { id: "analytical", name: "Analytical thinking", category: "cognitive", x: 90, y: 57, quadrant: "core",  // chart: 72, 57
     primary: "Sorting games; pattern recognition; simple logic puzzles",
     middle: "Data analysis projects; scientific method; argument mapping",
     high: "Statistical analysis; logical fallacies; systems modeling" },
-  { id: "systems", name: "Systems thinking", category: "cognitive", x: 56, y: 52, quadrant: "core",  // chart: 45, 52
+  { id: "systems", name: "Systems thinking", category: "cognitive", x: 60, y: 52, quadrant: "core",  // chart: 48, 52
     primary: "Ecosystem terrariums; cause and effect stories; classroom as system",
     middle: "Food web mapping; feedback loops; community interconnections",
     high: "Complex systems modeling; policy analysis; global systems research" },
-  { id: "motivation", name: "Motivation and self-awareness", category: "selfEfficacy", x: 64, y: 52, quadrant: "core",  // chart: 51, 52
+  { id: "motivation", name: "Motivation and self-awareness", category: "selfEfficacy", x: 73, y: 48, quadrant: "core",  // chart: 58, 48
     primary: "Feelings check-ins; goal stars; celebration of effort",
     middle: "Learning style inventories; personal goal tracking; reflection routines",
     high: "Purpose exploration; intrinsic motivation study; self-assessment rubrics" },
 
   // Steady Skills - Bottom Right Quadrant (chart x > 40, y < 50)
-  { id: "empathy", name: "Empathy and active listening", category: "workingWithOthers", x: 63, y: 51, quadrant: "steady",  // chart: 50, 51
+  { id: "empathy", name: "Empathy and active listening", category: "workingWithOthers", x: 75, y: 45, quadrant: "steady",  // chart: 60, 45
     primary: "Perspective-taking stories; feelings vocabulary; listening partners",
     middle: "Role-play scenarios; peer mediation training; diverse narratives",
     high: "Cross-cultural exchanges; community service reflection; empathy mapping" },
-  { id: "service", name: "Service orientation and customer service", category: "engagement", x: 60, y: 48, quadrant: "steady",  // chart: 48, 48
+  { id: "service", name: "Service orientation and customer service", category: "engagement", x: 69, y: 40, quadrant: "steady",  // chart: 55, 40
     primary: "Classroom helpers; caring for shared spaces; thank you notes",
     middle: "Service learning projects; community partnerships; needs assessment",
     high: "Social enterprise; community organizing; sustainable service models" },
-  { id: "resource", name: "Resource management and operations", category: "management", x: 53, y: 32, quadrant: "steady",  // chart: 42, 32
+  { id: "resource", name: "Resource management and operations", category: "management", x: 65, y: 33, quadrant: "steady",  // chart: 52, 33
     primary: "Sharing materials; cleanup routines; time for tasks",
     middle: "Project planning; budget basics; time management tools",
     high: "Resource allocation; project management software; efficiency analysis" },
-  { id: "dependable", name: "Dependability and attention to detail", category: "selfEfficacy", x: 29, y: 38, quadrant: "foundational",  // chart: 23, 38
+  { id: "dependable", name: "Dependability and attention to detail", category: "selfEfficacy", x: 69, y: 23, quadrant: "steady",  // chart: 55, 23
     primary: "Completing tasks; following routines; checking work",
     middle: "Meeting deadlines; quality checklists; peer accountability",
     high: "Professional standards; attention to detail projects; reliability tracking" },
 
   // Emerging Skills - Top Left Quadrant (chart x < 40, y > 50)
-  { id: "cyber", name: "Networks and cybersecurity", category: "technology", x: 31, y: 72, quadrant: "emerging",  // chart: 25, 72
+  { id: "cyber", name: "Networks and cybersecurity", category: "technology", x: 28, y: 72, quadrant: "emerging",  // chart: 22, 72
     primary: "Password safety; stranger danger online; trusted adults",
     middle: "Privacy settings; phishing awareness; digital footprint",
     high: "Network architecture; ethical hacking basics; security protocols" },
-  { id: "environment", name: "Environmental stewardship", category: "ethics", x: 25, y: 58, quadrant: "emerging",  // chart: 20, 58
+  { id: "environment", name: "Environmental stewardship", category: "ethics", x: 23, y: 58, quadrant: "emerging",  // chart: 18, 58
     primary: "Nature walks; recycling sorting; caring for plants",
     middle: "Carbon footprint calculation; local ecosystem study; waste audit",
     high: "Climate science research; sustainability proposals; environmental advocacy" },
-  { id: "design", name: "Design and user experience", category: "technology", x: 31, y: 50, quadrant: "emerging",  // chart: 25, 50
+  { id: "design", name: "Design and user experience", category: "technology", x: 40, y: 52, quadrant: "emerging",  // chart: 32, 52
     primary: "Design for a friend; test and improve toys; simple prototypes",
     middle: "User interviews; wireframing; iterate based on feedback",
     high: "UX research methods; accessibility design; full design sprints" },
@@ -544,23 +544,23 @@ const SKILLS = [
     primary: "Unplugged coding; Scratch Jr; robot toys",
     middle: "Scratch projects; Python basics; game design",
     high: "Multiple languages; app development; algorithms" },
-  { id: "marketing", name: "Marketing and media", category: "engagement", x: 26, y: 33, quadrant: "foundational",  // left 1/8", up 1/8"
+  { id: "marketing", name: "Marketing and media", category: "engagement", x: 29, y: 42, quadrant: "foundational",  // chart: 23, 42
     primary: "Show and tell; simple posters; sharing stories",
     middle: "Digital storytelling; social media literacy; persuasion techniques",
     high: "Campaign creation; media analysis; brand development" },
-  { id: "teaching", name: "Teaching and mentoring", category: "workingWithOthers", x: 33, y: 38, quadrant: "foundational",  // chart: 26, 38
+  { id: "teaching", name: "Teaching and mentoring", category: "workingWithOthers", x: 38, y: 38, quadrant: "foundational",  // chart: 30, 38
     primary: "Teach a friend; explain your thinking; show how",
     middle: "Cross-age tutoring; create how-to guides; learning buddies",
     high: "Curriculum design; instructional strategies; mentorship programs" },
-  { id: "global", name: "Global citizenship", category: "ethics", x: 16, y: 30, quadrant: "foundational",  // chart: 12.5, 30
+  { id: "global", name: "Global citizenship", category: "ethics", x: 19, y: 32, quadrant: "foundational",  // chart: 15, 32
     primary: "World map exploration; cultural celebrations; pen pals",
     middle: "Current events discussions; cultural exchange; global goals",
     high: "Model UN; international collaboration; global issue research" },
-  { id: "quality", name: "Quality control", category: "management", x: 46, y: 30, quadrant: "foundational",  // chart: 37, 30
+  { id: "quality", name: "Quality control", category: "management", x: 48, y: 32, quadrant: "foundational",  // chart: 38, 32
     primary: "Self-checking work; 'does it match?'; revision habits",
     middle: "Peer review protocols; rubric use; improvement cycles",
     high: "Quality assurance systems; continuous improvement; standards analysis" },
-  { id: "multilingual", name: "Multi-lingualism", category: "cognitive", x: 26, y: 32, quadrant: "foundational",  // chart: 20, 32 - left 1/4"
+  { id: "multilingual", name: "Multi-lingualism", category: "cognitive", x: 35, y: 25, quadrant: "foundational",  // chart: 28, 25
     primary: "Songs in other languages; greeting words; family languages",
     middle: "Language classes; bilingual projects; translation exercises",
     high: "Language immersion; technical translation; multilingual presentations" },
@@ -568,11 +568,11 @@ const SKILLS = [
     primary: "Sensory bins; texture exploration; listening walks",
     middle: "Lab observations; detailed sketching; mindful awareness",
     high: "Scientific observation; sensory design; perception studies" },
-  { id: "reading", name: "Reading, writing and mathematics", category: "cognitive", x: 26, y: 16, quadrant: "foundational",  // chart: 21, 16
+  { id: "reading", name: "Reading, writing and mathematics", category: "cognitive", x: 25, y: 15, quadrant: "foundational",  // chart: 20, 15
     primary: "Phonics and numeracy foundations; read-alouds; counting games",
     middle: "Reading comprehension strategies; writing workshop; math reasoning",
     high: "Advanced literacy; technical writing; mathematical modeling" },
-  { id: "manual", name: "Manual dexterity, endurance and precision", category: "physical", x: 15, y: 13, quadrant: "foundational",  // chart: 12, 13
+  { id: "manual", name: "Manual dexterity, endurance and precision", category: "physical", x: 28, y: 10, quadrant: "foundational",  // chart: 22, 10
     primary: "Fine motor activities; cutting; building blocks",
     middle: "Maker projects; instrument playing; detailed crafts",
     high: "Precision fabrication; technical skills; tool mastery" },
@@ -3213,8 +3213,8 @@ export default function App() {
                 const activeCategory = hoveredCategory || (selectedSkill ? selectedSkill.category : null)
                 const isHidden = activeCategory && skill.category !== activeCategory
                 const labelOffset = isMobile ? 10 : 16
-                // Multi-lingualism label goes below circle
-                const labelBelow = skill.id === "multilingual" || skill.id === "motivation" || skill.id === "resource"
+                // Labels that go below their circles (to avoid overlap)
+                const labelBelow = ["design", "marketing", "teaching", "global", "sensory", "reading", "manual", "service", "resource", "leadership", "dependable"].includes(skill.id)
 
                 return (
                   <div
