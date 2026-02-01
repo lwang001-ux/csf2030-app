@@ -50,16 +50,16 @@ function playSound(type = 'click') {
   }
 }
 
-// Skill categories - WEF original colors
+// Skill categories - WEF original colors (exact match)
 const CATEGORIES = {
-  cognitive: { name: "Cognitive Skills", color: "#1E3A5F" },
-  engagement: { name: "Engagement Skills", color: "#A78BDA" },
+  cognitive: { name: "Cognitive skills", color: "#1E3A5F" },
+  engagement: { name: "Engagement skills", color: "#A8D4E6" },
   ethics: { name: "Ethics", color: "#7ECDC0" },
-  management: { name: "Management Skills", color: "#DBB54C" },
-  physical: { name: "Physical Abilities", color: "#7CB342" },
+  management: { name: "Management skills", color: "#C9B857" },
+  physical: { name: "Physical abilities", color: "#7CB342" },
   selfEfficacy: { name: "Self-efficacy", color: "#9C5FA8" },
-  technology: { name: "Technology Skills", color: "#5C4B8A" },
-  workingWithOthers: { name: "Working with Others", color: "#8B7D92" },
+  technology: { name: "Technology skills", color: "#5C4B8A" },
+  workingWithOthers: { name: "Working with others", color: "#C4B7D0" },
 }
 
 // Corner label colors (separate from skill colors)
@@ -466,139 +466,113 @@ const INNOVATIVE_RESEARCH = [
 // Original chart grid: x-axis 0-80, y-axis 0-100. Formula: my_x = original_x * 1.25
 const SKILLS = [
   // Core Skills (2030) - Top Right Quadrant
-  // AI: original (48, 88) → (60, 88)
-  { id: "ai", name: "AI & Big Data", category: "technology", x: 60, y: 88, quadrant: "core",
+  { id: "ai", name: "AI and big data", category: "technology", x: 60, y: 88, quadrant: "core",
     primary: "Explore how smart assistants work; sort and categorize objects to understand 'data'",
     middle: "Use AI tools for creative projects; analyze simple datasets; discuss AI in daily life",
     high: "Build basic ML models; analyze big data sets; debate AI ethics and bias" },
-  // Tech Literacy: original (55, 72) → (69, 72)
-  { id: "techlit", name: "Technological Literacy", category: "technology", x: 69, y: 72, quadrant: "core",
+  { id: "techlit", name: "Technological literacy", category: "technology", x: 69, y: 72, quadrant: "core",
     primary: "Navigate tablets safely; understand what devices do; basic typing skills",
     middle: "Digital citizenship lessons; troubleshoot common tech issues; intro to coding",
     high: "Understand networks and systems; cybersecurity basics; evaluate tech solutions" },
-  // Creative: original (55, 70) → (69, 70)
-  { id: "creative", name: "Creative Thinking", category: "cognitive", x: 69, y: 70, quadrant: "core",
+  { id: "creative", name: "Creative thinking", category: "cognitive", x: 71, y: 70, quadrant: "core",
     primary: "Open-ended art projects; 'what if' questions; building with loose parts",
     middle: "Design challenges; brainstorming protocols; remix existing ideas",
     high: "Innovation labs; entrepreneurship projects; creative constraints challenges" },
-  // Curiosity: original (48, 68) → (60, 68)
-  { id: "curiosity", name: "Curiosity & Lifelong Learning", category: "selfEfficacy", x: 60, y: 68, quadrant: "core",
+  { id: "curiosity", name: "Curiosity and lifelong learning", category: "selfEfficacy", x: 60, y: 68, quadrant: "core",
     primary: "Wonder walls; question of the day; exploration stations",
     middle: "Genius hour projects; student-led inquiries; learning portfolio",
     high: "Independent research projects; cross-disciplinary connections; mentorship seeking" },
-  // Talent: original (48, 65) → (60, 65)
-  { id: "talent", name: "Talent Management", category: "management", x: 60, y: 65, quadrant: "core",
-    primary: "Recognize classmates' strengths; buddy reading; helper jobs",
-    middle: "Peer tutoring programs; strength inventories; collaborative roles",
-    high: "Lead project teams; mentor younger students; delegate effectively" },
-  // Resilience: original (68, 65) → (85, 65)
-  { id: "resilience", name: "Resilience & Agility", category: "selfEfficacy", x: 85, y: 65, quadrant: "core",
+  { id: "resilience", name: "Resilience, flexibility and agility", category: "selfEfficacy", x: 85, y: 65, quadrant: "core",
     primary: "Growth mindset stories; 'not yet' language; celebrate mistakes as learning",
     middle: "Reflection journals on setbacks; goal-setting with obstacles; flexibility exercises",
     high: "Case studies of resilient leaders; design projects with pivots; stress management" },
-  // Leadership: original (55, 58) → (69, 58)
-  { id: "leadership", name: "Leadership & Influence", category: "engagement", x: 69, y: 58, quadrant: "core",
+  { id: "talent", name: "Talent management", category: "management", x: 60, y: 62, quadrant: "core",
+    primary: "Recognize classmates' strengths; buddy reading; helper jobs",
+    middle: "Peer tutoring programs; strength inventories; collaborative roles",
+    high: "Lead project teams; mentor younger students; delegate effectively" },
+  { id: "leadership", name: "Leadership and social influence", category: "engagement", x: 73, y: 60, quadrant: "core",
     primary: "Line leader roles; sharing circle facilitator; class meetings",
     middle: "Student council; club leadership; persuasive presentations",
     high: "Community initiatives; advocacy campaigns; organizational leadership" },
-  // Analytical: original (68, 58) → (85, 58)
-  { id: "analytical", name: "Analytical Thinking", category: "cognitive", x: 85, y: 58, quadrant: "core",
+  { id: "analytical", name: "Analytical thinking", category: "cognitive", x: 90, y: 58, quadrant: "core",
     primary: "Sorting games; pattern recognition; simple logic puzzles",
     middle: "Data analysis projects; scientific method; argument mapping",
     high: "Statistical analysis; logical fallacies; systems modeling" },
-  // Systems: original (45, 50) → (56, 50)
-  { id: "systems", name: "Systems Thinking", category: "cognitive", x: 56, y: 50, quadrant: "core",
+  { id: "systems", name: "Systems thinking", category: "cognitive", x: 56, y: 52, quadrant: "core",
     primary: "Ecosystem terrariums; cause and effect stories; classroom as system",
     middle: "Food web mapping; feedback loops; community interconnections",
     high: "Complex systems modeling; policy analysis; global systems research" },
-  // Motivation: original (55, 48) → (69, 48)
-  { id: "motivation", name: "Motivation & Self-awareness", category: "selfEfficacy", x: 69, y: 48, quadrant: "steady",
+  { id: "motivation", name: "Motivation and self-awareness", category: "selfEfficacy", x: 69, y: 50, quadrant: "core",
     primary: "Feelings check-ins; goal stars; celebration of effort",
     middle: "Learning style inventories; personal goal tracking; reflection routines",
     high: "Purpose exploration; intrinsic motivation study; self-assessment rubrics" },
-  // Empathy: original (52, 45) → (65, 45)
-  { id: "empathy", name: "Empathy & Active Listening", category: "workingWithOthers", x: 65, y: 45, quadrant: "steady",
+
+  // Steady Skills - Bottom Right Quadrant
+  { id: "empathy", name: "Empathy and active listening", category: "workingWithOthers", x: 65, y: 48, quadrant: "steady",
     primary: "Perspective-taking stories; feelings vocabulary; listening partners",
     middle: "Role-play scenarios; peer mediation training; diverse narratives",
     high: "Cross-cultural exchanges; community service reflection; empathy mapping" },
-  // Service: original (52, 38) → (65, 38)
-  { id: "service", name: "Service Orientation", category: "workingWithOthers", x: 65, y: 38, quadrant: "steady",
+  { id: "service", name: "Service orientation and customer service", category: "workingWithOthers", x: 65, y: 40, quadrant: "steady",
     primary: "Classroom helpers; caring for shared spaces; thank you notes",
     middle: "Service learning projects; community partnerships; needs assessment",
     high: "Social enterprise; community organizing; sustainable service models" },
-
-  // Emerging Skills - Top Left Quadrant
-  // Cybersecurity: moved right 1/2" → (40, 66)
-  { id: "cyber", name: "Networks & Cybersecurity", category: "technology", x: 40, y: 66, quadrant: "emerging",
-    primary: "Password safety; stranger danger online; trusted adults",
-    middle: "Privacy settings; phishing awareness; digital footprint",
-    high: "Network architecture; ethical hacking basics; security protocols" },
-  // Environmental: moved right 3/4", down 1/4" → (28, 56)
-  { id: "environment", name: "Environmental Stewardship", category: "ethics", x: 28, y: 56, quadrant: "emerging",
-    primary: "Nature walks; recycling sorting; caring for plants",
-    middle: "Carbon footprint calculation; local ecosystem study; waste audit",
-    high: "Climate science research; sustainability proposals; environmental advocacy" },
-  // Design: down 1/8" more → (38, 50)
-  { id: "design", name: "Design & User Experience", category: "technology", x: 38, y: 50, quadrant: "emerging",
-    primary: "Design for a friend; test and improve toys; simple prototypes",
-    middle: "User interviews; wireframing; iterate based on feedback",
-    high: "UX research methods; accessibility design; full design sprints" },
-
-  // Steady Skills - Bottom Right Quadrant
-  // Resource: original (55, 32) → (69, 32)
-  { id: "resource", name: "Resource Management", category: "management", x: 69, y: 32, quadrant: "steady",
+  { id: "resource", name: "Resource management and operations", category: "management", x: 60, y: 33, quadrant: "steady",
     primary: "Sharing materials; cleanup routines; time for tasks",
     middle: "Project planning; budget basics; time management tools",
     high: "Resource allocation; project management software; efficiency analysis" },
-  // Dependability: 1/3" from vertical axis
-  { id: "dependable", name: "Dependability & Attention to Detail", category: "selfEfficacy", x: 48, y: 25, quadrant: "foundational",
+  { id: "dependable", name: "Dependability and attention to detail", category: "selfEfficacy", x: 60, y: 23, quadrant: "steady",
     primary: "Completing tasks; following routines; checking work",
     middle: "Meeting deadlines; quality checklists; peer accountability",
     high: "Professional standards; attention to detail projects; reliability tracking" },
 
-  // Foundational Skills - Bottom Left Quadrant
-  // Programming: original (18, 40) → (23, 40)
+  // Emerging Skills - Top Left Quadrant
+  { id: "cyber", name: "Networks and cybersecurity", category: "technology", x: 28, y: 72, quadrant: "emerging",
+    primary: "Password safety; stranger danger online; trusted adults",
+    middle: "Privacy settings; phishing awareness; digital footprint",
+    high: "Network architecture; ethical hacking basics; security protocols" },
+  { id: "environment", name: "Environmental stewardship", category: "ethics", x: 23, y: 58, quadrant: "emerging",
+    primary: "Nature walks; recycling sorting; caring for plants",
+    middle: "Carbon footprint calculation; local ecosystem study; waste audit",
+    high: "Climate science research; sustainability proposals; environmental advocacy" },
+  { id: "design", name: "Design and user experience", category: "technology", x: 40, y: 52, quadrant: "emerging",
+    primary: "Design for a friend; test and improve toys; simple prototypes",
+    middle: "User interviews; wireframing; iterate based on feedback",
+    high: "UX research methods; accessibility design; full design sprints" },
+
+  // Out of Focus Skills - Bottom Left Quadrant
   { id: "programming", name: "Programming", category: "technology", x: 23, y: 40, quadrant: "foundational",
     primary: "Unplugged coding; Scratch Jr; robot toys",
     middle: "Scratch projects; Python basics; game design",
     high: "Multiple languages; app development; algorithms" },
-  // Marketing: original (25, 40) → (31, 35)
-  { id: "marketing", name: "Marketing & Media", category: "engagement", x: 31, y: 35, quadrant: "foundational",
+  { id: "marketing", name: "Marketing and media", category: "engagement", x: 29, y: 40, quadrant: "foundational",
     primary: "Show and tell; simple posters; sharing stories",
     middle: "Digital storytelling; social media literacy; persuasion techniques",
     high: "Campaign creation; media analysis; brand development" },
-  // Teaching: working with others color, up 1/2"
-  { id: "teaching", name: "Teaching & Mentoring", category: "workingWithOthers", x: 37, y: 40, quadrant: "foundational",
+  { id: "teaching", name: "Teaching and mentoring", category: "workingWithOthers", x: 40, y: 38, quadrant: "foundational",
     primary: "Teach a friend; explain your thinking; show how",
     middle: "Cross-age tutoring; create how-to guides; learning buddies",
     high: "Curriculum design; instructional strategies; mentorship programs" },
-  // Global: original (15, 30) → (19, 30)
-  { id: "global", name: "Global Citizenship", category: "ethics", x: 19, y: 30, quadrant: "foundational",
+  { id: "global", name: "Global citizenship", category: "ethics", x: 19, y: 30, quadrant: "foundational",
     primary: "World map exploration; cultural celebrations; pen pals",
     middle: "Current events discussions; cultural exchange; global goals",
     high: "Model UN; international collaboration; global issue research" },
-  // Multi-lingual: right of Marketing & Media, touching, 1/8" down
-  { id: "multilingual", name: "Multi-lingualism", category: "cognitive", x: 38, y: 34, quadrant: "foundational",
-    primary: "Songs in other languages; greeting words; family languages",
-    middle: "Language classes; bilingual projects; translation exercises",
-    high: "Language immersion; technical translation; multilingual presentations" },
-  // Quality: moved up 1/2" and left 1/2"
-  { id: "quality", name: "Quality Control", category: "management", x: 45, y: 35, quadrant: "foundational",
+  { id: "quality", name: "Quality control", category: "management", x: 44, y: 32, quadrant: "foundational",
     primary: "Self-checking work; 'does it match?'; revision habits",
     middle: "Peer review protocols; rubric use; improvement cycles",
     high: "Quality assurance systems; continuous improvement; standards analysis" },
-  // Sensory: original (8, 22) → (10, 22)
-  { id: "sensory", name: "Sensory Processing", category: "physical", x: 10, y: 22, quadrant: "foundational",
+  { id: "multilingual", name: "Multi-lingualism", category: "cognitive", x: 31, y: 30, quadrant: "foundational",
+    primary: "Songs in other languages; greeting words; family languages",
+    middle: "Language classes; bilingual projects; translation exercises",
+    high: "Language immersion; technical translation; multilingual presentations" },
+  { id: "sensory", name: "Sensory-processing abilities", category: "physical", x: 10, y: 22, quadrant: "foundational",
     primary: "Sensory bins; texture exploration; listening walks",
     middle: "Lab observations; detailed sketching; mindful awareness",
     high: "Scientific observation; sensory design; perception studies" },
-  // Reading: up 1/8"
-  { id: "reading", name: "Reading, Writing, Math", category: "cognitive", x: 26, y: 13, quadrant: "foundational",
+  { id: "reading", name: "Reading, writing and mathematics", category: "cognitive", x: 28, y: 15, quadrant: "foundational",
     primary: "Phonics and numeracy foundations; read-alouds; counting games",
     middle: "Reading comprehension strategies; writing workshop; math reasoning",
     high: "Advanced literacy; technical writing; mathematical modeling" },
-  // Manual: up 1/8", renamed
-  { id: "manual", name: "Manual Dexterity, Endurance and Precision", category: "physical", x: 20, y: 11, quadrant: "foundational",
+  { id: "manual", name: "Manual dexterity, endurance and precision", category: "physical", x: 28, y: 10, quadrant: "foundational",
     primary: "Fine motor activities; cutting; building blocks",
     middle: "Maker projects; instrument playing; detailed crafts",
     high: "Precision fabrication; technical skills; tool mastery" },
@@ -606,10 +580,10 @@ const SKILLS = [
 
 // Quadrant info
 const QUADRANTS = {
-  core: { name: "Core Skills", desc: "Essential now and growing" },
-  emerging: { name: "Emerging Skills", desc: "Less essential now, but expected to increase in use" },
-  steady: { name: "Steady Skills", desc: "Stable foundations" },
-  foundational: { name: "Out of Focus Skills", desc: "Less essential now, and not expected to increase in use" },
+  core: { name: "Core skills in 2030", desc: "Core now and expected to increase in importance" },
+  emerging: { name: "Emerging skills", desc: "Less essential now, but expected to increase in use" },
+  steady: { name: "Steady skills", desc: "Core now, but not expected to increase in use" },
+  foundational: { name: "Out of focus skills", desc: "Less essential now, and not expected to increase in use" },
 }
 
 // Dotted grid background
@@ -774,25 +748,25 @@ function ConnectionLines({ selectedSkill, hoveredCategory, filterQuadrant }) {
   )
 }
 
-// Quadrant labels - using QUADRANT_COLORS for corner text
+// Quadrant labels - matching WEF original chart exactly
 function QuadrantLabels() {
   return (
     <>
-      <div style={{ position: "absolute", top: "4%", right: "4%", textAlign: "right", zIndex: 2 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: QUADRANT_COLORS.core, fontFamily: FONT }}>Core Skills (2030)</div>
-        <div style={{ fontSize: 9, opacity: 0.6, fontFamily: FONT }}>High importance + High growth</div>
+      <div style={{ position: "absolute", top: "4%", right: "4%", textAlign: "center", zIndex: 2, width: "45%" }}>
+        <div style={{ fontSize: 13, fontWeight: 700, color: "#666", fontFamily: FONT }}>Core skills in 2030</div>
+        <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Core now and expected to increase in importance</div>
       </div>
-      <div style={{ position: "absolute", top: "4%", left: "4%", zIndex: 2 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: QUADRANT_COLORS.emerging, fontFamily: FONT }}>Emerging Skills</div>
-        <div style={{ fontSize: 9, opacity: 0.6, fontFamily: FONT }}>Less essential now, but expected to increase in use</div>
+      <div style={{ position: "absolute", top: "4%", left: "4%", zIndex: 2, width: "45%" }}>
+        <div style={{ fontSize: 13, fontWeight: 700, color: "#666", fontFamily: FONT }}>Emerging skills</div>
+        <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Less essential now, but expected to increase in use</div>
       </div>
-      <div style={{ position: "absolute", bottom: "4%", right: "4%", textAlign: "right", zIndex: 2 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: QUADRANT_COLORS.steady, fontFamily: FONT }}>Steady Skills</div>
-        <div style={{ fontSize: 9, opacity: 0.6, fontFamily: FONT }}>Stable foundations</div>
+      <div style={{ position: "absolute", bottom: "4%", right: "4%", textAlign: "center", zIndex: 2, width: "45%" }}>
+        <div style={{ fontSize: 13, fontWeight: 700, color: "#666", fontFamily: FONT }}>Steady skills</div>
+        <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Core now, but not expected to increase in use</div>
       </div>
-      <div style={{ position: "absolute", bottom: "4%", left: "4%", zIndex: 2 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: QUADRANT_COLORS.foundational, fontFamily: FONT }}>Out of Focus Skills</div>
-        <div style={{ fontSize: 9, opacity: 0.6, fontFamily: FONT }}>Less essential now, and not expected to increase in use</div>
+      <div style={{ position: "absolute", bottom: "4%", left: "4%", zIndex: 2, width: "45%" }}>
+        <div style={{ fontSize: 13, fontWeight: 700, color: "#666", fontFamily: FONT }}>Out of focus skills</div>
+        <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Less essential now, and not expected to increase in use</div>
       </div>
     </>
   )
@@ -3178,22 +3152,35 @@ export default function App() {
                 )
               })}
 
+              {/* Callout lines from circles to labels */}
+              <svg style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 14 }}>
+                {filteredSkills.map(skill => {
+                  const activeCategory = hoveredCategory || (selectedSkill ? selectedSkill.category : null)
+                  const isHidden = activeCategory && skill.category !== activeCategory
+                  const lineLength = isMobile ? 8 : 15
+                  const x = skill.x
+                  const y = 100 - skill.y
+
+                  return (
+                    <line
+                      key={`line-${skill.id}`}
+                      x1={`${x}%`}
+                      y1={`${y}%`}
+                      x2={`${x}%`}
+                      y2={`calc(${y}% - ${lineLength}px)`}
+                      stroke={CATEGORIES[skill.category]?.color || "#666"}
+                      strokeWidth="1"
+                      opacity={isHidden ? 0.08 : 0.6}
+                      style={{ transition: "opacity 0.3s ease" }}
+                    />
+                  )
+                })}
+              </svg>
+
               {filteredSkills.map(skill => {
                 const activeCategory = hoveredCategory || (selectedSkill ? selectedSkill.category : null)
                 const isHidden = activeCategory && skill.category !== activeCategory
-                // Multi-lingualism label goes below circle
-                const labelBelow = skill.id === "multilingual"
-                // Manual Dexterity label goes to the right of circle
-                const labelRight = skill.id === "manual"
-
-                let labelTransform
-                if (labelRight) {
-                  labelTransform = `translate(${isMobile ? 8 : 15}px, -50%)`
-                } else if (labelBelow) {
-                  labelTransform = `translate(-50%, ${isMobile ? 8 : 15}px)`
-                } else {
-                  labelTransform = `translate(-50%, calc(-100% - ${isMobile ? 8 : 15}px))`
-                }
+                const labelOffset = isMobile ? 10 : 18
 
                 return (
                   <div
@@ -3202,16 +3189,17 @@ export default function App() {
                       position: "absolute",
                       left: `${skill.x}%`,
                       top: `${100 - skill.y}%`,
-                      transform: labelTransform,
-                      fontSize: isMobile ? 7 : 11,
-                      fontWeight: 600,
-                      color: "#0D1B2A",
+                      transform: `translate(-50%, calc(-100% - ${labelOffset}px))`,
+                      fontSize: isMobile ? 7 : 10,
+                      fontWeight: 400,
+                      color: "#333",
                       textAlign: "center",
                       whiteSpace: "nowrap",
                       pointerEvents: "none",
                       zIndex: 15,
                       opacity: isHidden ? 0.08 : 1,
                       transition: "opacity 0.3s ease",
+                      fontFamily: FONT,
                     }}
                   >
                     {skill.name}
@@ -3222,16 +3210,29 @@ export default function App() {
               {/* Axis labels */}
               <div style={{
                 position: "absolute",
-                left: -75,
+                left: -120,
                 top: "50%",
                 transform: "translateY(-50%) rotate(-90deg)",
                 fontSize: 10,
                 fontFamily: FONT,
                 color: "#666",
-                fontWeight: 600,
+                fontWeight: 400,
                 whiteSpace: "nowrap",
               }}>
-                Share of employees expecting increasing skills in use by 2030 (%)
+                Share of employers expecting increasing skills in use by 2030 (%)
+              </div>
+              <div style={{
+                position: "absolute",
+                bottom: -30,
+                left: "50%",
+                transform: "translateX(-50%)",
+                fontSize: 10,
+                fontFamily: FONT,
+                color: "#666",
+                fontWeight: 400,
+                whiteSpace: "nowrap",
+              }}>
+                Share of employers considering as a core skill in 2025 (%)
               </div>
             </div>
           </div>
