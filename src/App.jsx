@@ -2768,7 +2768,7 @@ function AboutModal({ onClose }) {
   )
 }
 
-// Mobile Skills Grid Component - 2 columns with circles
+// Mobile Skills Grid Component - UNUSED, kept for reference
 function MobileSkillsGrid({ skills, selectedSkill, setSelectedSkill, filterQuadrant, setFilterQuadrant }) {
   return (
     <div style={{ padding: "12px" }}>
