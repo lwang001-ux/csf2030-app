@@ -2768,22 +2768,20 @@ function AboutModal({ onClose }) {
   )
 }
 
-// Mobile Skills List Component
-function MobileSkillsList({ skills, selectedSkill, setSelectedSkill, filterQuadrant, setFilterQuadrant }) {
-  const categories = Object.entries(CATEGORIES)
-
+// Mobile Skills Grid Component - 2 columns with circles
+function MobileSkillsGrid({ skills, selectedSkill, setSelectedSkill, filterQuadrant, setFilterQuadrant }) {
   return (
     <div style={{ padding: "12px" }}>
-      {/* Quadrant filter chips - compact */}
-      <div style={{ display: "flex", gap: 4, marginBottom: 12, flexWrap: "wrap" }}>
+      {/* Quadrant filter chips */}
+      <div style={{ display: "flex", gap: 4, marginBottom: 12, flexWrap: "wrap", justifyContent: "center" }}>
         <button
           onClick={() => { playSound('click'); setFilterQuadrant(null) }}
           style={{
-            padding: "4px 10px",
+            padding: "5px 12px",
             background: filterQuadrant === null ? "#0D1B2A" : "#f0f0f0",
             color: filterQuadrant === null ? "#fff" : "#555",
             border: "none",
-            borderRadius: 12,
+            borderRadius: 14,
             fontSize: 10,
             fontWeight: 600,
             cursor: "pointer",
@@ -2797,11 +2795,11 @@ function MobileSkillsList({ skills, selectedSkill, setSelectedSkill, filterQuadr
             key={key}
             onClick={() => { playSound('click'); setFilterQuadrant(filterQuadrant === key ? null : key) }}
             style={{
-              padding: "4px 10px",
+              padding: "5px 12px",
               background: filterQuadrant === key ? QUADRANT_COLORS[key] : "#f0f0f0",
               color: filterQuadrant === key ? "#fff" : "#555",
               border: "none",
-              borderRadius: 12,
+              borderRadius: 14,
               fontSize: 10,
               fontWeight: 600,
               cursor: "pointer",
@@ -2813,76 +2811,71 @@ function MobileSkillsList({ skills, selectedSkill, setSelectedSkill, filterQuadr
         ))}
       </div>
 
-      {/* Skills grouped by category - compact vertical list */}
-      {categories.map(([catKey, cat]) => {
-        const catSkills = skills.filter(s => s.category === catKey)
-        if (catSkills.length === 0) return null
-
-        return (
-          <div key={catKey} style={{ marginBottom: 16 }}>
-            {/* Category header - tiny */}
-            <div style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 6,
-              marginBottom: 6,
-              paddingBottom: 4,
-              borderBottom: `1px solid ${cat.color}40`,
-            }}>
+      {/* Skills in 2-column grid with circles */}
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: 8,
+        background: "rgba(255,255,255,0.95)",
+        borderRadius: 12,
+        padding: 12,
+        border: "1px solid rgba(0,0,0,0.08)",
+      }}>
+        {skills.map(skill => {
+          const cat = CATEGORIES[skill.category]
+          const isSelected = selectedSkill?.id === skill.id
+          return (
+            <button
+              key={skill.id}
+              onClick={() => { playSound('click'); setSelectedSkill(isSelected ? null : skill) }}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: 4,
+                padding: "10px 4px",
+                background: isSelected ? `${cat.color}15` : "transparent",
+                border: isSelected ? `2px solid ${cat.color}` : "2px solid transparent",
+                borderRadius: 10,
+                cursor: "pointer",
+                fontFamily: FONT,
+              }}
+            >
+              {/* Circle */}
               <div style={{
-                width: 6,
-                height: 6,
+                width: 24,
+                height: 24,
                 borderRadius: "50%",
                 background: cat.color,
-              }} />
-              <span style={{
-                fontSize: 11,
-                fontWeight: 700,
-                color: cat.color,
-                fontFamily: FONT,
+                border: `2px solid ${cat.color}`,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: isSelected ? `0 0 8px ${cat.color}60` : "none",
               }}>
-                {cat.name}
+                <div style={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: "50%",
+                  background: "#fff",
+                }} />
+              </div>
+              {/* Label */}
+              <span style={{
+                fontSize: 9,
+                fontWeight: 600,
+                color: "#0D1B2A",
+                textAlign: "center",
+                lineHeight: 1.2,
+              }}>
+                {skill.name}
               </span>
-            </div>
-
-            {/* Skills - compact vertical list */}
-            <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-              {catSkills.map(skill => {
-                const isSelected = selectedSkill?.id === skill.id
-                return (
-                  <button
-                    key={skill.id}
-                    onClick={() => { playSound('click'); setSelectedSkill(isSelected ? null : skill) }}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 6,
-                      padding: "6px 10px",
-                      background: isSelected ? cat.color : "transparent",
-                      color: isSelected ? "#fff" : "#0D1B2A",
-                      border: "none",
-                      borderRadius: 6,
-                      fontSize: 12,
-                      fontWeight: isSelected ? 600 : 400,
-                      cursor: "pointer",
-                      fontFamily: FONT,
-                      textAlign: "left",
-                    }}
-                  >
-                    <div style={{
-                      width: 4,
-                      height: 4,
-                      borderRadius: "50%",
-                      background: isSelected ? "#fff" : QUADRANT_COLORS[skill.quadrant],
-                      flexShrink: 0,
-                    }} />
-                    {skill.name}
-                  </button>
-                )
-              })}
-            </div>
-          </div>
-        )
+            </button>
+          )
+        })}
+      </div>
+    </div>
+  )
       })}
     </div>
   )
@@ -3160,9 +3153,9 @@ export default function App() {
       {/* Main visualization (map only) */}
       {currentPage === "map" && (
       <main style={{ padding: isMobile ? "20px 0" : "clamp(20px, 5vw, 60px) clamp(12px, 3vw, 40px)", position: "relative", zIndex: 10 }}>
-        {/* Mobile: Show list view */}
+        {/* Mobile: Show 2-column grid with circles */}
         {isMobile ? (
-          <MobileSkillsList
+          <MobileSkillsGrid
             skills={filteredSkills}
             selectedSkill={selectedSkill}
             setSelectedSkill={setSelectedSkill}
