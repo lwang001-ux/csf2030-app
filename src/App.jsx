@@ -528,8 +528,8 @@ const SKILLS = [
     high: "Social enterprise; community organizing; sustainable service models" },
 
   // Emerging Skills - Top Left Quadrant
-  // Cybersecurity: moved right 1", down 1" → (37, 66)
-  { id: "cyber", name: "Networks & Cybersecurity", category: "technology", x: 37, y: 66, quadrant: "emerging",
+  // Cybersecurity: moved right 1/2" → (40, 66)
+  { id: "cyber", name: "Networks & Cybersecurity", category: "technology", x: 40, y: 66, quadrant: "emerging",
     primary: "Password safety; stranger danger online; trusted adults",
     middle: "Privacy settings; phishing awareness; digital footprint",
     high: "Network architecture; ethical hacking basics; security protocols" },
@@ -567,8 +567,8 @@ const SKILLS = [
     primary: "Show and tell; simple posters; sharing stories",
     middle: "Digital storytelling; social media literacy; persuasion techniques",
     high: "Campaign creation; media analysis; brand development" },
-  // Teaching: left 1/2" → (37, 37)
-  { id: "teaching", name: "Teaching & Mentoring", category: "engagement", x: 37, y: 37, quadrant: "foundational",
+  // Teaching: working with others color
+  { id: "teaching", name: "Teaching & Mentoring", category: "workingWithOthers", x: 37, y: 37, quadrant: "foundational",
     primary: "Teach a friend; explain your thinking; show how",
     middle: "Cross-age tutoring; create how-to guides; learning buddies",
     high: "Curriculum design; instructional strategies; mentorship programs" },
@@ -592,13 +592,13 @@ const SKILLS = [
     primary: "Sensory bins; texture exploration; listening walks",
     middle: "Lab observations; detailed sketching; mindful awareness",
     high: "Scientific observation; sensory design; perception studies" },
-  // Reading: moved left 1 1/4"
-  { id: "reading", name: "Reading, Writing, Math", category: "cognitive", x: 23, y: 12, quadrant: "foundational",
+  // Reading: moved right 1/2"
+  { id: "reading", name: "Reading, Writing, Math", category: "cognitive", x: 26, y: 12, quadrant: "foundational",
     primary: "Phonics and numeracy foundations; read-alouds; counting games",
     middle: "Reading comprehension strategies; writing workshop; math reasoning",
     high: "Advanced literacy; technical writing; mathematical modeling" },
-  // Manual: moved left 1 1/4"
-  { id: "manual", name: "Manual Dexterity", category: "physical", x: 17, y: 10, quadrant: "foundational",
+  // Manual: moved right 1/2"
+  { id: "manual", name: "Manual Dexterity", category: "physical", x: 20, y: 10, quadrant: "foundational",
     primary: "Fine motor activities; cutting; building blocks",
     middle: "Maker projects; instrument playing; detailed crafts",
     high: "Precision fabrication; technical skills; tool mastery" },
@@ -3181,8 +3181,8 @@ export default function App() {
               {filteredSkills.map(skill => {
                 const activeCategory = hoveredCategory || (selectedSkill ? selectedSkill.category : null)
                 const isHidden = activeCategory && skill.category !== activeCategory
-                // Manual Dexterity label goes below circle to avoid overlap
-                const labelBelow = skill.id === "manual"
+                // Manual Dexterity and Multi-lingualism labels go below circle
+                const labelBelow = skill.id === "manual" || skill.id === "multilingual"
                 return (
                   <div
                     key={`label-${skill.id}`}
