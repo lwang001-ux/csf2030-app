@@ -17,4 +17,13 @@ body {
 
 button {
   font-family: inherit;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus,
+button:focus-visible,
+button:active {
+  outline: none !important;
+  box-shadow: none;
 }
