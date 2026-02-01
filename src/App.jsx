@@ -752,19 +752,19 @@ function ConnectionLines({ selectedSkill, hoveredCategory, filterQuadrant }) {
 function QuadrantLabels() {
   return (
     <>
-      <div style={{ position: "absolute", top: "4%", right: "4%", textAlign: "center", zIndex: 2, width: "45%" }}>
+      <div style={{ position: "absolute", top: "2%", right: "2%", textAlign: "right", zIndex: 2 }}>
         <div style={{ fontSize: 13, fontWeight: 700, color: "#666", fontFamily: FONT }}>Core skills in 2030</div>
         <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Core now and expected to increase in importance</div>
       </div>
-      <div style={{ position: "absolute", top: "4%", left: "4%", zIndex: 2, width: "45%" }}>
+      <div style={{ position: "absolute", top: "2%", left: "2%", zIndex: 2 }}>
         <div style={{ fontSize: 13, fontWeight: 700, color: "#666", fontFamily: FONT }}>Emerging skills</div>
         <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Less essential now, but expected to increase in use</div>
       </div>
-      <div style={{ position: "absolute", bottom: "4%", right: "4%", textAlign: "center", zIndex: 2, width: "45%" }}>
+      <div style={{ position: "absolute", bottom: "2%", right: "2%", textAlign: "right", zIndex: 2 }}>
         <div style={{ fontSize: 13, fontWeight: 700, color: "#666", fontFamily: FONT }}>Steady skills</div>
         <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Core now, but not expected to increase in use</div>
       </div>
-      <div style={{ position: "absolute", bottom: "4%", left: "4%", zIndex: 2, width: "45%" }}>
+      <div style={{ position: "absolute", bottom: "2%", left: "2%", zIndex: 2 }}>
         <div style={{ fontSize: 13, fontWeight: 700, color: "#666", fontFamily: FONT }}>Out of focus skills</div>
         <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Less essential now, and not expected to increase in use</div>
       </div>
@@ -3152,35 +3152,11 @@ export default function App() {
                 )
               })}
 
-              {/* Callout lines from circles to labels */}
-              <svg style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 14 }}>
-                {filteredSkills.map(skill => {
-                  const activeCategory = hoveredCategory || (selectedSkill ? selectedSkill.category : null)
-                  const isHidden = activeCategory && skill.category !== activeCategory
-                  const lineLength = isMobile ? 8 : 15
-                  const x = skill.x
-                  const y = 100 - skill.y
-
-                  return (
-                    <line
-                      key={`line-${skill.id}`}
-                      x1={`${x}%`}
-                      y1={`${y}%`}
-                      x2={`${x}%`}
-                      y2={`calc(${y}% - ${lineLength}px)`}
-                      stroke={CATEGORIES[skill.category]?.color || "#666"}
-                      strokeWidth="1"
-                      opacity={isHidden ? 0.08 : 0.6}
-                      style={{ transition: "opacity 0.3s ease" }}
-                    />
-                  )
-                })}
-              </svg>
-
+              {/* Skill labels */}
               {filteredSkills.map(skill => {
                 const activeCategory = hoveredCategory || (selectedSkill ? selectedSkill.category : null)
                 const isHidden = activeCategory && skill.category !== activeCategory
-                const labelOffset = isMobile ? 10 : 18
+                const labelOffset = isMobile ? 10 : 16
 
                 return (
                   <div
