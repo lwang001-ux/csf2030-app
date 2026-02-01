@@ -544,23 +544,23 @@ const SKILLS = [
     primary: "Unplugged coding; Scratch Jr; robot toys",
     middle: "Scratch projects; Python basics; game design",
     high: "Multiple languages; app development; algorithms" },
-  { id: "marketing", name: "Marketing and media", category: "engagement", x: 29, y: 40, quadrant: "foundational",  // chart: 23, 40
+  { id: "marketing", name: "Marketing and media", category: "engagement", x: 28, y: 32, quadrant: "foundational",  // chart: 22, 32
     primary: "Show and tell; simple posters; sharing stories",
     middle: "Digital storytelling; social media literacy; persuasion techniques",
     high: "Campaign creation; media analysis; brand development" },
-  { id: "teaching", name: "Teaching and mentoring", category: "workingWithOthers", x: 40, y: 37, quadrant: "foundational",  // chart: 32, 37
+  { id: "teaching", name: "Teaching and mentoring", category: "workingWithOthers", x: 33, y: 38, quadrant: "foundational",  // chart: 26, 38
     primary: "Teach a friend; explain your thinking; show how",
     middle: "Cross-age tutoring; create how-to guides; learning buddies",
     high: "Curriculum design; instructional strategies; mentorship programs" },
-  { id: "global", name: "Global citizenship", category: "ethics", x: 19, y: 29, quadrant: "foundational",  // chart: 15, 29
+  { id: "global", name: "Global citizenship", category: "ethics", x: 15, y: 30, quadrant: "foundational",  // chart: 12, 30
     primary: "World map exploration; cultural celebrations; pen pals",
     middle: "Current events discussions; cultural exchange; global goals",
     high: "Model UN; international collaboration; global issue research" },
-  { id: "quality", name: "Quality control", category: "management", x: 44, y: 32, quadrant: "foundational",  // chart: 35, 32
+  { id: "quality", name: "Quality control", category: "management", x: 46, y: 30, quadrant: "foundational",  // chart: 37, 30
     primary: "Self-checking work; 'does it match?'; revision habits",
     middle: "Peer review protocols; rubric use; improvement cycles",
     high: "Quality assurance systems; continuous improvement; standards analysis" },
-  { id: "multilingual", name: "Multi-lingualism", category: "cognitive", x: 31, y: 28, quadrant: "foundational",  // chart: 25, 28
+  { id: "multilingual", name: "Multi-lingualism", category: "cognitive", x: 29, y: 32, quadrant: "foundational",  // chart: 23, 32
     primary: "Songs in other languages; greeting words; family languages",
     middle: "Language classes; bilingual projects; translation exercises",
     high: "Language immersion; technical translation; multilingual presentations" },
@@ -572,7 +572,7 @@ const SKILLS = [
     primary: "Phonics and numeracy foundations; read-alouds; counting games",
     middle: "Reading comprehension strategies; writing workshop; math reasoning",
     high: "Advanced literacy; technical writing; mathematical modeling" },
-  { id: "manual", name: "Manual dexterity, endurance and precision", category: "physical", x: 28, y: 10, quadrant: "foundational",  // chart: 22, 10
+  { id: "manual", name: "Manual dexterity, endurance and precision", category: "physical", x: 15, y: 13, quadrant: "foundational",  // chart: 12, 13
     primary: "Fine motor activities; cutting; building blocks",
     middle: "Maker projects; instrument playing; detailed crafts",
     high: "Precision fabrication; technical skills; tool mastery" },
