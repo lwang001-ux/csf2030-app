@@ -3175,67 +3175,132 @@ export default function App() {
           }}>
           {/* Skills map and content - single column layout */}
           <div style={{ width: "100%" }}>
-          {/* Skills map - using WEF chart image */}
+          {/* Skills map */}
           <div style={{
             position: "relative",
             width: "100%",
+            minWidth: isMobile ? 0 : 600,
+            paddingBottom: isMobile ? "100%" : "75%",
+            background: "rgba(255,255,255,0.97)",
             borderRadius: 15,
+            border: "1px solid rgba(0,0,0,0.12)",
             overflow: "hidden",
             boxShadow: "0 5px 30px rgba(0,0,0,0.08)",
           }}>
-            {/* Chart image */}
-            <img
-              src="/wef-chart.png"
-              alt="WEF Core Skills 2030 Chart"
-              style={{
-                width: "100%",
-                height: "auto",
-                display: "block",
-              }}
-            />
+            <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}>
+              <DottedGridSmall />
+              <AxisLines />
+              <QuadrantLabels />
 
-            {/* Invisible clickable hotspots over each skill */}
-            {/* Chart area bounds: left 8%, width 84%, top 10%, height 72% */}
-            {filteredSkills.map(skill => {
-              // Convert chart coords (x: 0-80, y: 0-100) to image percentages
-              const chartLeft = 8
-              const chartWidth = 84
-              const chartTop = 10
-              const chartHeight = 72
+              {/* Skill circles with black center dots */}
+              {filteredSkills.map(skill => {
+                const activeCategory = hoveredCategory || (selectedSkill ? selectedSkill.category : null)
+                const isHidden = activeCategory && skill.category !== activeCategory
+                const isSelected = selectedSkill?.id === skill.id
+                const size = isMobile ? 16 : 22
 
-              const imageX = chartLeft + (skill.x / 100) * chartWidth
-              const imageY = chartTop + ((100 - skill.y) / 100) * chartHeight
+                return (
+                  <button
+                    key={skill.id}
+                    onClick={() => {
+                      playSound('click')
+                      setSelectedSkill(isSelected ? null : skill)
+                    }}
+                    style={{
+                      position: "absolute",
+                      left: `${skill.x}%`,
+                      top: `${100 - skill.y}%`,
+                      transform: "translate(-50%, -50%)",
+                      width: size,
+                      height: size,
+                      borderRadius: "50%",
+                      background: CATEGORIES[skill.category].color,
+                      border: isSelected ? "3px solid #333" : "none",
+                      cursor: "pointer",
+                      opacity: isHidden ? 0.15 : 1,
+                      transition: "all 0.2s ease",
+                      zIndex: 10,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      boxShadow: isSelected ? "0 0 0 3px rgba(0,0,0,0.1)" : "none",
+                    }}
+                    title={skill.name}
+                  >
+                    {/* Black center dot */}
+                    <div style={{
+                      width: isMobile ? 4 : 6,
+                      height: isMobile ? 4 : 6,
+                      borderRadius: "50%",
+                      background: "#000",
+                    }} />
+                  </button>
+                )
+              })}
 
-              const activeCategory = hoveredCategory || (selectedSkill ? selectedSkill.category : null)
-              const isHidden = activeCategory && skill.category !== activeCategory
-              const isSelected = selectedSkill?.id === skill.id
+              {/* Skill labels */}
+              {filteredSkills.map(skill => {
+                const activeCategory = hoveredCategory || (selectedSkill ? selectedSkill.category : null)
+                const isHidden = activeCategory && skill.category !== activeCategory
+                const labelOffset = isMobile ? 10 : 16
+                // Labels that go below their circles (to avoid overlap)
+                const labelBelow = ["design", "marketing", "teaching", "global", "sensory", "reading", "manual", "service", "resource", "leadership", "dependable"].includes(skill.id)
 
-              return (
-                <button
-                  key={skill.id}
-                  onClick={() => {
-                    playSound('click')
-                    setSelectedSkill(isSelected ? null : skill)
-                  }}
-                  style={{
-                    position: "absolute",
-                    left: `${imageX}%`,
-                    top: `${imageY}%`,
-                    transform: "translate(-50%, -50%)",
-                    width: isMobile ? 24 : 32,
-                    height: isMobile ? 24 : 32,
-                    borderRadius: "50%",
-                    border: isSelected ? `3px solid ${CATEGORIES[skill.category].color}` : "none",
-                    background: isSelected ? "rgba(255,255,255,0.3)" : "transparent",
-                    cursor: "pointer",
-                    opacity: isHidden ? 0.2 : 1,
-                    transition: "all 0.2s ease",
-                    zIndex: 10,
-                  }}
-                  title={skill.name}
-                />
-              )
-            })}
+                return (
+                  <div
+                    key={`label-${skill.id}`}
+                    style={{
+                      position: "absolute",
+                      left: `${skill.x}%`,
+                      top: `${100 - skill.y}%`,
+                      transform: labelBelow
+                        ? `translate(-50%, ${labelOffset}px)`
+                        : `translate(-50%, calc(-100% - ${labelOffset}px))`,
+                      fontSize: isMobile ? 7 : 10,
+                      fontWeight: 400,
+                      color: "#333",
+                      textAlign: "center",
+                      whiteSpace: "nowrap",
+                      pointerEvents: "none",
+                      zIndex: 15,
+                      opacity: isHidden ? 0.08 : 1,
+                      transition: "opacity 0.3s ease",
+                      fontFamily: FONT,
+                    }}
+                  >
+                    {skill.name}
+                  </div>
+                )
+              })}
+
+              {/* Axis labels */}
+              <div style={{
+                position: "absolute",
+                left: -120,
+                top: "50%",
+                transform: "translateY(-50%) rotate(-90deg)",
+                fontSize: 10,
+                fontFamily: FONT,
+                color: "#666",
+                fontWeight: 400,
+                whiteSpace: "nowrap",
+              }}>
+                Share of employers expecting increasing skills in use by 2030 (%)
+              </div>
+              <div style={{
+                position: "absolute",
+                bottom: -30,
+                left: "50%",
+                transform: "translateX(-50%)",
+                fontSize: 10,
+                fontFamily: FONT,
+                color: "#666",
+                fontWeight: 400,
+                whiteSpace: "nowrap",
+              }}>
+                Share of employers considering as a core skill in 2025 (%)
+              </div>
+            </div>
           </div>
 
           {/* Connection explanation - shows when skill selected, category hovered, OR quadrant filtered */}
