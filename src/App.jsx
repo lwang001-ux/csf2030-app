@@ -772,13 +772,63 @@ function QuadrantLabels() {
   )
 }
 
-// Centered axis lines
+// Grid lines with numbers
 function AxisLines() {
+  const gridLines = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+
   return (
-    <svg style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 1, pointerEvents: "none" }}>
-      <line x1="50%" y1="5%" x2="50%" y2="95%" stroke="rgba(0,0,0,0.15)" strokeWidth="1" strokeDasharray="4 4" />
-      <line x1="5%" y1="50%" x2="95%" y2="50%" stroke="rgba(0,0,0,0.15)" strokeWidth="1" strokeDasharray="4 4" />
-    </svg>
+    <>
+      <svg style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 1, pointerEvents: "none" }}>
+        {/* Vertical grid lines */}
+        {gridLines.map(x => (
+          <line
+            key={`v-${x}`}
+            x1={`${x}%`} y1="5%" x2={`${x}%`} y2="95%"
+            stroke={x === 50 ? "rgba(0,0,0,0.25)" : "rgba(0,0,0,0.1)"}
+            strokeWidth={x === 50 ? 1 : 0.5}
+            strokeDasharray={x === 50 ? "4 4" : "2 4"}
+          />
+        ))}
+        {/* Horizontal grid lines */}
+        {gridLines.map(y => (
+          <line
+            key={`h-${y}`}
+            x1="5%" y1={`${y}%`} x2="95%" y2={`${y}%`}
+            stroke={y === 50 ? "rgba(0,0,0,0.25)" : "rgba(0,0,0,0.1)"}
+            strokeWidth={y === 50 ? 1 : 0.5}
+            strokeDasharray={y === 50 ? "4 4" : "2 4"}
+          />
+        ))}
+      </svg>
+      {/* X-axis numbers (bottom) */}
+      {gridLines.map(x => (
+        <div key={`x-num-${x}`} style={{
+          position: "absolute",
+          left: `${x}%`,
+          bottom: 2,
+          transform: "translateX(-50%)",
+          fontSize: 8,
+          color: "#999",
+          fontFamily: FONT,
+        }}>
+          {x}
+        </div>
+      ))}
+      {/* Y-axis numbers (left) - remember y is inverted: 90 at top = 10% from top */}
+      {gridLines.map(y => (
+        <div key={`y-num-${y}`} style={{
+          position: "absolute",
+          left: 2,
+          top: `${100 - y}%`,
+          transform: "translateY(-50%)",
+          fontSize: 8,
+          color: "#999",
+          fontFamily: FONT,
+        }}>
+          {y}
+        </div>
+      ))}
+    </>
   )
 }
 
