@@ -544,7 +544,7 @@ const SKILLS = [
     primary: "Unplugged coding; Scratch Jr; robot toys",
     middle: "Scratch projects; Python basics; game design",
     high: "Multiple languages; app development; algorithms" },
-  { id: "marketing", name: "Marketing and media", category: "engagement", x: 28, y: 32, quadrant: "foundational",  // chart: 22, 32
+  { id: "marketing", name: "Marketing and media", category: "engagement", x: 27, y: 31, quadrant: "foundational",  // chart: 21.5, 31
     primary: "Show and tell; simple posters; sharing stories",
     middle: "Digital storytelling; social media literacy; persuasion techniques",
     high: "Campaign creation; media analysis; brand development" },
@@ -552,7 +552,7 @@ const SKILLS = [
     primary: "Teach a friend; explain your thinking; show how",
     middle: "Cross-age tutoring; create how-to guides; learning buddies",
     high: "Curriculum design; instructional strategies; mentorship programs" },
-  { id: "global", name: "Global citizenship", category: "ethics", x: 15, y: 30, quadrant: "foundational",  // chart: 12, 30
+  { id: "global", name: "Global citizenship", category: "ethics", x: 16, y: 30, quadrant: "foundational",  // chart: 12.5, 30
     primary: "World map exploration; cultural celebrations; pen pals",
     middle: "Current events discussions; cultural exchange; global goals",
     high: "Model UN; international collaboration; global issue research" },
@@ -560,7 +560,7 @@ const SKILLS = [
     primary: "Self-checking work; 'does it match?'; revision habits",
     middle: "Peer review protocols; rubric use; improvement cycles",
     high: "Quality assurance systems; continuous improvement; standards analysis" },
-  { id: "multilingual", name: "Multi-lingualism", category: "cognitive", x: 29, y: 32, quadrant: "foundational",  // chart: 23, 32
+  { id: "multilingual", name: "Multi-lingualism", category: "cognitive", x: 28, y: 32, quadrant: "foundational",  // chart: 22, 32
     primary: "Songs in other languages; greeting words; family languages",
     middle: "Language classes; bilingual projects; translation exercises",
     high: "Language immersion; technical translation; multilingual presentations" },
@@ -568,7 +568,7 @@ const SKILLS = [
     primary: "Sensory bins; texture exploration; listening walks",
     middle: "Lab observations; detailed sketching; mindful awareness",
     high: "Scientific observation; sensory design; perception studies" },
-  { id: "reading", name: "Reading, writing and mathematics", category: "cognitive", x: 28, y: 15, quadrant: "foundational",  // chart: 22, 15
+  { id: "reading", name: "Reading, writing and mathematics", category: "cognitive", x: 26, y: 16, quadrant: "foundational",  // chart: 21, 16
     primary: "Phonics and numeracy foundations; read-alouds; counting games",
     middle: "Reading comprehension strategies; writing workshop; math reasoning",
     high: "Advanced literacy; technical writing; mathematical modeling" },
