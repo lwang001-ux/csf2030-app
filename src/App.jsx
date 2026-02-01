@@ -526,15 +526,15 @@ const SKILLS = [
     high: "Professional standards; attention to detail projects; reliability tracking" },
 
   // Emerging Skills - Top Left Quadrant
-  { id: "cyber", name: "Networks and cybersecurity", category: "technology", x: 28, y: 72, quadrant: "emerging",
+  { id: "cyber", name: "Networks and cybersecurity", category: "technology", x: 22, y: 72, quadrant: "emerging",
     primary: "Password safety; stranger danger online; trusted adults",
     middle: "Privacy settings; phishing awareness; digital footprint",
     high: "Network architecture; ethical hacking basics; security protocols" },
-  { id: "environment", name: "Environmental stewardship", category: "ethics", x: 23, y: 58, quadrant: "emerging",
+  { id: "environment", name: "Environmental stewardship", category: "ethics", x: 15, y: 58, quadrant: "emerging",
     primary: "Nature walks; recycling sorting; caring for plants",
     middle: "Carbon footprint calculation; local ecosystem study; waste audit",
     high: "Climate science research; sustainability proposals; environmental advocacy" },
-  { id: "design", name: "Design and user experience", category: "technology", x: 40, y: 52, quadrant: "emerging",
+  { id: "design", name: "Design and user experience", category: "technology", x: 35, y: 51, quadrant: "emerging",
     primary: "Design for a friend; test and improve toys; simple prototypes",
     middle: "User interviews; wireframing; iterate based on feedback",
     high: "UX research methods; accessibility design; full design sprints" },
