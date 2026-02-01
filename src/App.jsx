@@ -772,39 +772,45 @@ function QuadrantLabels() {
   )
 }
 
-// Grid lines with numbers
+// Grid lines with numbers - X-axis 0-80, Y-axis 0-100 (matching WEF original)
 function AxisLines() {
-  const gridLines = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+  // X-axis: 0-80 scale (like original WEF chart)
+  const xLabels = [0, 10, 20, 30, 40, 50, 60, 70, 80]
+  // Y-axis: 0-100 scale
+  const yLabels = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
   return (
     <>
       <svg style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 1, pointerEvents: "none" }}>
-        {/* Vertical grid lines */}
-        {gridLines.map(x => (
-          <line
-            key={`v-${x}`}
-            x1={`${x}%`} y1="5%" x2={`${x}%`} y2="95%"
-            stroke={x === 50 ? "rgba(0,0,0,0.25)" : "rgba(0,0,0,0.1)"}
-            strokeWidth={x === 50 ? 1 : 0.5}
-            strokeDasharray={x === 50 ? "4 4" : "2 4"}
-          />
-        ))}
+        {/* Vertical grid lines - x * 1.25 converts 0-80 to 0-100% */}
+        {xLabels.map(x => {
+          const pos = x * 1.25
+          return (
+            <line
+              key={`v-${x}`}
+              x1={`${pos}%`} y1="0%" x2={`${pos}%`} y2="100%"
+              stroke={x === 40 ? "rgba(0,0,0,0.25)" : "rgba(0,0,0,0.1)"}
+              strokeWidth={x === 40 ? 1 : 0.5}
+              strokeDasharray={x === 40 ? "4 4" : "2 4"}
+            />
+          )
+        })}
         {/* Horizontal grid lines */}
-        {gridLines.map(y => (
+        {yLabels.map(y => (
           <line
             key={`h-${y}`}
-            x1="5%" y1={`${y}%`} x2="95%" y2={`${y}%`}
+            x1="0%" y1={`${100 - y}%`} x2="100%" y2={`${100 - y}%`}
             stroke={y === 50 ? "rgba(0,0,0,0.25)" : "rgba(0,0,0,0.1)"}
             strokeWidth={y === 50 ? 1 : 0.5}
             strokeDasharray={y === 50 ? "4 4" : "2 4"}
           />
         ))}
       </svg>
-      {/* X-axis numbers (bottom) */}
-      {gridLines.map(x => (
+      {/* X-axis numbers (bottom) - 0 to 80 */}
+      {xLabels.map(x => (
         <div key={`x-num-${x}`} style={{
           position: "absolute",
-          left: `${x}%`,
+          left: `${x * 1.25}%`,
           bottom: 2,
           transform: "translateX(-50%)",
           fontSize: 8,
@@ -814,8 +820,8 @@ function AxisLines() {
           {x}
         </div>
       ))}
-      {/* Y-axis numbers (left) - remember y is inverted: 90 at top = 10% from top */}
-      {gridLines.map(y => (
+      {/* Y-axis numbers (left) - 0 to 100 */}
+      {yLabels.map(y => (
         <div key={`y-num-${y}`} style={{
           position: "absolute",
           left: 2,
