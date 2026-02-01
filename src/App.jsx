@@ -2773,83 +2773,82 @@ function MobileSkillsList({ skills, selectedSkill, setSelectedSkill, filterQuadr
   const categories = Object.entries(CATEGORIES)
 
   return (
-    <div style={{ padding: "20px 16px" }}>
-      {/* Quadrant filter chips */}
-      <div style={{ display: "flex", gap: 8, marginBottom: 20, flexWrap: "wrap" }}>
+    <div style={{ padding: "12px" }}>
+      {/* Quadrant filter chips - compact */}
+      <div style={{ display: "flex", gap: 4, marginBottom: 12, flexWrap: "wrap" }}>
         <button
           onClick={() => { playSound('click'); setFilterQuadrant(null) }}
           style={{
-            padding: "8px 16px",
+            padding: "4px 10px",
             background: filterQuadrant === null ? "#0D1B2A" : "#f0f0f0",
-            color: filterQuadrant === null ? "#fff" : "#333",
+            color: filterQuadrant === null ? "#fff" : "#555",
             border: "none",
-            borderRadius: 20,
-            fontSize: 12,
+            borderRadius: 12,
+            fontSize: 10,
             fontWeight: 600,
             cursor: "pointer",
             fontFamily: FONT,
           }}
         >
-          All Skills
+          All
         </button>
         {Object.entries(QUADRANTS).map(([key, quad]) => (
           <button
             key={key}
             onClick={() => { playSound('click'); setFilterQuadrant(filterQuadrant === key ? null : key) }}
             style={{
-              padding: "8px 16px",
+              padding: "4px 10px",
               background: filterQuadrant === key ? QUADRANT_COLORS[key] : "#f0f0f0",
-              color: filterQuadrant === key ? "#fff" : "#333",
+              color: filterQuadrant === key ? "#fff" : "#555",
               border: "none",
-              borderRadius: 20,
-              fontSize: 12,
+              borderRadius: 12,
+              fontSize: 10,
               fontWeight: 600,
               cursor: "pointer",
               fontFamily: FONT,
             }}
           >
-            {quad.name}
+            {quad.name.replace(" Skills", "")}
           </button>
         ))}
       </div>
 
-      {/* Skills grouped by category */}
+      {/* Skills grouped by category - compact vertical list */}
       {categories.map(([catKey, cat]) => {
         const catSkills = skills.filter(s => s.category === catKey)
         if (catSkills.length === 0) return null
 
         return (
-          <div key={catKey} style={{ marginBottom: 24 }}>
+          <div key={catKey} style={{ marginBottom: 16 }}>
+            {/* Category header - tiny */}
             <div style={{
               display: "flex",
               alignItems: "center",
-              gap: 8,
-              marginBottom: 12,
-              paddingBottom: 8,
-              borderBottom: `2px solid ${cat.color}`,
+              gap: 6,
+              marginBottom: 6,
+              paddingBottom: 4,
+              borderBottom: `1px solid ${cat.color}40`,
             }}>
               <div style={{
-                width: 12,
-                height: 12,
+                width: 6,
+                height: 6,
                 borderRadius: "50%",
                 background: cat.color,
               }} />
-              <h3 style={{
-                fontSize: 14,
+              <span style={{
+                fontSize: 11,
                 fontWeight: 700,
-                color: "#0D1B2A",
-                margin: 0,
+                color: cat.color,
                 fontFamily: FONT,
               }}>
                 {cat.name}
-              </h3>
-              <span style={{ fontSize: 11, color: "#888" }}>({catSkills.length})</span>
+              </span>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {/* Skills - compact vertical list */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
               {catSkills.map(skill => {
                 const isSelected = selectedSkill?.id === skill.id
-                const quadrant = QUADRANTS[skill.quadrant]
                 return (
                   <button
                     key={skill.id}
@@ -2857,31 +2856,27 @@ function MobileSkillsList({ skills, selectedSkill, setSelectedSkill, filterQuadr
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      justifyContent: "space-between",
-                      padding: "12px 16px",
-                      background: isSelected ? cat.color : "#fff",
+                      gap: 6,
+                      padding: "6px 10px",
+                      background: isSelected ? cat.color : "transparent",
                       color: isSelected ? "#fff" : "#0D1B2A",
-                      border: `1px solid ${isSelected ? cat.color : "#e0e0e0"}`,
-                      borderRadius: 10,
-                      fontSize: 14,
-                      fontWeight: 500,
+                      border: "none",
+                      borderRadius: 6,
+                      fontSize: 12,
+                      fontWeight: isSelected ? 600 : 400,
                       cursor: "pointer",
                       fontFamily: FONT,
                       textAlign: "left",
-                      transition: "all 0.2s ease",
                     }}
                   >
-                    <span>{skill.name}</span>
-                    <span style={{
-                      fontSize: 10,
-                      padding: "4px 8px",
-                      background: isSelected ? "rgba(255,255,255,0.2)" : QUADRANT_COLORS[skill.quadrant] + "20",
-                      color: isSelected ? "#fff" : QUADRANT_COLORS[skill.quadrant],
-                      borderRadius: 12,
-                      fontWeight: 600,
-                    }}>
-                      {quadrant.name}
-                    </span>
+                    <div style={{
+                      width: 4,
+                      height: 4,
+                      borderRadius: "50%",
+                      background: isSelected ? "#fff" : QUADRANT_COLORS[skill.quadrant],
+                      flexShrink: 0,
+                    }} />
+                    {skill.name}
                   </button>
                 )
               })}
