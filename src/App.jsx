@@ -544,7 +544,7 @@ const SKILLS = [
     primary: "Unplugged coding; Scratch Jr; robot toys",
     middle: "Scratch projects; Python basics; game design",
     high: "Multiple languages; app development; algorithms" },
-  { id: "marketing", name: "Marketing and media", category: "engagement", x: 28, y: 32, quadrant: "foundational",  // chart: 22, 32
+  { id: "marketing", name: "Marketing and media", category: "engagement", x: 26, y: 35, quadrant: "foundational",  // chart: 21, 35 - up 1/2", left 2px
     primary: "Show and tell; simple posters; sharing stories",
     middle: "Digital storytelling; social media literacy; persuasion techniques",
     high: "Campaign creation; media analysis; brand development" },
@@ -3213,6 +3213,8 @@ export default function App() {
                 const activeCategory = hoveredCategory || (selectedSkill ? selectedSkill.category : null)
                 const isHidden = activeCategory && skill.category !== activeCategory
                 const labelOffset = isMobile ? 10 : 16
+                // Multi-lingualism label goes below circle
+                const labelBelow = skill.id === "multilingual"
 
                 return (
                   <div
@@ -3221,7 +3223,9 @@ export default function App() {
                       position: "absolute",
                       left: `${skill.x}%`,
                       top: `${100 - skill.y}%`,
-                      transform: `translate(-50%, calc(-100% - ${labelOffset}px))`,
+                      transform: labelBelow
+                        ? `translate(-50%, ${labelOffset}px)`
+                        : `translate(-50%, calc(-100% - ${labelOffset}px))`,
                       fontSize: isMobile ? 7 : 10,
                       fontWeight: 400,
                       color: "#333",
