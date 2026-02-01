@@ -463,115 +463,141 @@ const INNOVATIVE_RESEARCH = [
 ]
 
 // Skills data matching WEF Future of Jobs 2024 exactly - 26 skills
-// Original chart: x-axis 0-80%, y-axis 0-100%. Converted to 0-100% for both axes (x * 1.25).
+// Original chart grid: x-axis 0-80, y-axis 0-100. Formula: my_x = original_x * 1.25
 const SKILLS = [
-  // Core Skills (2030) - Top Right Quadrant (x > 50, y > 50)
+  // Core Skills (2030) - Top Right Quadrant
+  // AI: original (48, 88) → (60, 88)
   { id: "ai", name: "AI & Big Data", category: "technology", x: 60, y: 88, quadrant: "core",
     primary: "Explore how smart assistants work; sort and categorize objects to understand 'data'",
     middle: "Use AI tools for creative projects; analyze simple datasets; discuss AI in daily life",
     high: "Build basic ML models; analyze big data sets; debate AI ethics and bias" },
-  { id: "techlit", name: "Technological Literacy", category: "technology", x: 70, y: 72, quadrant: "core",
+  // Tech Literacy: original (55, 72) → (69, 72)
+  { id: "techlit", name: "Technological Literacy", category: "technology", x: 69, y: 72, quadrant: "core",
     primary: "Navigate tablets safely; understand what devices do; basic typing skills",
     middle: "Digital citizenship lessons; troubleshoot common tech issues; intro to coding",
     high: "Understand networks and systems; cybersecurity basics; evaluate tech solutions" },
-  { id: "creative", name: "Creative Thinking", category: "cognitive", x: 70, y: 70, quadrant: "core",
+  // Creative: original (55, 70) → (69, 70)
+  { id: "creative", name: "Creative Thinking", category: "cognitive", x: 69, y: 70, quadrant: "core",
     primary: "Open-ended art projects; 'what if' questions; building with loose parts",
     middle: "Design challenges; brainstorming protocols; remix existing ideas",
     high: "Innovation labs; entrepreneurship projects; creative constraints challenges" },
+  // Curiosity: original (48, 68) → (60, 68)
   { id: "curiosity", name: "Curiosity & Lifelong Learning", category: "selfEfficacy", x: 60, y: 68, quadrant: "core",
     primary: "Wonder walls; question of the day; exploration stations",
     middle: "Genius hour projects; student-led inquiries; learning portfolio",
     high: "Independent research projects; cross-disciplinary connections; mentorship seeking" },
+  // Talent: original (48, 65) → (60, 65)
   { id: "talent", name: "Talent Management", category: "management", x: 60, y: 65, quadrant: "core",
     primary: "Recognize classmates' strengths; buddy reading; helper jobs",
     middle: "Peer tutoring programs; strength inventories; collaborative roles",
     high: "Lead project teams; mentor younger students; delegate effectively" },
-  { id: "resilience", name: "Resilience & Agility", category: "selfEfficacy", x: 88, y: 65, quadrant: "core",
+  // Resilience: original (68, 65) → (85, 65)
+  { id: "resilience", name: "Resilience & Agility", category: "selfEfficacy", x: 85, y: 65, quadrant: "core",
     primary: "Growth mindset stories; 'not yet' language; celebrate mistakes as learning",
     middle: "Reflection journals on setbacks; goal-setting with obstacles; flexibility exercises",
     high: "Case studies of resilient leaders; design projects with pivots; stress management" },
-  { id: "leadership", name: "Leadership & Influence", category: "engagement", x: 70, y: 58, quadrant: "core",
+  // Leadership: original (55, 58) → (69, 58)
+  { id: "leadership", name: "Leadership & Influence", category: "engagement", x: 69, y: 58, quadrant: "core",
     primary: "Line leader roles; sharing circle facilitator; class meetings",
     middle: "Student council; club leadership; persuasive presentations",
     high: "Community initiatives; advocacy campaigns; organizational leadership" },
-  { id: "analytical", name: "Analytical Thinking", category: "cognitive", x: 88, y: 58, quadrant: "core",
+  // Analytical: original (68, 58) → (85, 58)
+  { id: "analytical", name: "Analytical Thinking", category: "cognitive", x: 85, y: 58, quadrant: "core",
     primary: "Sorting games; pattern recognition; simple logic puzzles",
     middle: "Data analysis projects; scientific method; argument mapping",
     high: "Statistical analysis; logical fallacies; systems modeling" },
+  // Systems: original (45, 50) → (56, 50)
   { id: "systems", name: "Systems Thinking", category: "cognitive", x: 56, y: 50, quadrant: "core",
     primary: "Ecosystem terrariums; cause and effect stories; classroom as system",
     middle: "Food web mapping; feedback loops; community interconnections",
     high: "Complex systems modeling; policy analysis; global systems research" },
-  { id: "motivation", name: "Motivation & Self-awareness", category: "selfEfficacy", x: 70, y: 48, quadrant: "steady",
+  // Motivation: original (55, 48) → (69, 48)
+  { id: "motivation", name: "Motivation & Self-awareness", category: "selfEfficacy", x: 69, y: 48, quadrant: "steady",
     primary: "Feelings check-ins; goal stars; celebration of effort",
     middle: "Learning style inventories; personal goal tracking; reflection routines",
     high: "Purpose exploration; intrinsic motivation study; self-assessment rubrics" },
+  // Empathy: original (52, 45) → (65, 45)
   { id: "empathy", name: "Empathy & Active Listening", category: "workingWithOthers", x: 65, y: 45, quadrant: "steady",
     primary: "Perspective-taking stories; feelings vocabulary; listening partners",
     middle: "Role-play scenarios; peer mediation training; diverse narratives",
     high: "Cross-cultural exchanges; community service reflection; empathy mapping" },
+  // Service: original (52, 38) → (65, 38)
   { id: "service", name: "Service Orientation", category: "workingWithOthers", x: 65, y: 38, quadrant: "steady",
     primary: "Classroom helpers; caring for shared spaces; thank you notes",
     middle: "Service learning projects; community partnerships; needs assessment",
     high: "Social enterprise; community organizing; sustainable service models" },
 
-  // Emerging Skills - Top Left Quadrant (x < 50, y > 50)
+  // Emerging Skills - Top Left Quadrant
+  // Cybersecurity: original (25, 72) → (31, 72)
   { id: "cyber", name: "Networks & Cybersecurity", category: "technology", x: 31, y: 72, quadrant: "emerging",
     primary: "Password safety; stranger danger online; trusted adults",
     middle: "Privacy settings; phishing awareness; digital footprint",
     high: "Network architecture; ethical hacking basics; security protocols" },
-  { id: "environment", name: "Environmental Stewardship", category: "ethics", x: 22, y: 58, quadrant: "emerging",
+  // Environmental: original (18, 58) → (23, 58)
+  { id: "environment", name: "Environmental Stewardship", category: "ethics", x: 23, y: 58, quadrant: "emerging",
     primary: "Nature walks; recycling sorting; caring for plants",
     middle: "Carbon footprint calculation; local ecosystem study; waste audit",
     high: "Climate science research; sustainability proposals; environmental advocacy" },
+  // Design: original (28, 52) → (35, 52)
   { id: "design", name: "Design & User Experience", category: "technology", x: 35, y: 52, quadrant: "emerging",
     primary: "Design for a friend; test and improve toys; simple prototypes",
     middle: "User interviews; wireframing; iterate based on feedback",
     high: "UX research methods; accessibility design; full design sprints" },
 
-  // Steady Skills - Bottom Right Quadrant (x > 50, y < 50)
-  { id: "resource", name: "Resource Management", category: "management", x: 70, y: 32, quadrant: "steady",
+  // Steady Skills - Bottom Right Quadrant
+  // Resource: original (55, 32) → (69, 32)
+  { id: "resource", name: "Resource Management", category: "management", x: 69, y: 32, quadrant: "steady",
     primary: "Sharing materials; cleanup routines; time for tasks",
     middle: "Project planning; budget basics; time management tools",
     high: "Resource allocation; project management software; efficiency analysis" },
+  // Dependability: original (48, 22) → (60, 22)
   { id: "dependable", name: "Dependability & Attention to Detail", category: "cognitive", x: 60, y: 22, quadrant: "steady",
     primary: "Completing tasks; following routines; checking work",
     middle: "Meeting deadlines; quality checklists; peer accountability",
     high: "Professional standards; attention to detail projects; reliability tracking" },
 
-  // Foundational Skills - Bottom Left Quadrant (x < 50, y < 50)
-  { id: "programming", name: "Programming", category: "technology", x: 22, y: 40, quadrant: "foundational",
+  // Foundational Skills - Bottom Left Quadrant
+  // Programming: original (18, 40) → (23, 40)
+  { id: "programming", name: "Programming", category: "technology", x: 23, y: 40, quadrant: "foundational",
     primary: "Unplugged coding; Scratch Jr; robot toys",
     middle: "Scratch projects; Python basics; game design",
     high: "Multiple languages; app development; algorithms" },
+  // Marketing: original (25, 40) → (31, 40)
   { id: "marketing", name: "Marketing & Media", category: "engagement", x: 31, y: 40, quadrant: "foundational",
     primary: "Show and tell; simple posters; sharing stories",
     middle: "Digital storytelling; social media literacy; persuasion techniques",
     high: "Campaign creation; media analysis; brand development" },
+  // Teaching: original (32, 37) → (40, 37)
   { id: "teaching", name: "Teaching & Mentoring", category: "engagement", x: 40, y: 37, quadrant: "foundational",
     primary: "Teach a friend; explain your thinking; show how",
     middle: "Cross-age tutoring; create how-to guides; learning buddies",
     high: "Curriculum design; instructional strategies; mentorship programs" },
+  // Global: original (15, 30) → (19, 30)
   { id: "global", name: "Global Citizenship", category: "ethics", x: 19, y: 30, quadrant: "foundational",
     primary: "World map exploration; cultural celebrations; pen pals",
     middle: "Current events discussions; cultural exchange; global goals",
     high: "Model UN; international collaboration; global issue research" },
-  { id: "multilingual", name: "Multi-lingualism", category: "engagement", x: 27, y: 28, quadrant: "foundational",
+  // Multi-lingual: original (22, 28) → (28, 28)
+  { id: "multilingual", name: "Multi-lingualism", category: "engagement", x: 28, y: 28, quadrant: "foundational",
     primary: "Songs in other languages; greeting words; family languages",
     middle: "Language classes; bilingual projects; translation exercises",
     high: "Language immersion; technical translation; multilingual presentations" },
-  { id: "quality", name: "Quality Control", category: "management", x: 47, y: 32, quadrant: "foundational",
+  // Quality: original (38, 32) → (48, 32)
+  { id: "quality", name: "Quality Control", category: "management", x: 48, y: 32, quadrant: "foundational",
     primary: "Self-checking work; 'does it match?'; revision habits",
     middle: "Peer review protocols; rubric use; improvement cycles",
     high: "Quality assurance systems; continuous improvement; standards analysis" },
+  // Sensory: original (8, 22) → (10, 22)
   { id: "sensory", name: "Sensory Processing", category: "physical", x: 10, y: 22, quadrant: "foundational",
     primary: "Sensory bins; texture exploration; listening walks",
     middle: "Lab observations; detailed sketching; mindful awareness",
     high: "Scientific observation; sensory design; perception studies" },
-  { id: "reading", name: "Reading, Writing, Math", category: "cognitive", x: 27, y: 15, quadrant: "foundational",
+  // Reading: original (22, 15) → (28, 15)
+  { id: "reading", name: "Reading, Writing, Math", category: "cognitive", x: 28, y: 15, quadrant: "foundational",
     primary: "Phonics and numeracy foundations; read-alouds; counting games",
     middle: "Reading comprehension strategies; writing workshop; math reasoning",
     high: "Advanced literacy; technical writing; mathematical modeling" },
+  // Manual: original (20, 10) → (25, 10)
   { id: "manual", name: "Manual Dexterity", category: "physical", x: 25, y: 10, quadrant: "foundational",
     primary: "Fine motor activities; cutting; building blocks",
     middle: "Maker projects; instrument playing; detailed crafts",
