@@ -550,8 +550,8 @@ const SKILLS = [
     primary: "Sharing materials; cleanup routines; time for tasks",
     middle: "Project planning; budget basics; time management tools",
     high: "Resource allocation; project management software; efficiency analysis" },
-  // Dependability: original (48, 22) → (60, 22)
-  { id: "dependable", name: "Dependability & Attention to Detail", category: "cognitive", x: 60, y: 22, quadrant: "steady",
+  // Dependability: self-efficacy color, left of quadrant line, halfway down
+  { id: "dependable", name: "Dependability & Attention to Detail", category: "selfEfficacy", x: 45, y: 25, quadrant: "foundational",
     primary: "Completing tasks; following routines; checking work",
     middle: "Meeting deadlines; quality checklists; peer accountability",
     high: "Professional standards; attention to detail projects; reliability tracking" },
@@ -577,13 +577,13 @@ const SKILLS = [
     primary: "World map exploration; cultural celebrations; pen pals",
     middle: "Current events discussions; cultural exchange; global goals",
     high: "Model UN; international collaboration; global issue research" },
-  // Multi-lingual: original (22, 28) → (28, 28)
-  { id: "multilingual", name: "Multi-lingualism", category: "engagement", x: 28, y: 28, quadrant: "foundational",
+  // Multi-lingual: cognitive color, right of Marketing & Media, down 2px
+  { id: "multilingual", name: "Multi-lingualism", category: "cognitive", x: 38, y: 33, quadrant: "foundational",
     primary: "Songs in other languages; greeting words; family languages",
     middle: "Language classes; bilingual projects; translation exercises",
     high: "Language immersion; technical translation; multilingual presentations" },
-  // Quality: original (38, 32) → (48, 32)
-  { id: "quality", name: "Quality Control", category: "management", x: 48, y: 32, quadrant: "foundational",
+  // Quality: moved up 1/2" and left 1/2"
+  { id: "quality", name: "Quality Control", category: "management", x: 45, y: 35, quadrant: "foundational",
     primary: "Self-checking work; 'does it match?'; revision habits",
     middle: "Peer review protocols; rubric use; improvement cycles",
     high: "Quality assurance systems; continuous improvement; standards analysis" },
@@ -592,13 +592,13 @@ const SKILLS = [
     primary: "Sensory bins; texture exploration; listening walks",
     middle: "Lab observations; detailed sketching; mindful awareness",
     high: "Scientific observation; sensory design; perception studies" },
-  // Reading: original (22, 15) → (31, 12)
-  { id: "reading", name: "Reading, Writing, Math", category: "cognitive", x: 31, y: 12, quadrant: "foundational",
+  // Reading: moved left 1 1/4"
+  { id: "reading", name: "Reading, Writing, Math", category: "cognitive", x: 23, y: 12, quadrant: "foundational",
     primary: "Phonics and numeracy foundations; read-alouds; counting games",
     middle: "Reading comprehension strategies; writing workshop; math reasoning",
     high: "Advanced literacy; technical writing; mathematical modeling" },
-  // Manual: original (20, 10) → (25, 10)
-  { id: "manual", name: "Manual Dexterity", category: "physical", x: 25, y: 10, quadrant: "foundational",
+  // Manual: moved left 1 1/4"
+  { id: "manual", name: "Manual Dexterity", category: "physical", x: 17, y: 10, quadrant: "foundational",
     primary: "Fine motor activities; cutting; building blocks",
     middle: "Maker projects; instrument playing; detailed crafts",
     high: "Precision fabrication; technical skills; tool mastery" },
