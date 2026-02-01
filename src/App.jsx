@@ -508,19 +508,19 @@ const SKILLS = [
     high: "Purpose exploration; intrinsic motivation study; self-assessment rubrics" },
 
   // Steady Skills - Bottom Right Quadrant (chart x > 40, y < 50)
-  { id: "empathy", name: "Empathy and active listening", category: "workingWithOthers", x: 65, y: 47, quadrant: "steady",  // chart: 52, 47
+  { id: "empathy", name: "Empathy and active listening", category: "workingWithOthers", x: 63, y: 51, quadrant: "steady",  // chart: 50, 51
     primary: "Perspective-taking stories; feelings vocabulary; listening partners",
     middle: "Role-play scenarios; peer mediation training; diverse narratives",
     high: "Cross-cultural exchanges; community service reflection; empathy mapping" },
-  { id: "service", name: "Service orientation and customer service", category: "workingWithOthers", x: 65, y: 40, quadrant: "steady",  // chart: 52, 40
+  { id: "service", name: "Service orientation and customer service", category: "engagement", x: 65, y: 40, quadrant: "steady",  // chart: 52, 40
     primary: "Classroom helpers; caring for shared spaces; thank you notes",
     middle: "Service learning projects; community partnerships; needs assessment",
     high: "Social enterprise; community organizing; sustainable service models" },
-  { id: "resource", name: "Resource management and operations", category: "management", x: 60, y: 32, quadrant: "steady",  // chart: 48, 32
+  { id: "resource", name: "Resource management and operations", category: "management", x: 53, y: 32, quadrant: "steady",  // chart: 42, 32
     primary: "Sharing materials; cleanup routines; time for tasks",
     middle: "Project planning; budget basics; time management tools",
     high: "Resource allocation; project management software; efficiency analysis" },
-  { id: "dependable", name: "Dependability and attention to detail", category: "selfEfficacy", x: 60, y: 23, quadrant: "steady",  // chart: 48, 23
+  { id: "dependable", name: "Dependability and attention to detail", category: "selfEfficacy", x: 28, y: 38, quadrant: "foundational",  // chart: 22, 38
     primary: "Completing tasks; following routines; checking work",
     middle: "Meeting deadlines; quality checklists; peer accountability",
     high: "Professional standards; attention to detail projects; reliability tracking" },
@@ -560,7 +560,7 @@ const SKILLS = [
     primary: "Self-checking work; 'does it match?'; revision habits",
     middle: "Peer review protocols; rubric use; improvement cycles",
     high: "Quality assurance systems; continuous improvement; standards analysis" },
-  { id: "multilingual", name: "Multi-lingualism", category: "cognitive", x: 28, y: 32, quadrant: "foundational",  // chart: 22, 32
+  { id: "multilingual", name: "Multi-lingualism", category: "cognitive", x: 26, y: 32, quadrant: "foundational",  // chart: 20, 32 - left 1/4"
     primary: "Songs in other languages; greeting words; family languages",
     middle: "Language classes; bilingual projects; translation exercises",
     high: "Language immersion; technical translation; multilingual presentations" },
