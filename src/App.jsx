@@ -550,8 +550,8 @@ const SKILLS = [
     primary: "Sharing materials; cleanup routines; time for tasks",
     middle: "Project planning; budget basics; time management tools",
     high: "Resource allocation; project management software; efficiency analysis" },
-  // Dependability: self-efficacy color, left of quadrant line, halfway down
-  { id: "dependable", name: "Dependability & Attention to Detail", category: "selfEfficacy", x: 45, y: 25, quadrant: "foundational",
+  // Dependability: 1/3" from vertical axis
+  { id: "dependable", name: "Dependability & Attention to Detail", category: "selfEfficacy", x: 48, y: 25, quadrant: "foundational",
     primary: "Completing tasks; following routines; checking work",
     middle: "Meeting deadlines; quality checklists; peer accountability",
     high: "Professional standards; attention to detail projects; reliability tracking" },
@@ -577,8 +577,8 @@ const SKILLS = [
     primary: "World map exploration; cultural celebrations; pen pals",
     middle: "Current events discussions; cultural exchange; global goals",
     high: "Model UN; international collaboration; global issue research" },
-  // Multi-lingual: touching Marketing & Media, down 2px
-  { id: "multilingual", name: "Multi-lingualism", category: "cognitive", x: 31, y: 33, quadrant: "foundational",
+  // Multi-lingual: right 1/3" and up
+  { id: "multilingual", name: "Multi-lingualism", category: "cognitive", x: 33, y: 35, quadrant: "foundational",
     primary: "Songs in other languages; greeting words; family languages",
     middle: "Language classes; bilingual projects; translation exercises",
     high: "Language immersion; technical translation; multilingual presentations" },
