@@ -1064,7 +1064,7 @@ const CMYK = {
 // About page component
 function AboutPage() {
   return (
-    <div style={{ maxWidth: 1100, width: "100%", margin: "0 auto", padding: "60px 20px" }}>
+    <div style={{ maxWidth: 1000, width: "100%", margin: "0 auto", padding: "24px 16px" }}>
       <div style={{
         background: "rgba(255,255,255,0.97)",
         borderRadius: 16,
@@ -1255,7 +1255,7 @@ function ResearchPage() {
   }
 
   return (
-    <div style={{ maxWidth: 1100, width: "100%", margin: "0 auto", padding: "60px 20px" }}>
+    <div style={{ maxWidth: 1000, width: "100%", margin: "0 auto", padding: "24px 16px" }}>
       <div style={{
         background: "rgba(255,255,255,0.95)",
         borderRadius: 12,
