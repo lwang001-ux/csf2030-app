@@ -677,12 +677,16 @@ function DottedGridSmall() {
 }
 
 // Skill node - colored circle with black dot
-function SkillNode({ skill, isSelected, onClick, hidden = false }) {
+function SkillNode({ skill, isSelected, onClick, hidden = false, isMobile = false }) {
   const cat = CATEGORIES[skill.category]
   const handleClick = () => {
     playSound('click')
     onClick()
   }
+  // Smaller sizes on mobile
+  const nodeSize = isMobile ? (isSelected ? 14 : 10) : (isSelected ? 22 : 18)
+  const innerSize = isMobile ? (isSelected ? 5 : 3) : (isSelected ? 8 : 5)
+
   return (
     <button
       onClick={handleClick}
@@ -691,15 +695,15 @@ function SkillNode({ skill, isSelected, onClick, hidden = false }) {
         left: `${skill.x}%`,
         top: `${100 - skill.y}%`,
         transform: "translate(-50%, -50%)",
-        width: isSelected ? 22 : 18,
-        height: isSelected ? 22 : 18,
+        width: nodeSize,
+        height: nodeSize,
         borderRadius: "50%",
         background: cat.color,
         border: "none",
         outline: "none",
         cursor: hidden ? "default" : "pointer",
         transition: "all 0.2s ease",
-        boxShadow: isSelected ? `0 0 0 4px ${cat.color}40, 0 0 15px ${cat.color}60` : hidden ? "none" : `0 2px 5px rgba(0,0,0,0.2)`,
+        boxShadow: isSelected ? `0 0 0 ${isMobile ? 2 : 4}px ${cat.color}40, 0 0 ${isMobile ? 8 : 15}px ${cat.color}60` : hidden ? "none" : `0 2px 5px rgba(0,0,0,0.2)`,
         zIndex: isSelected ? 20 : 10,
         opacity: hidden ? 0.12 : 1,
         pointerEvents: hidden ? "none" : "auto",
@@ -711,8 +715,8 @@ function SkillNode({ skill, isSelected, onClick, hidden = false }) {
       title={skill.name}
     >
       <div style={{
-        width: isSelected ? 8 : 5,
-        height: isSelected ? 8 : 5,
+        width: innerSize,
+        height: innerSize,
         borderRadius: "50%",
         background: "#0D1B2A",
         transition: "all 0.2s ease",
@@ -3206,6 +3210,7 @@ export default function App() {
                     isSelected={selectedSkill?.id === skill.id}
                     onClick={() => setSelectedSkill(selectedSkill?.id === skill.id ? null : skill)}
                     hidden={isHidden}
+                    isMobile={isMobile}
                   />
                 )
               })}
@@ -3222,8 +3227,10 @@ export default function App() {
                       position: "absolute",
                       left: `${skill.x}%`,
                       top: `${100 - skill.y}%`,
-                      transform: labelBelow ? "translate(-50%, 15px)" : "translate(-50%, calc(-100% - 15px))",
-                      fontSize: 11,
+                      transform: labelBelow
+                        ? `translate(-50%, ${isMobile ? 8 : 15}px)`
+                        : `translate(-50%, calc(-100% - ${isMobile ? 8 : 15}px))`,
+                      fontSize: isMobile ? 7 : 11,
                       fontWeight: 600,
                       color: "#0D1B2A",
                       textAlign: "center",
