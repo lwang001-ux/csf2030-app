@@ -490,11 +490,11 @@ const SKILLS = [
     primary: "Recognize classmates' strengths; buddy reading; helper jobs",
     middle: "Peer tutoring programs; strength inventories; collaborative roles",
     high: "Lead project teams; mentor younger students; delegate effectively" },
-  { id: "leadership", name: "Leadership and social influence", category: "engagement", x: 73, y: 58, quadrant: "core",  // chart: 58, 58
+  { id: "leadership", name: "Leadership and social influence", category: "workingWithOthers", x: 73, y: 58, quadrant: "core",  // chart: 58, 58
     primary: "Line leader roles; sharing circle facilitator; class meetings",
     middle: "Student council; club leadership; persuasive presentations",
     high: "Community initiatives; advocacy campaigns; organizational leadership" },
-  { id: "analytical", name: "Analytical thinking", category: "cognitive", x: 90, y: 58, quadrant: "core",  // chart: 72, 58
+  { id: "analytical", name: "Analytical thinking", category: "cognitive", x: 73, y: 68, quadrant: "core",  // chart: 58, 68
     primary: "Sorting games; pattern recognition; simple logic puzzles",
     middle: "Data analysis projects; scientific method; argument mapping",
     high: "Statistical analysis; logical fallacies; systems modeling" },
@@ -502,7 +502,7 @@ const SKILLS = [
     primary: "Ecosystem terrariums; cause and effect stories; classroom as system",
     middle: "Food web mapping; feedback loops; community interconnections",
     high: "Complex systems modeling; policy analysis; global systems research" },
-  { id: "motivation", name: "Motivation and self-awareness", category: "selfEfficacy", x: 69, y: 50, quadrant: "core",  // chart: 55, 50
+  { id: "motivation", name: "Motivation and self-awareness", category: "selfEfficacy", x: 64, y: 53, quadrant: "core",  // chart: 51, 53
     primary: "Feelings check-ins; goal stars; celebration of effort",
     middle: "Learning style inventories; personal goal tracking; reflection routines",
     high: "Purpose exploration; intrinsic motivation study; self-assessment rubrics" },
@@ -520,7 +520,7 @@ const SKILLS = [
     primary: "Sharing materials; cleanup routines; time for tasks",
     middle: "Project planning; budget basics; time management tools",
     high: "Resource allocation; project management software; efficiency analysis" },
-  { id: "dependable", name: "Dependability and attention to detail", category: "selfEfficacy", x: 28, y: 38, quadrant: "foundational",  // chart: 22, 38
+  { id: "dependable", name: "Dependability and attention to detail", category: "selfEfficacy", x: 29, y: 38, quadrant: "foundational",  // chart: 23, 38
     primary: "Completing tasks; following routines; checking work",
     middle: "Meeting deadlines; quality checklists; peer accountability",
     high: "Professional standards; attention to detail projects; reliability tracking" },
@@ -3214,7 +3214,7 @@ export default function App() {
                 const isHidden = activeCategory && skill.category !== activeCategory
                 const labelOffset = isMobile ? 10 : 16
                 // Multi-lingualism label goes below circle
-                const labelBelow = skill.id === "multilingual"
+                const labelBelow = skill.id === "multilingual" || skill.id === "motivation"
 
                 return (
                   <div
