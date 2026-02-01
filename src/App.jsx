@@ -545,7 +545,7 @@ const SKILLS = [
     primary: "Unplugged coding; Scratch Jr; robot toys",
     middle: "Scratch projects; Python basics; game design",
     high: "Multiple languages; app development; algorithms" },
-  { id: "marketing", name: "Marketing and media", category: "engagement", x: 32.9, y: 44.4, quadrant: "foundational",  // chart: 23, 40
+  { id: "marketing", name: "Marketing and media", category: "engagement", x: 47.1, y: 25.6, quadrant: "foundational",  // chart: 33, 23
     primary: "Show and tell; simple posters; sharing stories",
     middle: "Digital storytelling; social media literacy; persuasion techniques",
     high: "Campaign creation; media analysis; brand development" },
