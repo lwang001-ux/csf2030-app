@@ -842,11 +842,21 @@ function AxisLines() {
 }
 
 // Category legend - single row, flush left
-function CategoryLegend({ hoveredCategory, setHoveredCategory }) {
+function CategoryLegend({ hoveredCategory, setHoveredCategory, isMobile = false }) {
   const categories = Object.entries(CATEGORIES)
 
   return (
-    <div style={{ padding: "12px 0", display: "flex", justifyContent: "space-between", width: "100%" }}>
+    <div style={{
+      padding: isMobile ? "8px 16px" : "12px 0",
+      display: isMobile ? "grid" : "flex",
+      gridTemplateColumns: isMobile ? "1fr 1fr" : undefined,
+      gap: isMobile ? "6px 12px" : undefined,
+      justifyContent: isMobile ? undefined : "space-between",
+      width: "100%",
+      background: isMobile ? "rgba(255,255,255,0.95)" : "transparent",
+      borderRadius: isMobile ? 12 : 0,
+      marginBottom: isMobile ? 12 : 0,
+    }}>
       {categories.map(([key, cat]) => (
         <button
           key={key}
@@ -855,20 +865,21 @@ function CategoryLegend({ hoveredCategory, setHoveredCategory }) {
             display: "flex",
             alignItems: "center",
             gap: 6,
-            padding: "4px 0",
-            background: "transparent",
-            border: "none",
+            padding: isMobile ? "6px 8px" : "4px 0",
+            background: isMobile && hoveredCategory === key ? `${cat.color}15` : "transparent",
+            border: isMobile && hoveredCategory === key ? `1px solid ${cat.color}40` : isMobile ? "1px solid transparent" : "none",
+            borderRadius: isMobile ? 8 : 0,
             cursor: "pointer",
             fontFamily: FONT,
-            borderBottom: hoveredCategory === key ? `2px dotted ${cat.color}` : "2px dotted transparent",
+            borderBottom: !isMobile && hoveredCategory === key ? `2px dotted ${cat.color}` : !isMobile ? "2px dotted transparent" : undefined,
             transition: "all 0.2s ease",
             whiteSpace: "nowrap",
           }}
         >
           {/* Colored dot with black center */}
           <div style={{
-            width: 14,
-            height: 14,
+            width: isMobile ? 12 : 14,
+            height: isMobile ? 12 : 14,
             borderRadius: "50%",
             background: cat.color,
             display: "flex",
@@ -878,9 +889,9 @@ function CategoryLegend({ hoveredCategory, setHoveredCategory }) {
             boxShadow: hoveredCategory === key ? `0 0 0 2px ${cat.color}40` : `0 1px 2px rgba(0,0,0,0.15)`,
             transition: "all 0.2s ease",
           }}>
-            <div style={{ width: 4, height: 4, borderRadius: "50%", background: "#0D1B2A" }} />
+            <div style={{ width: isMobile ? 3 : 4, height: isMobile ? 3 : 4, borderRadius: "50%", background: "#0D1B2A" }} />
           </div>
-          <span style={{ fontSize: 11, fontWeight: 600, color: hoveredCategory === key ? "#111" : "#555" }}>{cat.name}</span>
+          <span style={{ fontSize: isMobile ? 10 : 11, fontWeight: 600, color: hoveredCategory === key ? "#111" : "#555" }}>{cat.name}</span>
         </button>
       ))}
     </div>
@@ -2966,7 +2977,7 @@ export default function App() {
             </div>
           </div>
 
-          {currentPage === "map" && (
+          {currentPage === "map" && !isMobile && (
             <CategoryLegend hoveredCategory={hoveredCategory} setHoveredCategory={setHoveredCategory} />
           )}
         </div>
@@ -2981,13 +2992,19 @@ export default function App() {
       {/* Quadrant filter - dotted underlines (map only) */}
       {currentPage === "map" && (
       <div style={{
-        padding: "16px 32px 20px",
+        padding: isMobile ? "12px 12px 16px" : "16px 32px 20px",
         background: "rgba(255,255,255,0.9)",
         position: "relative",
         zIndex: 10,
       }}>
+          {/* Mobile: Category legend in 2 columns above quadrant filters */}
+          {isMobile && (
+            <div style={{ maxWidth: 1000, width: "100%", margin: "0 auto 8px", padding: "0 4px" }}>
+              <CategoryLegend hoveredCategory={hoveredCategory} setHoveredCategory={setHoveredCategory} isMobile={true} />
+            </div>
+          )}
           {/* Quadrant filters - fixed width, centered */}
-          <div style={{ maxWidth: 1000, width: "100%", margin: "0 auto", display: "flex", justifyContent: "space-between", gap: "clamp(4px, 2vw, 12px)", padding: "0 16px", flexWrap: "wrap" }}>
+          <div style={{ maxWidth: 1000, width: "100%", margin: "0 auto", display: "flex", justifyContent: "space-between", gap: isMobile ? "6px" : "clamp(4px, 2vw, 12px)", padding: isMobile ? "0 4px" : "0 16px", flexWrap: "wrap" }}>
           <button
             onClick={() => { playSound('click'); setFilterQuadrant(null) }}
             onMouseDown={(e) => e.currentTarget.style.transform = "scale(0.97)"}
