@@ -3004,20 +3004,21 @@ export default function App() {
             </div>
           )}
           {/* Quadrant filters - fixed width, centered */}
-          <div style={{ maxWidth: 1000, width: "100%", margin: "0 auto", display: "flex", justifyContent: "space-between", gap: isMobile ? "6px" : "clamp(4px, 2vw, 12px)", padding: isMobile ? "0 4px" : "0 16px", flexWrap: "wrap" }}>
+          <div style={{ maxWidth: 1000, width: "100%", margin: "0 auto", display: "flex", justifyContent: isMobile ? "center" : "space-between", gap: isMobile ? "4px" : "clamp(4px, 2vw, 12px)", padding: isMobile ? "0" : "0 16px", flexWrap: "nowrap" }}>
           <button
             onClick={() => { playSound('click'); setFilterQuadrant(null) }}
             onMouseDown={(e) => e.currentTarget.style.transform = "scale(0.97)"}
             onMouseUp={(e) => e.currentTarget.style.transform = "scale(1)"}
             onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
             style={{
-              flex: 1,
-              padding: "12px 16px 16px",
+              flex: isMobile ? "0 0 18%" : 1,
+              minWidth: isMobile ? 0 : undefined,
+              padding: isMobile ? "8px 4px 10px" : "12px 16px 16px",
               background: "#f5f5f5",
               border: "none",
               outline: "none",
-              borderRadius: 12,
-              fontSize: 11,
+              borderRadius: isMobile ? 8 : 12,
+              fontSize: isMobile ? 8 : 11,
               fontWeight: 600,
               cursor: "pointer",
               fontFamily: FONT,
@@ -3026,14 +3027,14 @@ export default function App() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              gap: 8,
+              gap: isMobile ? 4 : 8,
               position: "relative",
             }}
           >
             {/* Rams toggle switch */}
             <div style={{
-              width: 24,
-              height: 24,
+              width: isMobile ? 18 : 24,
+              height: isMobile ? 18 : 24,
               borderRadius: "50%",
               background: filterQuadrant === null
                 ? "linear-gradient(145deg, #e0e0e0, #c8c8c8)"
@@ -3048,8 +3049,8 @@ export default function App() {
               position: "relative",
             }}>
               <div style={{
-                width: 7,
-                height: 7,
+                width: isMobile ? 5 : 7,
+                height: isMobile ? 5 : 7,
                 borderRadius: "50%",
                 background: filterQuadrant === null ? "#333" : "#999",
                 transition: "background 0.15s ease",
@@ -3057,9 +3058,9 @@ export default function App() {
               {/* Notch indicator */}
               <div style={{
                 position: "absolute",
-                top: 3,
-                width: 2,
-                height: 5,
+                top: isMobile ? 2 : 3,
+                width: isMobile ? 1.5 : 2,
+                height: isMobile ? 4 : 5,
                 background: filterQuadrant === null ? "#333" : "#bbb",
                 borderRadius: 1,
                 transition: "background 0.15s ease",
@@ -3070,7 +3071,7 @@ export default function App() {
             {filterQuadrant === null && (
               <div style={{
                 position: "absolute",
-                bottom: -8,
+                bottom: isMobile ? -4 : -8,
                 left: "50%",
                 transform: "translateX(-50%)",
                 width: "90%",
@@ -3089,13 +3090,14 @@ export default function App() {
               onMouseUp={(e) => e.currentTarget.style.transform = "scale(1)"}
               onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
               style={{
-                flex: 1,
-                padding: "12px 16px 16px",
+                flex: isMobile ? "0 0 18%" : 1,
+                minWidth: isMobile ? 0 : undefined,
+                padding: isMobile ? "8px 4px 10px" : "12px 16px 16px",
                 background: "#f5f5f5",
                 border: "none",
                 outline: "none",
-                borderRadius: 12,
-                fontSize: 11,
+                borderRadius: isMobile ? 8 : 12,
+                fontSize: isMobile ? 8 : 11,
                 fontWeight: 600,
                 cursor: "pointer",
                 fontFamily: FONT,
@@ -3104,14 +3106,14 @@ export default function App() {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                gap: 8,
+                gap: isMobile ? 4 : 8,
                 position: "relative",
               }}
             >
               {/* Rams toggle switch */}
               <div style={{
-                width: 24,
-                height: 24,
+                width: isMobile ? 18 : 24,
+                height: isMobile ? 18 : 24,
                 borderRadius: "50%",
                 background: filterQuadrant === key
                   ? "linear-gradient(145deg, #e0e0e0, #c8c8c8)"
@@ -3126,8 +3128,8 @@ export default function App() {
                 position: "relative",
               }}>
                 <div style={{
-                  width: 7,
-                  height: 7,
+                  width: isMobile ? 5 : 7,
+                  height: isMobile ? 5 : 7,
                   borderRadius: "50%",
                   background: filterQuadrant === key ? QUADRANT_COLORS[key] : "#999",
                   transition: "background 0.15s ease",
@@ -3135,20 +3137,20 @@ export default function App() {
                 {/* Notch indicator */}
                 <div style={{
                   position: "absolute",
-                  top: 3,
-                  width: 2,
-                  height: 5,
+                  top: isMobile ? 2 : 3,
+                  width: isMobile ? 1.5 : 2,
+                  height: isMobile ? 4 : 5,
                   background: filterQuadrant === key ? QUADRANT_COLORS[key] : "#bbb",
                   borderRadius: 1,
                   transition: "background 0.15s ease",
                 }} />
               </div>
-              <span>{q.name}</span>
+              <span style={{ fontSize: isMobile ? 7 : undefined }}>{isMobile ? q.name.replace(" Skills", "") : q.name}</span>
               {/* Dotted line underneath - below the rectangle */}
               {filterQuadrant === key && (
                 <div style={{
                   position: "absolute",
-                  bottom: -8,
+                  bottom: isMobile ? -4 : -8,
                   left: "50%",
                   transform: "translateX(-50%)",
                   width: "90%",
