@@ -528,18 +528,18 @@ const SKILLS = [
     high: "Social enterprise; community organizing; sustainable service models" },
 
   // Emerging Skills - Top Left Quadrant
-  // Cybersecurity: original (25, 72) → (31, 72)
-  { id: "cyber", name: "Networks & Cybersecurity", category: "technology", x: 31, y: 72, quadrant: "emerging",
+  // Cybersecurity: moved right 1", down 1" → (37, 66)
+  { id: "cyber", name: "Networks & Cybersecurity", category: "technology", x: 37, y: 66, quadrant: "emerging",
     primary: "Password safety; stranger danger online; trusted adults",
     middle: "Privacy settings; phishing awareness; digital footprint",
     high: "Network architecture; ethical hacking basics; security protocols" },
-  // Environmental: original (18, 58) → (23, 58)
-  { id: "environment", name: "Environmental Stewardship", category: "ethics", x: 23, y: 58, quadrant: "emerging",
+  // Environmental: moved right 3/4", down 1/4" → (28, 56)
+  { id: "environment", name: "Environmental Stewardship", category: "ethics", x: 28, y: 56, quadrant: "emerging",
     primary: "Nature walks; recycling sorting; caring for plants",
     middle: "Carbon footprint calculation; local ecosystem study; waste audit",
     high: "Climate science research; sustainability proposals; environmental advocacy" },
-  // Design: original (28, 52) → (35, 52)
-  { id: "design", name: "Design & User Experience", category: "technology", x: 35, y: 52, quadrant: "emerging",
+  // Design: moved right 1/2", down to touch horizontal axis → (38, 51)
+  { id: "design", name: "Design & User Experience", category: "technology", x: 38, y: 51, quadrant: "emerging",
     primary: "Design for a friend; test and improve toys; simple prototypes",
     middle: "User interviews; wireframing; iterate based on feedback",
     high: "UX research methods; accessibility design; full design sprints" },
