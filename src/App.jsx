@@ -538,8 +538,8 @@ const SKILLS = [
     primary: "Nature walks; recycling sorting; caring for plants",
     middle: "Carbon footprint calculation; local ecosystem study; waste audit",
     high: "Climate science research; sustainability proposals; environmental advocacy" },
-  // Design: moved right 1/2", down to touch horizontal axis → (38, 51)
-  { id: "design", name: "Design & User Experience", category: "technology", x: 38, y: 51, quadrant: "emerging",
+  // Design: down 1/8" more → (38, 50)
+  { id: "design", name: "Design & User Experience", category: "technology", x: 38, y: 50, quadrant: "emerging",
     primary: "Design for a friend; test and improve toys; simple prototypes",
     middle: "User interviews; wireframing; iterate based on feedback",
     high: "UX research methods; accessibility design; full design sprints" },
@@ -562,13 +562,13 @@ const SKILLS = [
     primary: "Unplugged coding; Scratch Jr; robot toys",
     middle: "Scratch projects; Python basics; game design",
     high: "Multiple languages; app development; algorithms" },
-  // Marketing: original (25, 40) → (31, 40)
-  { id: "marketing", name: "Marketing & Media", category: "engagement", x: 31, y: 40, quadrant: "foundational",
+  // Marketing: original (25, 40) → (31, 35)
+  { id: "marketing", name: "Marketing & Media", category: "engagement", x: 31, y: 35, quadrant: "foundational",
     primary: "Show and tell; simple posters; sharing stories",
     middle: "Digital storytelling; social media literacy; persuasion techniques",
     high: "Campaign creation; media analysis; brand development" },
-  // Teaching: original (32, 37) → (40, 37)
-  { id: "teaching", name: "Teaching & Mentoring", category: "engagement", x: 40, y: 37, quadrant: "foundational",
+  // Teaching: left 1/2" → (37, 37)
+  { id: "teaching", name: "Teaching & Mentoring", category: "engagement", x: 37, y: 37, quadrant: "foundational",
     primary: "Teach a friend; explain your thinking; show how",
     middle: "Cross-age tutoring; create how-to guides; learning buddies",
     high: "Curriculum design; instructional strategies; mentorship programs" },
@@ -592,8 +592,8 @@ const SKILLS = [
     primary: "Sensory bins; texture exploration; listening walks",
     middle: "Lab observations; detailed sketching; mindful awareness",
     high: "Scientific observation; sensory design; perception studies" },
-  // Reading: original (22, 15) → (28, 15)
-  { id: "reading", name: "Reading, Writing, Math", category: "cognitive", x: 28, y: 15, quadrant: "foundational",
+  // Reading: original (22, 15) → (31, 12)
+  { id: "reading", name: "Reading, Writing, Math", category: "cognitive", x: 31, y: 12, quadrant: "foundational",
     primary: "Phonics and numeracy foundations; read-alouds; counting games",
     middle: "Reading comprehension strategies; writing workshop; math reasoning",
     high: "Advanced literacy; technical writing; mathematical modeling" },
