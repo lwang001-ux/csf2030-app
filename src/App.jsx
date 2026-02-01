@@ -2768,6 +2768,131 @@ function AboutModal({ onClose }) {
   )
 }
 
+// Mobile Skills List Component
+function MobileSkillsList({ skills, selectedSkill, setSelectedSkill, filterQuadrant, setFilterQuadrant }) {
+  const categories = Object.entries(CATEGORIES)
+
+  return (
+    <div style={{ padding: "20px 16px" }}>
+      {/* Quadrant filter chips */}
+      <div style={{ display: "flex", gap: 8, marginBottom: 20, flexWrap: "wrap" }}>
+        <button
+          onClick={() => { playSound('click'); setFilterQuadrant(null) }}
+          style={{
+            padding: "8px 16px",
+            background: filterQuadrant === null ? "#0D1B2A" : "#f0f0f0",
+            color: filterQuadrant === null ? "#fff" : "#333",
+            border: "none",
+            borderRadius: 20,
+            fontSize: 12,
+            fontWeight: 600,
+            cursor: "pointer",
+            fontFamily: FONT,
+          }}
+        >
+          All Skills
+        </button>
+        {Object.entries(QUADRANTS).map(([key, quad]) => (
+          <button
+            key={key}
+            onClick={() => { playSound('click'); setFilterQuadrant(filterQuadrant === key ? null : key) }}
+            style={{
+              padding: "8px 16px",
+              background: filterQuadrant === key ? QUADRANT_COLORS[key] : "#f0f0f0",
+              color: filterQuadrant === key ? "#fff" : "#333",
+              border: "none",
+              borderRadius: 20,
+              fontSize: 12,
+              fontWeight: 600,
+              cursor: "pointer",
+              fontFamily: FONT,
+            }}
+          >
+            {quad.name}
+          </button>
+        ))}
+      </div>
+
+      {/* Skills grouped by category */}
+      {categories.map(([catKey, cat]) => {
+        const catSkills = skills.filter(s => s.category === catKey)
+        if (catSkills.length === 0) return null
+
+        return (
+          <div key={catKey} style={{ marginBottom: 24 }}>
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 8,
+              marginBottom: 12,
+              paddingBottom: 8,
+              borderBottom: `2px solid ${cat.color}`,
+            }}>
+              <div style={{
+                width: 12,
+                height: 12,
+                borderRadius: "50%",
+                background: cat.color,
+              }} />
+              <h3 style={{
+                fontSize: 14,
+                fontWeight: 700,
+                color: "#0D1B2A",
+                margin: 0,
+                fontFamily: FONT,
+              }}>
+                {cat.name}
+              </h3>
+              <span style={{ fontSize: 11, color: "#888" }}>({catSkills.length})</span>
+            </div>
+
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              {catSkills.map(skill => {
+                const isSelected = selectedSkill?.id === skill.id
+                const quadrant = QUADRANTS[skill.quadrant]
+                return (
+                  <button
+                    key={skill.id}
+                    onClick={() => { playSound('click'); setSelectedSkill(isSelected ? null : skill) }}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      padding: "12px 16px",
+                      background: isSelected ? cat.color : "#fff",
+                      color: isSelected ? "#fff" : "#0D1B2A",
+                      border: `1px solid ${isSelected ? cat.color : "#e0e0e0"}`,
+                      borderRadius: 10,
+                      fontSize: 14,
+                      fontWeight: 500,
+                      cursor: "pointer",
+                      fontFamily: FONT,
+                      textAlign: "left",
+                      transition: "all 0.2s ease",
+                    }}
+                  >
+                    <span>{skill.name}</span>
+                    <span style={{
+                      fontSize: 10,
+                      padding: "4px 8px",
+                      background: isSelected ? "rgba(255,255,255,0.2)" : QUADRANT_COLORS[skill.quadrant] + "20",
+                      color: isSelected ? "#fff" : QUADRANT_COLORS[skill.quadrant],
+                      borderRadius: 12,
+                      fontWeight: 600,
+                    }}>
+                      {quadrant.name}
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 export default function App() {
   const [selectedSkill, setSelectedSkill] = useState(null)
   const [hoveredCategory, setHoveredCategory] = useState(null)
@@ -2775,6 +2900,9 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState("map") // "about", "map", or "research"
   const [showAboutModal, setShowAboutModal] = useState(false)
   const [showCurriculumPanel, setShowCurriculumPanel] = useState(false)
+
+  const windowWidth = useWindowWidth()
+  const isMobile = windowWidth < 768
 
   const filteredSkills = filterQuadrant
     ? SKILLS.filter(s => s.quadrant === filterQuadrant)
@@ -2865,8 +2993,8 @@ export default function App() {
       {/* Research page */}
       {currentPage === "research" && <ResearchPage />}
 
-      {/* Quadrant filter - dotted underlines (map only) */}
-      {currentPage === "map" && (
+      {/* Quadrant filter - dotted underlines (map only, desktop only) */}
+      {currentPage === "map" && !isMobile && (
       <div style={{
         padding: "16px 32px 20px",
         background: "rgba(255,255,255,0.9)",
@@ -3036,7 +3164,17 @@ export default function App() {
 
       {/* Main visualization (map only) */}
       {currentPage === "map" && (
-      <main style={{ padding: "clamp(20px, 5vw, 60px) clamp(12px, 3vw, 40px)", position: "relative", zIndex: 10 }}>
+      <main style={{ padding: isMobile ? "20px 0" : "clamp(20px, 5vw, 60px) clamp(12px, 3vw, 40px)", position: "relative", zIndex: 10 }}>
+        {/* Mobile: Show list view */}
+        {isMobile ? (
+          <MobileSkillsList
+            skills={filteredSkills}
+            selectedSkill={selectedSkill}
+            setSelectedSkill={setSelectedSkill}
+            filterQuadrant={filterQuadrant}
+            setFilterQuadrant={setFilterQuadrant}
+          />
+        ) : (
         <div style={{
           maxWidth: 1000,
           width: "100%",
@@ -3305,6 +3443,7 @@ export default function App() {
 
           </div>
         </div>
+        )}
       </main>
       )}
 
