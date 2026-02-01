@@ -1057,11 +1057,11 @@ const CMYK = {
 // About page component
 function AboutPage() {
   return (
-    <div style={{ width: 1100, margin: "0 auto", padding: "60px 40px" }}>
+    <div style={{ maxWidth: 1100, width: "100%", margin: "0 auto", padding: "60px 20px" }}>
       <div style={{
         background: "rgba(255,255,255,0.97)",
         borderRadius: 16,
-        padding: 48,
+        padding: "clamp(20px, 5vw, 48px)",
         border: "1px solid rgba(0,0,0,0.08)",
         boxShadow: "0 4px 24px rgba(0,0,0,0.06)"
       }}>
@@ -1248,15 +1248,15 @@ function ResearchPage() {
   }
 
   return (
-    <div style={{ width: 1100, margin: "0 auto", padding: "60px 40px" }}>
+    <div style={{ maxWidth: 1100, width: "100%", margin: "0 auto", padding: "60px 20px" }}>
       <div style={{
         background: "rgba(255,255,255,0.95)",
         borderRadius: 12,
-        padding: 24,
+        padding: "clamp(16px, 4vw, 24px)",
         marginBottom: 24,
         border: "1px solid rgba(0,0,0,0.08)",
       }}>
-        <h2 style={{ fontSize: 24, fontWeight: 700, marginBottom: 12, fontFamily: FONT }}>
+        <h2 style={{ fontSize: "clamp(18px, 5vw, 24px)", fontWeight: 700, marginBottom: 12, fontFamily: FONT }}>
           Research-Based Teaching Strategies
         </h2>
         <p style={{ fontSize: 14, lineHeight: 1.7, color: "#444", margin: 0 }}>
@@ -2795,15 +2795,15 @@ export default function App() {
         position: "relative",
         zIndex: 10,
       }}>
-        <div style={{ width: 1000, margin: "0 auto" }}>
-          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 16 }}>
+        <div style={{ maxWidth: 1000, width: "100%", margin: "0 auto", padding: "0 16px" }}>
+          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 12, flexWrap: "wrap" }}>
             <div
               onClick={() => setShowAboutModal(true)}
               style={{ cursor: "pointer" }}
               title="Click to learn about this site"
             >
-              <h1 style={{ fontSize: 35, fontWeight: 700, margin: 0, letterSpacing: -0.5 }}>CSf2030</h1>
-              <p style={{ fontSize: 16, color: "#666", margin: "5px 0 0", fontFamily: FONT }}>
+              <h1 style={{ fontSize: "clamp(24px, 6vw, 35px)", fontWeight: 700, margin: 0, letterSpacing: -0.5 }}>CSf2030</h1>
+              <p style={{ fontSize: "clamp(12px, 3vw, 16px)", color: "#666", margin: "5px 0 0", fontFamily: FONT }}>
                 Core Skills for 2030 — K-12 Learning Pathways
               </p>
             </div>
@@ -2874,7 +2874,7 @@ export default function App() {
         zIndex: 10,
       }}>
           {/* Quadrant filters - fixed width, centered */}
-          <div style={{ width: 1000, margin: "0 auto", display: "flex", justifyContent: "space-between", gap: 12 }}>
+          <div style={{ maxWidth: 1000, width: "100%", margin: "0 auto", display: "flex", justifyContent: "space-between", gap: "clamp(4px, 2vw, 12px)", padding: "0 16px", flexWrap: "wrap" }}>
           <button
             onClick={() => { playSound('click'); setFilterQuadrant(null) }}
             onMouseDown={(e) => e.currentTarget.style.transform = "scale(0.97)"}
@@ -3036,10 +3036,13 @@ export default function App() {
 
       {/* Main visualization (map only) */}
       {currentPage === "map" && (
-      <main style={{ padding: "60px 40px", position: "relative", zIndex: 10 }}>
+      <main style={{ padding: "clamp(20px, 5vw, 60px) clamp(12px, 3vw, 40px)", position: "relative", zIndex: 10 }}>
         <div style={{
-          width: 1000,
+          maxWidth: 1000,
+          width: "100%",
           margin: "0 auto",
+          overflowX: "auto",
+          WebkitOverflowScrolling: "touch",
         }}>
           {/* Skills map and content - single column layout */}
           <div style={{ width: "100%" }}>
@@ -3047,6 +3050,7 @@ export default function App() {
           <div style={{
             position: "relative",
             width: "100%",
+            minWidth: 600,
             paddingBottom: "75%",
             background: "rgba(255,255,255,0.97)",
             borderRadius: 15,

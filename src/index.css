@@ -27,3 +27,16 @@ button:active {
   outline: none !important;
   box-shadow: none;
 }
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .skills-map-container {
+    transform: scale(0.5);
+    transform-origin: top center;
+  }
+
+  .nav-button {
+    padding: 8px 16px !important;
+    font-size: 12px !important;
+  }
+}
