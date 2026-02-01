@@ -555,7 +555,7 @@ const SKILLS = [
     primary: "Honesty discussions; telling the truth; fair play",
     middle: "Ethical dilemmas; academic integrity; moral reasoning",
     high: "Professional ethics; whistleblowing scenarios; ethical leadership" },
-  { id: "bodyawareness", name: "Body Awareness", category: "physical", x: 18, y: 58, quadrant: "emerging",
+  { id: "bodyawareness", name: "Body Awareness", category: "physical", x: 12, y: 52, quadrant: "emerging",
     primary: "Movement games; yoga for kids; spatial awareness activities",
     middle: "Mindful movement; physical self-assessment; posture awareness",
     high: "Ergonomics; somatic practices; mind-body connection" },
