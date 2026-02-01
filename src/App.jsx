@@ -2772,7 +2772,7 @@ export default function App() {
   const [selectedSkill, setSelectedSkill] = useState(null)
   const [hoveredCategory, setHoveredCategory] = useState(null)
   const [filterQuadrant, setFilterQuadrant] = useState(null)
-  const [currentPage, setCurrentPage] = useState("about") // "about", "map", or "research"
+  const [currentPage, setCurrentPage] = useState("map") // "about", "map", or "research"
   const [showAboutModal, setShowAboutModal] = useState(false)
   const [showCurriculumPanel, setShowCurriculumPanel] = useState(false)
 
