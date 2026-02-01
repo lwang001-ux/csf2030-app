@@ -577,8 +577,8 @@ const SKILLS = [
     primary: "World map exploration; cultural celebrations; pen pals",
     middle: "Current events discussions; cultural exchange; global goals",
     high: "Model UN; international collaboration; global issue research" },
-  // Multi-lingual: cognitive color, right of Marketing & Media, down 2px
-  { id: "multilingual", name: "Multi-lingualism", category: "cognitive", x: 38, y: 33, quadrant: "foundational",
+  // Multi-lingual: touching Marketing & Media, down 2px
+  { id: "multilingual", name: "Multi-lingualism", category: "cognitive", x: 31, y: 33, quadrant: "foundational",
     primary: "Songs in other languages; greeting words; family languages",
     middle: "Language classes; bilingual projects; translation exercises",
     high: "Language immersion; technical translation; multilingual presentations" },
