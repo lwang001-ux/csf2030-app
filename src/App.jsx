@@ -592,13 +592,13 @@ const SKILLS = [
     primary: "Sensory bins; texture exploration; listening walks",
     middle: "Lab observations; detailed sketching; mindful awareness",
     high: "Scientific observation; sensory design; perception studies" },
-  // Reading: moved right 1/2"
-  { id: "reading", name: "Reading, Writing, Math", category: "cognitive", x: 26, y: 12, quadrant: "foundational",
+  // Reading: up 1/8"
+  { id: "reading", name: "Reading, Writing, Math", category: "cognitive", x: 26, y: 13, quadrant: "foundational",
     primary: "Phonics and numeracy foundations; read-alouds; counting games",
     middle: "Reading comprehension strategies; writing workshop; math reasoning",
     high: "Advanced literacy; technical writing; mathematical modeling" },
-  // Manual: moved right 1/2"
-  { id: "manual", name: "Manual Dexterity", category: "physical", x: 20, y: 10, quadrant: "foundational",
+  // Manual: up 1/8", renamed
+  { id: "manual", name: "Manual Dexterity, Endurance and Precision", category: "physical", x: 20, y: 11, quadrant: "foundational",
     primary: "Fine motor activities; cutting; building blocks",
     middle: "Maker projects; instrument playing; detailed crafts",
     high: "Precision fabrication; technical skills; tool mastery" },
@@ -3181,8 +3181,20 @@ export default function App() {
               {filteredSkills.map(skill => {
                 const activeCategory = hoveredCategory || (selectedSkill ? selectedSkill.category : null)
                 const isHidden = activeCategory && skill.category !== activeCategory
-                // Manual Dexterity and Multi-lingualism labels go below circle
-                const labelBelow = skill.id === "manual" || skill.id === "multilingual"
+                // Multi-lingualism label goes below circle
+                const labelBelow = skill.id === "multilingual"
+                // Manual Dexterity label goes to the right of circle
+                const labelRight = skill.id === "manual"
+
+                let labelTransform
+                if (labelRight) {
+                  labelTransform = `translate(${isMobile ? 8 : 15}px, -50%)`
+                } else if (labelBelow) {
+                  labelTransform = `translate(-50%, ${isMobile ? 8 : 15}px)`
+                } else {
+                  labelTransform = `translate(-50%, calc(-100% - ${isMobile ? 8 : 15}px))`
+                }
+
                 return (
                   <div
                     key={`label-${skill.id}`}
@@ -3190,9 +3202,7 @@ export default function App() {
                       position: "absolute",
                       left: `${skill.x}%`,
                       top: `${100 - skill.y}%`,
-                      transform: labelBelow
-                        ? `translate(-50%, ${isMobile ? 8 : 15}px)`
-                        : `translate(-50%, calc(-100% - ${isMobile ? 8 : 15}px))`,
+                      transform: labelTransform,
                       fontSize: isMobile ? 7 : 11,
                       fontWeight: 600,
                       color: "#0D1B2A",
@@ -3212,7 +3222,7 @@ export default function App() {
               {/* Axis labels */}
               <div style={{
                 position: "absolute",
-                left: -36,
+                left: -75,
                 top: "50%",
                 transform: "translateY(-50%) rotate(-90deg)",
                 fontSize: 10,
