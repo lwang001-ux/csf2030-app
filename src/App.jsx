@@ -773,11 +773,16 @@ function QuadrantLabels() {
 }
 
 // Grid lines with numbers - X-axis 0-80, Y-axis 0-100 (matching WEF original)
+// Vertical dividing axis at x=38, Horizontal dividing axis at y=51
 function AxisLines() {
   // X-axis: 0-80 scale (like original WEF chart)
   const xLabels = [0, 10, 20, 30, 40, 50, 60, 70, 80]
   // Y-axis: 0-100 scale
   const yLabels = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+  // Dividing axes positions (from original WEF chart)
+  const verticalAxisX = 38  // chart x position for vertical divider
+  const horizontalAxisY = 51  // chart y position for horizontal divider
 
   return (
     <>
@@ -789,22 +794,36 @@ function AxisLines() {
             <line
               key={`v-${x}`}
               x1={`${pos}%`} y1="0%" x2={`${pos}%`} y2="100%"
-              stroke={x === 40 ? "rgba(0,0,0,0.25)" : "rgba(0,0,0,0.1)"}
-              strokeWidth={x === 40 ? 1 : 0.5}
-              strokeDasharray={x === 40 ? "4 4" : "2 4"}
+              stroke="rgba(0,0,0,0.1)"
+              strokeWidth={0.5}
+              strokeDasharray="2 4"
             />
           )
         })}
+        {/* Vertical dividing axis at x=38 */}
+        <line
+          x1={`${verticalAxisX * 1.25}%`} y1="0%" x2={`${verticalAxisX * 1.25}%`} y2="100%"
+          stroke="rgba(0,0,0,0.25)"
+          strokeWidth={1}
+          strokeDasharray="4 4"
+        />
         {/* Horizontal grid lines */}
         {yLabels.map(y => (
           <line
             key={`h-${y}`}
             x1="0%" y1={`${100 - y}%`} x2="100%" y2={`${100 - y}%`}
-            stroke={y === 50 ? "rgba(0,0,0,0.25)" : "rgba(0,0,0,0.1)"}
-            strokeWidth={y === 50 ? 1 : 0.5}
-            strokeDasharray={y === 50 ? "4 4" : "2 4"}
+            stroke="rgba(0,0,0,0.1)"
+            strokeWidth={0.5}
+            strokeDasharray="2 4"
           />
         ))}
+        {/* Horizontal dividing axis at y=51 */}
+        <line
+          x1="0%" y1={`${100 - horizontalAxisY}%`} x2="100%" y2={`${100 - horizontalAxisY}%`}
+          stroke="rgba(0,0,0,0.25)"
+          strokeWidth={1}
+          strokeDasharray="4 4"
+        />
       </svg>
       {/* X-axis numbers (bottom) - 0 to 80 */}
       {xLabels.map(x => (
