@@ -509,7 +509,7 @@ const SKILLS = [
     primary: "Perspective-taking stories; feelings vocabulary; listening partners",
     middle: "Role-play scenarios; peer mediation training; diverse narratives",
     high: "Cross-cultural exchanges; community service reflection; empathy mapping" },
-  { id: "ethics", name: "Ethical Reasoning", category: "ethics", x: 62, y: 52, quadrant: "core",
+  { id: "ethics", name: "Ethical Reasoning", category: "ethics", x: 58, y: 58, quadrant: "core",
     primary: "Right vs wrong discussions; fairness in games; kindness challenges",
     middle: "Moral dilemmas; community agreements; justice and equity conversations",
     high: "Ethical frameworks; applied ethics; social justice analysis" },
