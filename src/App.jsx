@@ -535,7 +535,7 @@ const SKILLS = [
     primary: "Nature walks; recycling sorting; caring for plants",
     middle: "Carbon footprint calculation; local ecosystem study; waste audit",
     high: "Climate science research; sustainability proposals; environmental advocacy" },
-  { id: "design", name: "Design and user experience", category: "technology", x: 34.3, y: 56.7, quadrant: "emerging",  // chart: 24, 51
+  { id: "design", name: "Design and user experience", category: "technology", x: 74.3, y: 27.8, quadrant: "steady",  // chart: 52, 25
     primary: "Design for a friend; test and improve toys; simple prototypes",
     middle: "User interviews; wireframing; iterate based on feedback",
     high: "UX research methods; accessibility design; full design sprints" },
@@ -569,7 +569,7 @@ const SKILLS = [
     primary: "Sensory bins; texture exploration; listening walks",
     middle: "Lab observations; detailed sketching; mindful awareness",
     high: "Scientific observation; sensory design; perception studies" },
-  { id: "reading", name: "Reading, writing and mathematics", category: "cognitive", x: 35.7, y: 16.7, quadrant: "foundational",  // chart: 25, 15
+  { id: "reading", name: "Reading, writing and mathematics", category: "cognitive", x: 22.9, y: 22.2, quadrant: "foundational",  // chart: 16, 20
     primary: "Phonics and numeracy foundations; read-alouds; counting games",
     middle: "Reading comprehension strategies; writing workshop; math reasoning",
     high: "Advanced literacy; technical writing; mathematical modeling" },
