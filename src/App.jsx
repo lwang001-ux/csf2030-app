@@ -2981,8 +2981,8 @@ export default function App() {
       {/* Research page */}
       {currentPage === "research" && <ResearchPage />}
 
-      {/* Quadrant filter - dotted underlines (map only, desktop only) */}
-      {currentPage === "map" && !isMobile && (
+      {/* Quadrant filter - dotted underlines (map only) */}
+      {currentPage === "map" && (
       <div style={{
         padding: "16px 32px 20px",
         background: "rgba(255,255,255,0.9)",
@@ -3153,22 +3153,12 @@ export default function App() {
       {/* Main visualization (map only) */}
       {currentPage === "map" && (
       <main style={{ padding: isMobile ? "20px 0" : "clamp(20px, 5vw, 60px) clamp(12px, 3vw, 40px)", position: "relative", zIndex: 10 }}>
-        {/* Mobile: Show 2-column grid with circles */}
-        {isMobile ? (
-          <MobileSkillsGrid
-            skills={filteredSkills}
-            selectedSkill={selectedSkill}
-            setSelectedSkill={setSelectedSkill}
-            filterQuadrant={filterQuadrant}
-            setFilterQuadrant={setFilterQuadrant}
-          />
-        ) : (
         <div style={{
           maxWidth: 1000,
           width: "100%",
           margin: "0 auto",
-          overflowX: "auto",
-          WebkitOverflowScrolling: "touch",
+          transform: isMobile ? `scale(${Math.min(windowWidth / 650, 1)})` : "none",
+          transformOrigin: "top center",
         }}>
           {/* Skills map and content - single column layout */}
           <div style={{ width: "100%" }}>
@@ -3176,7 +3166,7 @@ export default function App() {
           <div style={{
             position: "relative",
             width: "100%",
-            minWidth: 600,
+            minWidth: isMobile ? "auto" : 600,
             paddingBottom: "75%",
             background: "rgba(255,255,255,0.97)",
             borderRadius: 15,
@@ -3431,7 +3421,6 @@ export default function App() {
 
           </div>
         </div>
-        )}
       </main>
       )}
 
