@@ -535,7 +535,7 @@ const SKILLS = [
     primary: "Nature walks; recycling sorting; caring for plants",
     middle: "Carbon footprint calculation; local ecosystem study; waste audit",
     high: "Climate science research; sustainability proposals; environmental advocacy" },
-  { id: "design", name: "Design and user experience", category: "technology", x: 40, y: 57.8, quadrant: "emerging",  // chart: 28, 52
+  { id: "design", name: "Design and user experience", category: "technology", x: 34.3, y: 56.7, quadrant: "emerging",  // chart: 24, 51
     primary: "Design for a friend; test and improve toys; simple prototypes",
     middle: "User interviews; wireframing; iterate based on feedback",
     high: "UX research methods; accessibility design; full design sprints" },
