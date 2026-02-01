@@ -567,8 +567,8 @@ const SKILLS = [
     primary: "Show and tell; simple posters; sharing stories",
     middle: "Digital storytelling; social media literacy; persuasion techniques",
     high: "Campaign creation; media analysis; brand development" },
-  // Teaching: working with others color
-  { id: "teaching", name: "Teaching & Mentoring", category: "workingWithOthers", x: 37, y: 37, quadrant: "foundational",
+  // Teaching: working with others color, up 1/2"
+  { id: "teaching", name: "Teaching & Mentoring", category: "workingWithOthers", x: 37, y: 40, quadrant: "foundational",
     primary: "Teach a friend; explain your thinking; show how",
     middle: "Cross-age tutoring; create how-to guides; learning buddies",
     high: "Curriculum design; instructional strategies; mentorship programs" },
@@ -577,8 +577,8 @@ const SKILLS = [
     primary: "World map exploration; cultural celebrations; pen pals",
     middle: "Current events discussions; cultural exchange; global goals",
     high: "Model UN; international collaboration; global issue research" },
-  // Multi-lingual: right 1/3" and up
-  { id: "multilingual", name: "Multi-lingualism", category: "cognitive", x: 33, y: 35, quadrant: "foundational",
+  // Multi-lingual: left 1/4" and down 1/4"
+  { id: "multilingual", name: "Multi-lingualism", category: "cognitive", x: 31, y: 33, quadrant: "foundational",
     primary: "Songs in other languages; greeting words; family languages",
     middle: "Language classes; bilingual projects; translation exercises",
     high: "Language immersion; technical translation; multilingual presentations" },
@@ -607,9 +607,9 @@ const SKILLS = [
 // Quadrant info
 const QUADRANTS = {
   core: { name: "Core Skills", desc: "Essential now and growing" },
-  emerging: { name: "Emerging Skills", desc: "Rising in importance" },
+  emerging: { name: "Emerging Skills", desc: "Less essential now, but expected to increase in use" },
   steady: { name: "Steady Skills", desc: "Stable foundations" },
-  foundational: { name: "Foundational", desc: "Building blocks" },
+  foundational: { name: "Out of Focus Skills", desc: "Less essential now, and not expected to increase in use" },
 }
 
 // Dotted grid background
@@ -784,15 +784,15 @@ function QuadrantLabels() {
       </div>
       <div style={{ position: "absolute", top: "4%", left: "4%", zIndex: 2 }}>
         <div style={{ fontSize: 13, fontWeight: 700, color: QUADRANT_COLORS.emerging, fontFamily: FONT }}>Emerging Skills</div>
-        <div style={{ fontSize: 9, opacity: 0.6, fontFamily: FONT }}>Growing importance</div>
+        <div style={{ fontSize: 9, opacity: 0.6, fontFamily: FONT }}>Less essential now, but expected to increase in use</div>
       </div>
       <div style={{ position: "absolute", bottom: "4%", right: "4%", textAlign: "right", zIndex: 2 }}>
         <div style={{ fontSize: 13, fontWeight: 700, color: QUADRANT_COLORS.steady, fontFamily: FONT }}>Steady Skills</div>
         <div style={{ fontSize: 9, opacity: 0.6, fontFamily: FONT }}>Stable foundations</div>
       </div>
       <div style={{ position: "absolute", bottom: "4%", left: "4%", zIndex: 2 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: QUADRANT_COLORS.foundational, fontFamily: FONT }}>Foundational</div>
-        <div style={{ fontSize: 9, opacity: 0.6, fontFamily: FONT }}>Building blocks</div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: QUADRANT_COLORS.foundational, fontFamily: FONT }}>Out of Focus Skills</div>
+        <div style={{ fontSize: 9, opacity: 0.6, fontFamily: FONT }}>Less essential now, and not expected to increase in use</div>
       </div>
     </>
   )
@@ -3212,18 +3212,6 @@ export default function App() {
               {/* Axis labels */}
               <div style={{
                 position: "absolute",
-                bottom: 8,
-                left: "50%",
-                transform: "translateX(-50%)",
-                fontSize: 10,
-                fontFamily: FONT,
-                color: "#666",
-                fontWeight: 600,
-              }}>
-                Importance as Core Skill
-              </div>
-              <div style={{
-                position: "absolute",
                 left: -36,
                 top: "50%",
                 transform: "translateY(-50%) rotate(-90deg)",
@@ -3233,7 +3221,7 @@ export default function App() {
                 fontWeight: 600,
                 whiteSpace: "nowrap",
               }}>
-                Expected Growth by 2030
+                Share of employees expecting increasing skills in use by 2030 (%)
               </div>
             </div>
           </div>
