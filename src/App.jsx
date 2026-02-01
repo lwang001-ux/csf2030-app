@@ -502,7 +502,7 @@ const SKILLS = [
     primary: "Ecosystem terrariums; cause and effect stories; classroom as system",
     middle: "Food web mapping; feedback loops; community interconnections",
     high: "Complex systems modeling; policy analysis; global systems research" },
-  { id: "motivation", name: "Motivation and self-awareness", category: "selfEfficacy", x: 64, y: 53, quadrant: "core",  // chart: 51, 53
+  { id: "motivation", name: "Motivation and self-awareness", category: "selfEfficacy", x: 64, y: 52, quadrant: "core",  // chart: 51, 52
     primary: "Feelings check-ins; goal stars; celebration of effort",
     middle: "Learning style inventories; personal goal tracking; reflection routines",
     high: "Purpose exploration; intrinsic motivation study; self-assessment rubrics" },
@@ -512,7 +512,7 @@ const SKILLS = [
     primary: "Perspective-taking stories; feelings vocabulary; listening partners",
     middle: "Role-play scenarios; peer mediation training; diverse narratives",
     high: "Cross-cultural exchanges; community service reflection; empathy mapping" },
-  { id: "service", name: "Service orientation and customer service", category: "engagement", x: 65, y: 40, quadrant: "steady",  // chart: 52, 40
+  { id: "service", name: "Service orientation and customer service", category: "engagement", x: 60, y: 48, quadrant: "steady",  // chart: 48, 48
     primary: "Classroom helpers; caring for shared spaces; thank you notes",
     middle: "Service learning projects; community partnerships; needs assessment",
     high: "Social enterprise; community organizing; sustainable service models" },
@@ -3214,7 +3214,7 @@ export default function App() {
                 const isHidden = activeCategory && skill.category !== activeCategory
                 const labelOffset = isMobile ? 10 : 16
                 // Multi-lingualism label goes below circle
-                const labelBelow = skill.id === "multilingual" || skill.id === "motivation"
+                const labelBelow = skill.id === "multilingual" || skill.id === "motivation" || skill.id === "resource"
 
                 return (
                   <div
