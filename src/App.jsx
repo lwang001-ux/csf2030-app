@@ -3152,22 +3152,22 @@ export default function App() {
 
       {/* Main visualization (map only) */}
       {currentPage === "map" && (
-      <main style={{ padding: isMobile ? "20px 0" : "clamp(20px, 5vw, 60px) clamp(12px, 3vw, 40px)", position: "relative", zIndex: 10 }}>
-        <div style={{
-          maxWidth: 1000,
-          width: "100%",
-          margin: "0 auto",
-          transform: isMobile ? `scale(${Math.min(windowWidth / 650, 1)})` : "none",
-          transformOrigin: "top center",
-        }}>
+      <main style={{ padding: isMobile ? "10px 0" : "clamp(20px, 5vw, 60px) clamp(12px, 3vw, 40px)", position: "relative", zIndex: 10, overflow: "visible" }}>
+        <div
+          className="skills-map-wrapper"
+          style={{
+            maxWidth: 1000,
+            width: "100%",
+            margin: "0 auto",
+          }}>
           {/* Skills map and content - single column layout */}
           <div style={{ width: "100%" }}>
           {/* Skills map */}
           <div style={{
             position: "relative",
             width: "100%",
-            minWidth: isMobile ? "auto" : 600,
-            paddingBottom: "75%",
+            minWidth: isMobile ? 0 : 600,
+            paddingBottom: isMobile ? "100%" : "75%",
             background: "rgba(255,255,255,0.97)",
             borderRadius: 15,
             border: "1px solid rgba(0,0,0,0.12)",
