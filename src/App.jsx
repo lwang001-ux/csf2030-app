@@ -573,7 +573,7 @@ const SKILLS = [
     primary: "Phonics and numeracy foundations; read-alouds; counting games",
     middle: "Reading comprehension strategies; writing workshop; math reasoning",
     high: "Advanced literacy; technical writing; mathematical modeling" },
-  { id: "manual", name: "Manual dexterity, endurance and precision", category: "physical", x: 31.4, y: 13.3, quadrant: "foundational",  // chart: 22, 12
+  { id: "manual", name: "Manual dexterity, endurance and precision", category: "physical", x: 18.6, y: 15.6, quadrant: "foundational",  // chart: 13, 14
     primary: "Fine motor activities; cutting; building blocks",
     middle: "Maker projects; instrument playing; detailed crafts",
     high: "Precision fabrication; technical skills; tool mastery" },
@@ -3271,7 +3271,20 @@ export default function App() {
                 const isHidden = activeCategory && skill.category !== activeCategory
                 const labelOffset = isMobile ? 10 : 16
                 // Labels that go below their circles (to avoid overlap)
-                const labelBelow = ["design", "marketing", "teaching", "global", "sensory", "reading", "manual", "service", "resource", "leadership", "dependable"].includes(skill.id)
+                const labelBelow = ["design", "marketing", "teaching", "global", "sensory", "manual", "service", "resource", "leadership", "dependable"].includes(skill.id)
+                // Labels that go to the right of their circles
+                const labelRight = ["reading"].includes(skill.id)
+
+                // Calculate transform based on label position
+                let transform = labelBelow
+                  ? `translate(-50%, ${labelOffset}px)`
+                  : `translate(-50%, calc(-100% - ${labelOffset}px))`
+                let textAlign = "center"
+
+                if (labelRight) {
+                  transform = `translate(${labelOffset}px, -50%)`
+                  textAlign = "left"
+                }
 
                 return (
                   <div
@@ -3280,13 +3293,11 @@ export default function App() {
                       position: "absolute",
                       left: `${skill.x}%`,
                       top: `${100 - skill.y}%`,
-                      transform: labelBelow
-                        ? `translate(-50%, ${labelOffset}px)`
-                        : `translate(-50%, calc(-100% - ${labelOffset}px))`,
+                      transform,
                       fontSize: isMobile ? 7 : 10,
                       fontWeight: 400,
                       color: "#333",
-                      textAlign: "center",
+                      textAlign,
                       whiteSpace: "nowrap",
                       pointerEvents: "none",
                       zIndex: 15,
