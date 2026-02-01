@@ -545,7 +545,7 @@ const SKILLS = [
     primary: "Unplugged coding; Scratch Jr; robot toys",
     middle: "Scratch projects; Python basics; game design",
     high: "Multiple languages; app development; algorithms" },
-  { id: "marketing", name: "Marketing and media", category: "engagement", x: 34.3, y: 36.7, quadrant: "foundational",  // chart: 24, 33
+  { id: "marketing", name: "Marketing and media", category: "engagement", x: 47.1, y: 23.3, quadrant: "foundational",  // chart: 33, 21
     primary: "Show and tell; simple posters; sharing stories",
     middle: "Digital storytelling; social media literacy; persuasion techniques",
     high: "Campaign creation; media analysis; brand development" },
@@ -3271,9 +3271,11 @@ export default function App() {
                 const isHidden = activeCategory && skill.category !== activeCategory
                 const labelOffset = isMobile ? 10 : 16
                 // Labels that go below their circles (to avoid overlap)
-                const labelBelow = ["design", "marketing", "teaching", "global", "sensory", "manual", "service", "resource", "leadership", "dependable"].includes(skill.id)
+                const labelBelow = ["design", "teaching", "global", "sensory", "manual", "service", "resource", "leadership", "dependable"].includes(skill.id)
                 // Labels that go to the right of their circles
                 const labelRight = ["reading"].includes(skill.id)
+                // Labels that go to the left of their circles
+                const labelLeft = ["marketing"].includes(skill.id)
 
                 // Calculate transform based on label position
                 let transform = labelBelow
@@ -3284,6 +3286,10 @@ export default function App() {
                 if (labelRight) {
                   transform = `translate(${labelOffset}px, -50%)`
                   textAlign = "left"
+                }
+                if (labelLeft) {
+                  transform = `translate(calc(-100% - ${labelOffset}px), -50%)`
+                  textAlign = "right"
                 }
 
                 return (
