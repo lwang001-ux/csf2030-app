@@ -2876,9 +2876,6 @@ function MobileSkillsGrid({ skills, selectedSkill, setSelectedSkill, filterQuadr
       </div>
     </div>
   )
-      })}
-    </div>
-  )
 }
 
 export default function App() {
