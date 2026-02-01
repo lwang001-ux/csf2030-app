@@ -467,61 +467,61 @@ const INNOVATIVE_RESEARCH = [
 // Conversion: internal_x = (chart_x / 70) * 100, internal_y = (chart_y / 90) * 100
 const SKILLS = [
   // Core Skills (2030) - Top Right Quadrant (chart x > 38, y > 51)
-  { id: "ai", name: "AI and big data", category: "technology", x: 68.6, y: 94.4, quadrant: "core",  // chart: 48, 85
+  { id: "ai", name: "AI and big data", category: "technology", x: 65.7, y: 93.3, quadrant: "core",  // chart: 46, 84
     primary: "Explore how smart assistants work; sort and categorize objects to understand 'data'",
     middle: "Use AI tools for creative projects; analyze simple datasets; discuss AI in daily life",
     high: "Build basic ML models; analyze big data sets; debate AI ethics and bias" },
-  { id: "techlit", name: "Technological literacy", category: "technology", x: 78.6, y: 77.8, quadrant: "core",  // chart: 55, 70
+  { id: "techlit", name: "Technological literacy", category: "technology", x: 72, y: 78.9, quadrant: "core",  // chart: 50.4, 71
     primary: "Navigate tablets safely; understand what devices do; basic typing skills",
     middle: "Digital citizenship lessons; troubleshoot common tech issues; intro to coding",
     high: "Understand networks and systems; cybersecurity basics; evaluate tech solutions" },
-  { id: "creative", name: "Creative thinking", category: "cognitive", x: 82.9, y: 77.8, quadrant: "core",  // chart: 58, 70
+  { id: "creative", name: "Creative thinking", category: "cognitive", x: 82.9, y: 76.9, quadrant: "core",  // chart: 58, 69.25
     primary: "Open-ended art projects; 'what if' questions; building with loose parts",
     middle: "Design challenges; brainstorming protocols; remix existing ideas",
     high: "Innovation labs; entrepreneurship projects; creative constraints challenges" },
-  { id: "curiosity", name: "Curiosity and lifelong learning", category: "selfEfficacy", x: 71.4, y: 72.2, quadrant: "core",  // chart: 50, 65
+  { id: "curiosity", name: "Curiosity and lifelong learning", category: "selfEfficacy", x: 70.7, y: 71.1, quadrant: "core",  // chart: 49.5, 64
     primary: "Wonder walls; question of the day; exploration stations",
     middle: "Genius hour projects; student-led inquiries; learning portfolio",
     high: "Independent research projects; cross-disciplinary connections; mentorship seeking" },
-  { id: "resilience", name: "Resilience, flexibility and agility", category: "selfEfficacy", x: 92.9, y: 75.6, quadrant: "core",  // chart: 65, 68
+  { id: "resilience", name: "Resilience, flexibility and agility", category: "selfEfficacy", x: 90, y: 76.1, quadrant: "core",  // chart: 63, 68.5
     primary: "Growth mindset stories; 'not yet' language; celebrate mistakes as learning",
     middle: "Reflection journals on setbacks; goal-setting with obstacles; flexibility exercises",
     high: "Case studies of resilient leaders; design projects with pivots; stress management" },
-  { id: "talent", name: "Talent management", category: "management", x: 71.4, y: 66.7, quadrant: "core",  // chart: 50, 60
+  { id: "talent", name: "Talent management", category: "management", x: 67.1, y: 65.6, quadrant: "core",  // chart: 47, 59
     primary: "Recognize classmates' strengths; buddy reading; helper jobs",
     middle: "Peer tutoring programs; strength inventories; collaborative roles",
     high: "Lead project teams; mentor younger students; delegate effectively" },
-  { id: "leadership", name: "Leadership and social influence", category: "workingWithOthers", x: 85.7, y: 66.7, quadrant: "core",  // chart: 60, 60
+  { id: "leadership", name: "Leadership and social influence", category: "workingWithOthers", x: 84.6, y: 66.7, quadrant: "core",  // chart: 59.25, 60
     primary: "Line leader roles; sharing circle facilitator; class meetings",
     middle: "Student council; club leadership; persuasive presentations",
     high: "Community initiatives; advocacy campaigns; organizational leadership" },
-  { id: "analytical", name: "Analytical thinking", category: "cognitive", x: 92.9, y: 63.3, quadrant: "core",  // chart: 65, 57
+  { id: "analytical", name: "Analytical thinking", category: "cognitive", x: 94.3, y: 63.3, quadrant: "core",  // chart: 66, 57
     primary: "Sorting games; pattern recognition; simple logic puzzles",
     middle: "Data analysis projects; scientific method; argument mapping",
     high: "Statistical analysis; logical fallacies; systems modeling" },
-  { id: "systems", name: "Systems thinking", category: "cognitive", x: 71.4, y: 61.1, quadrant: "core",  // chart: 50, 55
+  { id: "systems", name: "Systems thinking", category: "cognitive", x: 59.6, y: 60, quadrant: "core",  // chart: 41.75, 54
     primary: "Ecosystem terrariums; cause and effect stories; classroom as system",
     middle: "Food web mapping; feedback loops; community interconnections",
     high: "Complex systems modeling; policy analysis; global systems research" },
-  { id: "motivation", name: "Motivation and self-awareness", category: "selfEfficacy", x: 78.6, y: 55.6, quadrant: "steady",  // chart: 55, 50
+  { id: "motivation", name: "Motivation and self-awareness", category: "selfEfficacy", x: 76.8, y: 57.1, quadrant: "core",  // chart: 53.75, 51.4
     primary: "Feelings check-ins; goal stars; celebration of effort",
     middle: "Learning style inventories; personal goal tracking; reflection routines",
     high: "Purpose exploration; intrinsic motivation study; self-assessment rubrics" },
 
   // Steady Skills - Bottom Right Quadrant (chart x > 38, y < 51)
-  { id: "empathy", name: "Empathy and active listening", category: "workingWithOthers", x: 78.6, y: 50, quadrant: "steady",  // chart: 55, 45
+  { id: "empathy", name: "Empathy and active listening", category: "workingWithOthers", x: 72.5, y: 56, quadrant: "core",  // chart: 50.75, 50.4
     primary: "Perspective-taking stories; feelings vocabulary; listening partners",
     middle: "Role-play scenarios; peer mediation training; diverse narratives",
     high: "Cross-cultural exchanges; community service reflection; empathy mapping" },
-  { id: "service", name: "Service orientation and customer service", category: "engagement", x: 68.6, y: 52.2, quadrant: "steady",  // chart: 48, 47
+  { id: "service", name: "Service orientation and customer service", category: "engagement", x: 68.6, y: 51.1, quadrant: "steady",  // chart: 48, 46
     primary: "Classroom helpers; caring for shared spaces; thank you notes",
     middle: "Service learning projects; community partnerships; needs assessment",
     high: "Social enterprise; community organizing; sustainable service models" },
-  { id: "resource", name: "Resource management and operations", category: "management", x: 74.3, y: 35.6, quadrant: "steady",  // chart: 52, 32
+  { id: "resource", name: "Resource management and operations", category: "management", x: 58.6, y: 36.7, quadrant: "steady",  // chart: 41, 33
     primary: "Sharing materials; cleanup routines; time for tasks",
     middle: "Project planning; budget basics; time management tools",
     high: "Resource allocation; project management software; efficiency analysis" },
-  { id: "dependable", name: "Dependability and attention to detail", category: "selfEfficacy", x: 71.4, y: 27.8, quadrant: "steady",  // chart: 50, 25
+  { id: "dependable", name: "Dependability and attention to detail", category: "selfEfficacy", x: 52.1, y: 27.8, quadrant: "foundational",  // chart: 36.5, 25
     primary: "Completing tasks; following routines; checking work",
     middle: "Meeting deadlines; quality checklists; peer accountability",
     high: "Professional standards; attention to detail projects; reliability tracking" },
@@ -535,21 +535,21 @@ const SKILLS = [
     primary: "Nature walks; recycling sorting; caring for plants",
     middle: "Carbon footprint calculation; local ecosystem study; waste audit",
     high: "Climate science research; sustainability proposals; environmental advocacy" },
-  { id: "design", name: "Design and user experience", category: "technology", x: 74.3, y: 27.8, quadrant: "steady",  // chart: 52, 25
+  { id: "design", name: "Design and user experience", category: "technology", x: 40, y: 56.7, quadrant: "emerging",  // chart: 28, 51
     primary: "Design for a friend; test and improve toys; simple prototypes",
     middle: "User interviews; wireframing; iterate based on feedback",
     high: "UX research methods; accessibility design; full design sprints" },
 
   // Out of Focus Skills - Bottom Left Quadrant (chart x < 38, y < 51)
-  { id: "programming", name: "Programming", category: "technology", x: 25.7, y: 44.4, quadrant: "foundational",  // chart: 18, 40
+  { id: "programming", name: "Programming", category: "technology", x: 28.6, y: 44.4, quadrant: "foundational",  // chart: 20, 40
     primary: "Unplugged coding; Scratch Jr; robot toys",
     middle: "Scratch projects; Python basics; game design",
     high: "Multiple languages; app development; algorithms" },
-  { id: "marketing", name: "Marketing and media", category: "engagement", x: 34.3, y: 36.7, quadrant: "foundational",  // chart: 24, 33
+  { id: "marketing", name: "Marketing and media", category: "engagement", x: 31.4, y: 38.9, quadrant: "foundational",  // chart: 22, 35
     primary: "Show and tell; simple posters; sharing stories",
     middle: "Digital storytelling; social media literacy; persuasion techniques",
     high: "Campaign creation; media analysis; brand development" },
-  { id: "teaching", name: "Teaching and mentoring", category: "workingWithOthers", x: 42.9, y: 41.1, quadrant: "foundational",  // chart: 30, 37
+  { id: "teaching", name: "Teaching and mentoring", category: "workingWithOthers", x: 40, y: 41.1, quadrant: "foundational",  // chart: 28, 37
     primary: "Teach a friend; explain your thinking; show how",
     middle: "Cross-age tutoring; create how-to guides; learning buddies",
     high: "Curriculum design; instructional strategies; mentorship programs" },
@@ -557,23 +557,23 @@ const SKILLS = [
     primary: "World map exploration; cultural celebrations; pen pals",
     middle: "Current events discussions; cultural exchange; global goals",
     high: "Model UN; international collaboration; global issue research" },
-  { id: "quality", name: "Quality control", category: "management", x: 60, y: 33.3, quadrant: "foundational",  // chart: 42, 30
+  { id: "quality", name: "Quality control", category: "management", x: 50.7, y: 33.3, quadrant: "foundational",  // chart: 35.5, 30
     primary: "Self-checking work; 'does it match?'; revision habits",
     middle: "Peer review protocols; rubric use; improvement cycles",
     high: "Quality assurance systems; continuous improvement; standards analysis" },
-  { id: "multilingual", name: "Multi-lingualism", category: "cognitive", x: 32.9, y: 35.6, quadrant: "foundational",  // chart: 23, 32
+  { id: "multilingual", name: "Multi-lingualism", category: "cognitive", x: 34.3, y: 37.8, quadrant: "foundational",  // chart: 24, 34
     primary: "Songs in other languages; greeting words; family languages",
     middle: "Language classes; bilingual projects; translation exercises",
     high: "Language immersion; technical translation; multilingual presentations" },
-  { id: "sensory", name: "Sensory-processing abilities", category: "physical", x: 11.4, y: 24.4, quadrant: "foundational",  // chart: 8, 22
+  { id: "sensory", name: "Sensory-processing abilities", category: "physical", x: 14.3, y: 25.6, quadrant: "foundational",  // chart: 10, 23
     primary: "Sensory bins; texture exploration; listening walks",
     middle: "Lab observations; detailed sketching; mindful awareness",
     high: "Scientific observation; sensory design; perception studies" },
-  { id: "reading", name: "Reading, writing and mathematics", category: "cognitive", x: 22.9, y: 22.2, quadrant: "foundational",  // chart: 16, 20
+  { id: "reading", name: "Reading, writing and mathematics", category: "cognitive", x: 31.4, y: 16.7, quadrant: "foundational",  // chart: 22, 15
     primary: "Phonics and numeracy foundations; read-alouds; counting games",
     middle: "Reading comprehension strategies; writing workshop; math reasoning",
     high: "Advanced literacy; technical writing; mathematical modeling" },
-  { id: "manual", name: "Manual dexterity, endurance and precision", category: "physical", x: 18.6, y: 15.6, quadrant: "foundational",  // chart: 13, 14
+  { id: "manual", name: "Manual dexterity, endurance and precision", category: "physical", x: 25.7, y: 13.3, quadrant: "foundational",  // chart: 18, 12
     primary: "Fine motor activities; cutting; building blocks",
     middle: "Maker projects; instrument playing; detailed crafts",
     high: "Precision fabrication; technical skills; tool mastery" },
@@ -754,19 +754,19 @@ function QuadrantLabels() {
   return (
     <>
       <div style={{ position: "absolute", top: "2%", right: "2%", textAlign: "right", zIndex: 2 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: "#666", fontFamily: FONT }}>Core skills in 2030</div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: QUADRANT_COLORS.core, fontFamily: FONT }}>Core skills in 2030</div>
         <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Core now and expected to increase in importance</div>
       </div>
       <div style={{ position: "absolute", top: "2%", left: "2%", zIndex: 2 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: "#666", fontFamily: FONT }}>Emerging skills</div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: QUADRANT_COLORS.emerging, fontFamily: FONT }}>Emerging skills</div>
         <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Less essential now, but expected to increase in use</div>
       </div>
       <div style={{ position: "absolute", bottom: "2%", right: "2%", textAlign: "right", zIndex: 2 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: "#666", fontFamily: FONT }}>Steady skills</div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: QUADRANT_COLORS.steady, fontFamily: FONT }}>Steady skills</div>
         <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Core now, but not expected to increase in use</div>
       </div>
       <div style={{ position: "absolute", bottom: "2%", left: "2%", zIndex: 2 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: "#666", fontFamily: FONT }}>Out of focus skills</div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: QUADRANT_COLORS.foundational, fontFamily: FONT }}>Out of focus skills</div>
         <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Less essential now, and not expected to increase in use</div>
       </div>
     </>
@@ -833,34 +833,6 @@ function AxisLines() {
           strokeDasharray="4 4"
         />
       </svg>
-      {/* X-axis numbers (bottom) - 0 to 70 */}
-      {xLabels.map(x => (
-        <div key={`x-num-${x}`} style={{
-          position: "absolute",
-          left: `${chartToInternalX(x)}%`,
-          bottom: 2,
-          transform: "translateX(-50%)",
-          fontSize: 8,
-          color: "#999",
-          fontFamily: FONT,
-        }}>
-          {x}%
-        </div>
-      ))}
-      {/* Y-axis numbers (left) - 0 to 90 */}
-      {yLabels.map(y => (
-        <div key={`y-num-${y}`} style={{
-          position: "absolute",
-          left: 2,
-          top: `${100 - chartToInternalY(y)}%`,
-          transform: "translateY(-50%)",
-          fontSize: 8,
-          color: "#999",
-          fontFamily: FONT,
-        }}>
-          {y}%
-        </div>
-      ))}
     </>
   )
 }
@@ -3218,6 +3190,7 @@ export default function App() {
               <DottedGridSmall />
               <AxisLines />
               <QuadrantLabels />
+              <ConnectionLines selectedSkill={selectedSkill} hoveredCategory={hoveredCategory} filterQuadrant={filterQuadrant} />
 
               {/* Skill circles with black center dots */}
               {filteredSkills.map(skill => {
@@ -3271,9 +3244,9 @@ export default function App() {
                 const isHidden = activeCategory && skill.category !== activeCategory
                 const labelOffset = isMobile ? 10 : 16
                 // Labels that go below their circles (to avoid overlap)
-                const labelBelow = ["design", "teaching", "global", "sensory", "manual", "service", "resource", "leadership", "dependable"].includes(skill.id)
+                const labelBelow = ["design", "global", "sensory", "manual", "service", "leadership", "multilingual", "empathy", "resilience"].includes(skill.id)
                 // Labels that go to the right of their circles
-                const labelRight = ["reading"].includes(skill.id)
+                const labelRight = ["reading", "teaching", "dependable", "resource"].includes(skill.id)
                 // Labels that go to the left of their circles
                 const labelLeft = ["marketing"].includes(skill.id)
 
@@ -3304,7 +3277,7 @@ export default function App() {
                       fontWeight: 400,
                       color: "#333",
                       textAlign,
-                      whiteSpace: "nowrap",
+                      whiteSpace: skill.id === "resilience" ? "pre-line" : "nowrap",
                       pointerEvents: "none",
                       zIndex: 15,
                       opacity: isHidden ? 0.08 : 1,
@@ -3312,7 +3285,7 @@ export default function App() {
                       fontFamily: FONT,
                     }}
                   >
-                    {skill.name}
+                    {skill.id === "resilience" ? "Resilience, flexibility\nand agility" : skill.name}
                   </div>
                 )
               })}
