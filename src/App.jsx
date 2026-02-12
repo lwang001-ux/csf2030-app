@@ -2655,7 +2655,7 @@ function AboutModal({ onClose }) {
           <div>
             <h2 style={{ fontSize: 32, fontWeight: 700, color: CMYK.black, margin: 0, letterSpacing: -0.5 }}>CSf2030</h2>
             <p style={{ fontSize: 13, color: "#666", margin: "6px 0 0", fontFamily: FONT }}>
-              Core Skills for 2030 — K-12 Learning Pathways
+              Core Skills for 2030
             </p>
           </div>
           <button onClick={onClose} style={{
@@ -2924,7 +2924,7 @@ export default function App() {
             >
               <h1 style={{ fontSize: "clamp(24px, 6vw, 35px)", fontWeight: 700, margin: 0, letterSpacing: -0.5 }}>CSf2030</h1>
               <p style={{ fontSize: "clamp(12px, 3vw, 16px)", color: "#666", margin: "5px 0 0", fontFamily: FONT }}>
-                Core Skills for 2030 — K-12 Learning Pathways
+                Core Skills for 2030
               </p>
             </div>
 
