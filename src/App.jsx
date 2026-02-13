@@ -3292,14 +3292,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* Mobile: Skills listed in 2-column grid below the chart */}
-          {isMobile && (
-            <MobileSkillsGrid
-              skills={filteredSkills}
-              selectedSkill={selectedSkill}
-              setSelectedSkill={setSelectedSkill}
-            />
-          )}
 
           {/* Connection explanation - shows when skill selected, category hovered, OR quadrant filtered */}
           {(selectedSkill || hoveredCategory || filterQuadrant) && (() => {
