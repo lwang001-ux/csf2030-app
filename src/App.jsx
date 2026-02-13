@@ -3270,8 +3270,8 @@ export default function App() {
                 )
               })}
 
-              {/* Skill labels - hidden on mobile, shown via MobileSkillsGrid instead */}
-              {!isMobile && filteredSkills.map(skill => {
+              {/* Skill labels */}
+              {filteredSkills.map(skill => {
                 const activeCategory = hoveredCategory || (selectedSkill ? selectedSkill.category : null)
                 const isHidden = activeCategory && skill.category !== activeCategory
                 const labelOffset = isMobile ? 10 : 16
