@@ -3006,12 +3006,6 @@ export default function App() {
         position: "relative",
         zIndex: 10,
       }}>
-          {/* Mobile: Category legend in 2 columns above quadrant filters */}
-          {isMobile && (
-            <div style={{ maxWidth: 1000, width: "100%", margin: "0 auto 8px", padding: "0 4px" }}>
-              <CategoryLegend hoveredCategory={hoveredCategory} setHoveredCategory={setHoveredCategory} isMobile={true} />
-            </div>
-          )}
           {/* Quadrant filters - fixed width, centered */}
           <div style={{ maxWidth: 1000, width: "100%", margin: "0 auto", display: "flex", justifyContent: isMobile ? "center" : "space-between", gap: isMobile ? "4px" : "clamp(4px, 2vw, 12px)", padding: isMobile ? "0" : "0 16px", flexWrap: "nowrap" }}>
           <button
