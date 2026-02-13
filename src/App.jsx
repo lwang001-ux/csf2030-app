@@ -2967,12 +2967,6 @@ export default function App() {
         position: "relative",
         zIndex: 10,
       }}>
-          {/* Mobile: Category legend in 2 columns above quadrant filters */}
-          {isMobile && (
-            <div style={{ maxWidth: 1000, width: "100%", margin: "0 auto 8px", padding: "0 4px" }}>
-              <CategoryLegend hoveredCategory={hoveredCategory} setHoveredCategory={setHoveredCategory} isMobile={true} />
-            </div>
-          )}
           {/* Quadrant filters - fixed width, centered */}
           <div style={{ maxWidth: 1000, width: "100%", margin: "0 auto", display: "flex", justifyContent: isMobile ? "center" : "space-between", gap: isMobile ? "4px" : "clamp(4px, 2vw, 12px)", padding: isMobile ? "0" : "0 16px", flexWrap: "nowrap" }}>
           <button
@@ -3212,8 +3206,8 @@ export default function App() {
                 )
               })}
 
-              {/* Skill labels - hidden on mobile since MobileSkillsGrid shows names below */}
-              {!isMobile && filteredSkills.map(skill => {
+              {/* Skill labels */}
+              {filteredSkills.map(skill => {
                 const activeCategory = hoveredCategory || (selectedSkill ? selectedSkill.category : null)
                 const isHidden = activeCategory && skill.category !== activeCategory
                 const labelOffset = isMobile ? 10 : 16
@@ -3297,15 +3291,6 @@ export default function App() {
               )}
             </div>
           </div>
-
-          {/* Mobile: Skills listed in 2-column grid below the chart */}
-          {isMobile && (
-            <MobileSkillsGrid
-              skills={filteredSkills}
-              selectedSkill={selectedSkill}
-              setSelectedSkill={setSelectedSkill}
-            />
-          )}
 
           {/* Connection explanation - shows when skill selected, category hovered, OR quadrant filtered */}
           {(selectedSkill || hoveredCategory || filterQuadrant) && (() => {
