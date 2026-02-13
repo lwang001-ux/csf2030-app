@@ -2948,7 +2948,56 @@ export default function App() {
           </div>
 
           {currentPage === "map" && !isMobile && (
+            <>
             <CategoryLegend hoveredCategory={hoveredCategory} setHoveredCategory={setHoveredCategory} />
+            <div style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "2px 10px",
+              marginTop: 8,
+              paddingTop: 8,
+              borderTop: "1px solid rgba(0,0,0,0.06)",
+            }}>
+              {filteredSkills.map(skill => {
+                const cat = CATEGORIES[skill.category]
+                const isSelected = selectedSkill?.id === skill.id
+                return (
+                  <button
+                    key={skill.id}
+                    onClick={() => { playSound('click'); setSelectedSkill(isSelected ? null : skill) }}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 4,
+                      padding: "3px 6px",
+                      background: isSelected ? `${cat.color}15` : "transparent",
+                      border: isSelected ? `1.5px solid ${cat.color}` : "1.5px solid transparent",
+                      borderRadius: 5,
+                      cursor: "pointer",
+                      fontFamily: FONT,
+                      transition: "all 0.15s ease",
+                    }}
+                  >
+                    <div style={{
+                      width: 8,
+                      height: 8,
+                      minWidth: 8,
+                      borderRadius: "50%",
+                      background: cat.color,
+                    }} />
+                    <span style={{
+                      fontSize: 9,
+                      fontWeight: 500,
+                      color: isSelected ? "#0D1B2A" : "#555",
+                      whiteSpace: "nowrap",
+                    }}>
+                      {skill.name}
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+            </>
           )}
         </div>
       </header>
@@ -3142,64 +3191,6 @@ export default function App() {
           }}>
           {/* Skills map and content - single column layout */}
           <div style={{ width: "100%" }}>
-
-          {/* All skills grid - above chart on desktop */}
-          {!isMobile && (
-            <div style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "4px 12px",
-              marginBottom: 16,
-              padding: "12px 16px",
-              background: "rgba(255,255,255,0.95)",
-              borderRadius: 12,
-              border: "1px solid rgba(0,0,0,0.08)",
-            }}>
-              {filteredSkills.map(skill => {
-                const cat = CATEGORIES[skill.category]
-                const isSelected = selectedSkill?.id === skill.id
-                return (
-                  <button
-                    key={skill.id}
-                    onClick={() => { playSound('click'); setSelectedSkill(isSelected ? null : skill) }}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 5,
-                      padding: "4px 8px",
-                      background: isSelected ? `${cat.color}15` : "transparent",
-                      border: isSelected ? `1.5px solid ${cat.color}` : "1.5px solid transparent",
-                      borderRadius: 6,
-                      cursor: "pointer",
-                      fontFamily: FONT,
-                      transition: "all 0.15s ease",
-                    }}
-                  >
-                    <div style={{
-                      width: 10,
-                      height: 10,
-                      minWidth: 10,
-                      borderRadius: "50%",
-                      background: cat.color,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}>
-                      <div style={{ width: 3, height: 3, borderRadius: "50%", background: "#0D1B2A" }} />
-                    </div>
-                    <span style={{
-                      fontSize: 10,
-                      fontWeight: 500,
-                      color: isSelected ? "#0D1B2A" : "#555",
-                      whiteSpace: "nowrap",
-                    }}>
-                      {skill.name}
-                    </span>
-                  </button>
-                )
-              })}
-            </div>
-          )}
 
           {/* Skills map */}
           <div style={{
