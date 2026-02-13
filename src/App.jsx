@@ -897,6 +897,8 @@ function CategoryLegend({ hoveredCategory, setHoveredCategory, isMobile = false 
 // Research card component - expandable
 function ResearchCard({ category, data }) {
   const [expanded, setExpanded] = useState(false)
+  const windowWidth = useWindowWidth()
+  const isMobile = windowWidth < 768
   const catColor = CATEGORIES[category]?.color || "#333"
 
   return (
@@ -911,7 +913,7 @@ function ResearchCard({ category, data }) {
         onClick={() => { playSound('click'); setExpanded(!expanded) }}
         style={{
           width: "100%",
-          padding: "16px 20px",
+          padding: isMobile ? "12px 14px" : "16px 20px",
           background: expanded ? `${catColor}10` : "#fff",
           border: "none",
           cursor: "pointer",
@@ -919,23 +921,26 @@ function ResearchCard({ category, data }) {
           alignItems: "center",
           justifyContent: "space-between",
           fontFamily: FONT,
+          gap: 8,
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12, minWidth: 0, flex: 1 }}>
           <div style={{
-            width: 14, height: 14, borderRadius: "50%", background: catColor,
-            display: "flex", alignItems: "center", justifyContent: "center",
+            width: 14, height: 14, minWidth: 14, minHeight: 14, borderRadius: "50%", background: catColor,
+            display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
           }}>
             <div style={{ width: 4, height: 4, borderRadius: "50%", background: "#0D1B2A" }} />
           </div>
-          <span style={{ fontSize: 16, fontWeight: 700, color: "#111" }}>{data.title}</span>
+          <span style={{ fontSize: isMobile ? 13 : 16, fontWeight: 700, color: "#111", textAlign: "left" }}>{data.title}</span>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <span style={{ fontSize: 11, color: "#666", fontFamily: FONT }}>{data.institution}</span>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
+          <span style={{ fontSize: 11, color: "#666", fontFamily: FONT, display: isMobile ? "none" : undefined }}>{data.institution}</span>
           {/* Dieter Rams knob */}
           <div style={{
             width: 24,
             height: 24,
+            minWidth: 24,
+            minHeight: 24,
             borderRadius: "50%",
             background: "linear-gradient(145deg, #e8e8e8, #d0d0d0)",
             border: "1px solid #bbb",
@@ -943,6 +948,7 @@ function ResearchCard({ category, data }) {
             position: "relative",
             transition: "transform 0.3s ease",
             transform: expanded ? "rotate(90deg)" : "rotate(0deg)",
+            flexShrink: 0,
           }}>
             <div style={{ width: 5, height: 5, borderRadius: "50%", background: catColor, position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} />
             <div style={{ position: "absolute", top: 3, left: "50%", transform: "translateX(-50%)", width: 2, height: 6, background: catColor, borderRadius: 1 }} />
@@ -980,6 +986,8 @@ function ResearchCard({ category, data }) {
 // Innovative research card component
 function InnovativeResearchCard({ data }) {
   const [expanded, setExpanded] = useState(false)
+  const windowWidth = useWindowWidth()
+  const isMobile = windowWidth < 768
 
   return (
     <div style={{
@@ -993,7 +1001,7 @@ function InnovativeResearchCard({ data }) {
         onClick={() => { playSound('click'); setExpanded(!expanded) }}
         style={{
           width: "100%",
-          padding: "16px 20px",
+          padding: isMobile ? "12px 14px" : "16px 20px",
           background: expanded ? "rgba(0,0,0,0.03)" : "#fff",
           border: "none",
           cursor: "pointer",
@@ -1001,17 +1009,20 @@ function InnovativeResearchCard({ data }) {
           alignItems: "center",
           justifyContent: "space-between",
           fontFamily: FONT,
+          gap: 8,
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <span style={{ fontSize: 16, fontWeight: 700, color: "#111" }}>{data.title}</span>
+        <div style={{ display: "flex", alignItems: "center", gap: 12, minWidth: 0, flex: 1 }}>
+          <span style={{ fontSize: isMobile ? 13 : 16, fontWeight: 700, color: "#111", textAlign: "left" }}>{data.title}</span>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <span style={{ fontSize: 11, color: "#666", fontFamily: FONT }}>{data.institution}</span>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
+          <span style={{ fontSize: 11, color: "#666", fontFamily: FONT, display: isMobile ? "none" : undefined }}>{data.institution}</span>
           {/* Dieter Rams knob */}
           <div style={{
             width: 24,
             height: 24,
+            minWidth: 24,
+            minHeight: 24,
             borderRadius: "50%",
             background: "linear-gradient(145deg, #e8e8e8, #d0d0d0)",
             border: "1px solid #bbb",
@@ -1019,6 +1030,7 @@ function InnovativeResearchCard({ data }) {
             position: "relative",
             transition: "transform 0.3s ease",
             transform: expanded ? "rotate(90deg)" : "rotate(0deg)",
+            flexShrink: 0,
           }}>
             <div style={{ width: 5, height: 5, borderRadius: "50%", background: "#666", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} />
             <div style={{ position: "absolute", top: 3, left: "50%", transform: "translateX(-50%)", width: 2, height: 6, background: "#666", borderRadius: 1 }} />
@@ -1115,6 +1127,8 @@ function AboutPage() {
 
 // Research page component
 function ResearchPage() {
+  const windowWidth = useWindowWidth()
+  const isMobile = windowWidth < 768
   const [searchQuery, setSearchQuery] = useState("")
   const [generateResults, setGenerateResults] = useState([])
   const [searchResults, setSearchResults] = useState([])
@@ -1296,7 +1310,7 @@ function ResearchPage() {
         </p>
 
         {/* Generate and Search Windows */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 20 }}>
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: 16, marginBottom: 20 }}>
           {/* Generate Window */}
           <div style={{
             background: "#fff",
@@ -1420,7 +1434,7 @@ function ResearchPage() {
                 }}
               />
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 6, marginBottom: 10 }}>
+            <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(3, 1fr)" : "repeat(4, 1fr)", gap: 6, marginBottom: 10 }}>
               {SEARCHABLE_SKILLS.map((skill) => (
                 <button
                   key={skill.name}
@@ -1487,7 +1501,7 @@ function ResearchPage() {
         border: "1px solid rgba(0,0,0,0.08)",
       }}>
         <h3 style={{ fontSize: 16, fontWeight: 700, marginBottom: 12, fontFamily: FONT }}>Key Takeaways for Educators</h3>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: 16 }}>
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(250px, 1fr))", gap: 16 }}>
           <div style={{ padding: 16, background: "#fff", borderRadius: 8, border: `2px solid ${CATEGORIES.cognitive.color}` }}>
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
               <div style={{ width: 14, height: 14, borderRadius: "50%", background: CATEGORIES.cognitive.color, display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -2854,17 +2868,16 @@ function MobileSkillsGrid({ skills, selectedSkill, setSelectedSkill, filterQuadr
                 height: 24,
                 borderRadius: "50%",
                 background: cat.color,
-                border: `2px solid ${cat.color}`,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                boxShadow: isSelected ? `0 0 8px ${cat.color}60` : "none",
+                boxShadow: isSelected ? `0 0 8px ${cat.color}60` : "0 1px 3px rgba(0,0,0,0.15)",
               }}>
                 <div style={{
                   width: 8,
                   height: 8,
                   borderRadius: "50%",
-                  background: "#fff",
+                  background: "#0D1B2A",
                 }} />
               </div>
               {/* Label */}
@@ -3164,7 +3177,7 @@ export default function App() {
 
       {/* Main visualization (map only) */}
       {currentPage === "map" && (
-      <main style={{ padding: isMobile ? "10px 0" : "clamp(20px, 5vw, 60px) clamp(12px, 3vw, 40px)", position: "relative", zIndex: 10, overflow: "visible" }}>
+      <main style={{ padding: isMobile ? "10px 8px" : "clamp(20px, 5vw, 60px) clamp(12px, 3vw, 40px)", position: "relative", zIndex: 10, overflow: "visible" }}>
         <div
           className="skills-map-wrapper"
           style={{
@@ -3179,7 +3192,7 @@ export default function App() {
             position: "relative",
             width: "100%",
             minWidth: isMobile ? 0 : 600,
-            paddingBottom: isMobile ? "100%" : "75%",
+            aspectRatio: isMobile ? "1 / 1" : "4 / 3",
             background: "rgba(255,255,255,0.97)",
             borderRadius: 15,
             border: "1px solid rgba(0,0,0,0.12)",
@@ -3290,7 +3303,9 @@ export default function App() {
                 )
               })}
 
-              {/* Axis labels */}
+              {/* Axis labels - hidden on mobile since they overflow the chart bounds */}
+              {!isMobile && (
+              <>
               <div style={{
                 position: "absolute",
                 left: -120,
@@ -3317,8 +3332,21 @@ export default function App() {
               }}>
                 Share of employers considering as a core skill in 2025 (%)
               </div>
+              </>
+              )}
             </div>
           </div>
+
+          {/* Mobile: Skills listed in 2-column grid below the chart */}
+          {isMobile && (
+            <MobileSkillsGrid
+              skills={filteredSkills}
+              selectedSkill={selectedSkill}
+              setSelectedSkill={setSelectedSkill}
+              filterQuadrant={filterQuadrant}
+              setFilterQuadrant={setFilterQuadrant}
+            />
+          )}
 
           {/* Connection explanation - shows when skill selected, category hovered, OR quadrant filtered */}
           {(selectedSkill || hoveredCategory || filterQuadrant) && (() => {
@@ -3498,7 +3526,7 @@ export default function App() {
       )}
 
       {/* Curriculum Connections Toggle - Dieter Rams slide switch */}
-      {currentPage === "map" && activeCategory && (
+      {currentPage === "map" && activeCategory && !isMobile && (
         <div style={{
           position: "absolute",
           left: "calc(50% + 515px)",
@@ -3554,9 +3582,78 @@ export default function App() {
         </div>
       )}
 
+      {/* Mobile Curriculum Connections Toggle - floating button */}
+      {currentPage === "map" && activeCategory && isMobile && (
+        <button
+          onClick={() => { playSound('click'); setShowCurriculumPanel(!showCurriculumPanel) }}
+          style={{
+            position: "fixed",
+            bottom: selectedSkill ? "calc(70vh + 8px)" : 16,
+            right: 16,
+            zIndex: 98,
+            display: "flex",
+            alignItems: "center",
+            gap: 6,
+            padding: "8px 14px",
+            borderRadius: 20,
+            background: showCurriculumPanel
+              ? CATEGORIES[activeCategory]?.color || "#0D1B2A"
+              : "#fff",
+            color: showCurriculumPanel ? "#fff" : CATEGORIES[activeCategory]?.color || "#0D1B2A",
+            border: showCurriculumPanel ? "none" : `2px solid ${CATEGORIES[activeCategory]?.color || "#0D1B2A"}`,
+            boxShadow: "0 4px 16px rgba(0,0,0,0.15)",
+            cursor: "pointer",
+            fontFamily: FONT,
+            fontSize: 10,
+            fontWeight: 700,
+            transition: "all 0.3s ease",
+          }}
+        >
+          <div style={{
+            width: 10,
+            height: 10,
+            borderRadius: "50%",
+            background: showCurriculumPanel ? "#fff" : CATEGORIES[activeCategory]?.color,
+            flexShrink: 0,
+          }} />
+          Curriculum
+        </button>
+      )}
+
       {/* Curriculum Connections Panel */}
       {currentPage === "map" && showCurriculumPanel && activeCategory && (
-        <div style={{
+        <>
+        {/* Mobile backdrop */}
+        {isMobile && (
+          <div
+            onClick={() => setShowCurriculumPanel(false)}
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: "rgba(0,0,0,0.3)",
+              zIndex: 9998,
+            }}
+          />
+        )}
+        <div style={isMobile ? {
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          maxHeight: "75vh",
+          background: "#fff",
+          borderRadius: "16px 16px 0 0",
+          boxShadow: "0 -8px 32px rgba(0,0,0,0.15)",
+          border: `1px solid ${CATEGORIES[activeCategory]?.color || "#333"}`,
+          borderBottom: "none",
+          overflow: "hidden",
+          zIndex: 9999,
+          fontFamily: FONT,
+          animation: "slideUp 0.3s ease-out",
+        } : {
           position: "absolute",
           left: "calc(50% + 555px)",
           top: 338,
@@ -3658,6 +3755,30 @@ export default function App() {
                 </button>
                 <span style={{ fontSize: 7, color: "#999", textTransform: "uppercase", letterSpacing: 0.3 }}>Export</span>
               </div>
+              {/* Mobile close button */}
+              {isMobile && (
+                <button
+                  onClick={() => { playSound('click'); setShowCurriculumPanel(false) }}
+                  style={{
+                    width: 22,
+                    height: 22,
+                    borderRadius: "50%",
+                    border: "1px solid rgba(0,0,0,0.12)",
+                    background: "linear-gradient(145deg, #f5f5f5, #e8e8e8)",
+                    cursor: "pointer",
+                    fontSize: 12,
+                    fontWeight: 600,
+                    color: "#666",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.08)",
+                    flexShrink: 0,
+                  }}
+                >
+                  ×
+                </button>
+              )}
             </div>
           </div>
 
@@ -3784,6 +3905,7 @@ export default function App() {
             </div>
           </div>
         </div>
+        </>
       )}
 
       {/* About Modal */}

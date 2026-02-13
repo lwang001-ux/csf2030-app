@@ -28,25 +28,6 @@ button:active {
   box-shadow: none;
 }
 
-/* Mobile responsive styles */
-@media (max-width: 480px) {
-  .skills-map-wrapper {
-    width: 600px !important;
-    transform: scale(0.55);
-    transform-origin: top left;
-    margin-left: calc((100vw - 330px) / 2) !important;
-  }
-}
-
-@media (min-width: 481px) and (max-width: 768px) {
-  .skills-map-wrapper {
-    width: 650px !important;
-    transform: scale(0.7);
-    transform-origin: top left;
-    margin-left: calc((100vw - 455px) / 2) !important;
-  }
-}
-
 .nav-button {
   padding: 8px 16px !important;
   font-size: 12px !important;
