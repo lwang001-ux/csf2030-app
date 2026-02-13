@@ -2966,27 +2966,35 @@ export default function App() {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: 4,
-                      padding: "3px 6px",
-                      background: isSelected ? `${cat.color}15` : "transparent",
-                      border: isSelected ? `1.5px solid ${cat.color}` : "1.5px solid transparent",
-                      borderRadius: 5,
+                      gap: 6,
+                      padding: "4px 0",
+                      background: "transparent",
+                      border: "none",
                       cursor: "pointer",
                       fontFamily: FONT,
-                      transition: "all 0.15s ease",
+                      transition: "all 0.2s ease",
+                      borderBottom: isSelected ? `2px dotted ${cat.color}` : "2px dotted transparent",
                     }}
                   >
                     <div style={{
-                      width: 8,
-                      height: 8,
-                      minWidth: 8,
+                      width: 14,
+                      height: 14,
+                      minWidth: 14,
                       borderRadius: "50%",
                       background: cat.color,
-                    }} />
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                      boxShadow: isSelected ? `0 0 0 2px ${cat.color}40` : `0 1px 2px rgba(0,0,0,0.15)`,
+                      transition: "all 0.2s ease",
+                    }}>
+                      <div style={{ width: 4, height: 4, borderRadius: "50%", background: "#0D1B2A" }} />
+                    </div>
                     <span style={{
-                      fontSize: 9,
-                      fontWeight: 500,
-                      color: isSelected ? "#0D1B2A" : "#555",
+                      fontSize: 11,
+                      fontWeight: 600,
+                      color: isSelected ? "#111" : "#555",
                       whiteSpace: "nowrap",
                     }}>
                       {skill.name}
