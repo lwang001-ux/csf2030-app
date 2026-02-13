@@ -750,24 +750,24 @@ function ConnectionLines({ selectedSkill, hoveredCategory, filterQuadrant }) {
 }
 
 // Quadrant labels - matching WEF original chart exactly
-function QuadrantLabels() {
+function QuadrantLabels({ isMobile = false }) {
   return (
     <>
       <div style={{ position: "absolute", top: "2%", right: "2%", textAlign: "right", zIndex: 2 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: QUADRANT_COLORS.core, fontFamily: FONT }}>Core skills in 2030</div>
-        <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Core now and expected to increase in importance</div>
+        <div style={{ fontSize: isMobile ? 9 : 13, fontWeight: 700, color: QUADRANT_COLORS.core, fontFamily: FONT }}>Core skills in 2030</div>
+        {!isMobile && <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Core now and expected to increase in importance</div>}
       </div>
       <div style={{ position: "absolute", top: "2%", left: "2%", zIndex: 2 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: QUADRANT_COLORS.emerging, fontFamily: FONT }}>Emerging skills</div>
-        <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Less essential now, but expected to increase in use</div>
+        <div style={{ fontSize: isMobile ? 9 : 13, fontWeight: 700, color: QUADRANT_COLORS.emerging, fontFamily: FONT }}>Emerging skills</div>
+        {!isMobile && <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Less essential now, but expected to increase in use</div>}
       </div>
       <div style={{ position: "absolute", bottom: "2%", right: "2%", textAlign: "right", zIndex: 2 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: QUADRANT_COLORS.steady, fontFamily: FONT }}>Steady skills</div>
-        <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Core now, but not expected to increase in use</div>
+        <div style={{ fontSize: isMobile ? 9 : 13, fontWeight: 700, color: QUADRANT_COLORS.steady, fontFamily: FONT }}>Steady skills</div>
+        {!isMobile && <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Core now, but not expected to increase in use</div>}
       </div>
       <div style={{ position: "absolute", bottom: "2%", left: "2%", zIndex: 2 }}>
-        <div style={{ fontSize: 13, fontWeight: 700, color: QUADRANT_COLORS.foundational, fontFamily: FONT }}>Out of focus skills</div>
-        <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Less essential now, and not expected to increase in use</div>
+        <div style={{ fontSize: isMobile ? 9 : 13, fontWeight: 700, color: QUADRANT_COLORS.foundational, fontFamily: FONT }}>Out of focus skills</div>
+        {!isMobile && <div style={{ fontSize: 9, color: "#888", fontFamily: FONT }}>Less essential now, and not expected to increase in use</div>}
       </div>
     </>
   )
@@ -2789,7 +2789,7 @@ function AboutModal({ onClose }) {
   )
 }
 
-// Mobile Skills Grid Component - UNUSED, kept for reference
+// Mobile Skills Grid Component - 2-column grid shown below chart on mobile
 function MobileSkillsGrid({ skills, selectedSkill, setSelectedSkill }) {
   return (
     <div style={{ padding: "12px" }}>
@@ -3157,7 +3157,7 @@ export default function App() {
             <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0 }}>
               <DottedGridSmall />
               <AxisLines />
-              <QuadrantLabels />
+              <QuadrantLabels isMobile={isMobile} />
               <ConnectionLines selectedSkill={selectedSkill} hoveredCategory={hoveredCategory} filterQuadrant={filterQuadrant} />
 
               {/* Skill circles with black center dots */}
@@ -3206,8 +3206,8 @@ export default function App() {
                 )
               })}
 
-              {/* Skill labels */}
-              {filteredSkills.map(skill => {
+              {/* Skill labels - hidden on mobile, shown via MobileSkillsGrid instead */}
+              {!isMobile && filteredSkills.map(skill => {
                 const activeCategory = hoveredCategory || (selectedSkill ? selectedSkill.category : null)
                 const isHidden = activeCategory && skill.category !== activeCategory
                 const labelOffset = isMobile ? 10 : 16
@@ -3291,6 +3291,11 @@ export default function App() {
               )}
             </div>
           </div>
+
+          {/* Mobile skills list - 2-column grid below chart */}
+          {isMobile && (
+            <MobileSkillsGrid skills={filteredSkills} selectedSkill={selectedSkill} setSelectedSkill={setSelectedSkill} />
+          )}
 
           {/* Connection explanation - shows when skill selected, category hovered, OR quadrant filtered */}
           {(selectedSkill || hoveredCategory || filterQuadrant) && (() => {
