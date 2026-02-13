@@ -2960,7 +2960,8 @@ export default function App() {
             <div style={{
               display: "flex",
               flexWrap: "wrap",
-              gap: "4px 20px",
+              justifyContent: "space-between",
+              rowGap: 4,
               marginTop: 12,
             }}>
               {interleaved.map(skill => {
