@@ -2945,18 +2945,25 @@ export default function App() {
             </div>
           </div>
 
-          {currentPage === "map" && !isMobile && (
-            <>
-            <CategoryLegend hoveredCategory={hoveredCategory} setHoveredCategory={setHoveredCategory} />
+          {currentPage === "map" && !isMobile && (() => {
+            // Interleave skills by category so adjacent colors vary
+            const catOrder = ["cognitive", "technology", "selfEfficacy", "management", "engagement", "ethics", "physical", "workingWithOthers"]
+            const groups = catOrder.map(c => filteredSkills.filter(s => s.category === c)).filter(g => g.length > 0)
+            const interleaved = []
+            const maxLen = Math.max(...groups.map(g => g.length))
+            for (let i = 0; i < maxLen; i++) {
+              for (let g = 0; g < groups.length; g++) {
+                if (groups[g][i]) interleaved.push(groups[g][i])
+              }
+            }
+            return (
             <div style={{
               display: "flex",
               flexWrap: "wrap",
               gap: "4px 20px",
-              marginTop: 8,
-              paddingTop: 8,
-              borderTop: "1px solid rgba(0,0,0,0.06)",
+              marginTop: 12,
             }}>
-              {filteredSkills.map(skill => {
+              {interleaved.map(skill => {
                 const cat = CATEGORIES[skill.category]
                 const isSelected = selectedSkill?.id === skill.id
                 return (
@@ -3003,8 +3010,8 @@ export default function App() {
                 )
               })}
             </div>
-            </>
-          )}
+            )
+          })()}
         </div>
       </header>
 
