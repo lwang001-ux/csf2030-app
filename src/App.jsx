@@ -2793,14 +2793,14 @@ function AboutModal({ onClose }) {
 function MobileSkillsGrid({ skills, selectedSkill, setSelectedSkill }) {
   return (
     <div style={{ padding: "8px 0" }}>
-      {/* Compact 2-column skill list */}
+      {/* 2-column skill list */}
       <div style={{
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
-        gap: 4,
+        gap: 6,
         background: "rgba(255,255,255,0.95)",
         borderRadius: 10,
-        padding: 8,
+        padding: 10,
         border: "1px solid rgba(0,0,0,0.08)",
       }}>
         {skills.map(skill => {
@@ -2813,8 +2813,8 @@ function MobileSkillsGrid({ skills, selectedSkill, setSelectedSkill }) {
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: 6,
-                padding: "6px 8px",
+                gap: 8,
+                padding: "8px 10px",
                 background: isSelected ? `${cat.color}15` : "transparent",
                 border: isSelected ? `1.5px solid ${cat.color}` : "1.5px solid transparent",
                 borderRadius: 8,
@@ -2822,28 +2822,26 @@ function MobileSkillsGrid({ skills, selectedSkill, setSelectedSkill }) {
                 fontFamily: FONT,
               }}
             >
-              {/* Small circle */}
               <div style={{
-                width: 14,
-                height: 14,
-                minWidth: 14,
+                width: 20,
+                height: 20,
+                minWidth: 20,
                 borderRadius: "50%",
                 background: cat.color,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                boxShadow: isSelected ? `0 0 6px ${cat.color}60` : "none",
+                boxShadow: isSelected ? `0 0 6px ${cat.color}60` : "0 1px 3px rgba(0,0,0,0.12)",
               }}>
                 <div style={{
-                  width: 4,
-                  height: 4,
+                  width: 6,
+                  height: 6,
                   borderRadius: "50%",
                   background: "#0D1B2A",
                 }} />
               </div>
-              {/* Label */}
               <span style={{
-                fontSize: 8,
+                fontSize: 10,
                 fontWeight: 600,
                 color: "#0D1B2A",
                 textAlign: "left",
