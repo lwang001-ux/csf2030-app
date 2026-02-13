@@ -2792,15 +2792,15 @@ function AboutModal({ onClose }) {
 // Mobile Skills Grid Component - 2-column grid shown below chart on mobile
 function MobileSkillsGrid({ skills, selectedSkill, setSelectedSkill }) {
   return (
-    <div style={{ padding: "12px" }}>
-      {/* Skills in 2-column grid with circles */}
+    <div style={{ padding: "8px 0" }}>
+      {/* Compact 2-column skill list */}
       <div style={{
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
-        gap: 8,
+        gap: 4,
         background: "rgba(255,255,255,0.95)",
-        borderRadius: 12,
-        padding: 12,
+        borderRadius: 10,
+        padding: 8,
         border: "1px solid rgba(0,0,0,0.08)",
       }}>
         {skills.map(skill => {
@@ -2812,41 +2812,41 @@ function MobileSkillsGrid({ skills, selectedSkill, setSelectedSkill }) {
               onClick={() => { playSound('click'); setSelectedSkill(isSelected ? null : skill) }}
               style={{
                 display: "flex",
-                flexDirection: "column",
                 alignItems: "center",
-                gap: 4,
-                padding: "10px 4px",
+                gap: 6,
+                padding: "6px 8px",
                 background: isSelected ? `${cat.color}15` : "transparent",
-                border: isSelected ? `2px solid ${cat.color}` : "2px solid transparent",
-                borderRadius: 10,
+                border: isSelected ? `1.5px solid ${cat.color}` : "1.5px solid transparent",
+                borderRadius: 8,
                 cursor: "pointer",
                 fontFamily: FONT,
               }}
             >
-              {/* Circle */}
+              {/* Small circle */}
               <div style={{
-                width: 24,
-                height: 24,
+                width: 14,
+                height: 14,
+                minWidth: 14,
                 borderRadius: "50%",
                 background: cat.color,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                boxShadow: isSelected ? `0 0 8px ${cat.color}60` : "0 1px 3px rgba(0,0,0,0.15)",
+                boxShadow: isSelected ? `0 0 6px ${cat.color}60` : "none",
               }}>
                 <div style={{
-                  width: 8,
-                  height: 8,
+                  width: 4,
+                  height: 4,
                   borderRadius: "50%",
                   background: "#0D1B2A",
                 }} />
               </div>
               {/* Label */}
               <span style={{
-                fontSize: 9,
+                fontSize: 8,
                 fontWeight: 600,
                 color: "#0D1B2A",
-                textAlign: "center",
+                textAlign: "left",
                 lineHeight: 1.2,
               }}>
                 {skill.name}
