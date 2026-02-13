@@ -2790,48 +2790,9 @@ function AboutModal({ onClose }) {
 }
 
 // Mobile Skills Grid Component - UNUSED, kept for reference
-function MobileSkillsGrid({ skills, selectedSkill, setSelectedSkill, filterQuadrant, setFilterQuadrant }) {
+function MobileSkillsGrid({ skills, selectedSkill, setSelectedSkill }) {
   return (
     <div style={{ padding: "12px" }}>
-      {/* Quadrant filter chips */}
-      <div style={{ display: "flex", gap: 4, marginBottom: 12, flexWrap: "wrap", justifyContent: "center" }}>
-        <button
-          onClick={() => { playSound('click'); setFilterQuadrant(null) }}
-          style={{
-            padding: "5px 12px",
-            background: filterQuadrant === null ? "#0D1B2A" : "#f0f0f0",
-            color: filterQuadrant === null ? "#fff" : "#555",
-            border: "none",
-            borderRadius: 14,
-            fontSize: 10,
-            fontWeight: 600,
-            cursor: "pointer",
-            fontFamily: FONT,
-          }}
-        >
-          All
-        </button>
-        {Object.entries(QUADRANTS).map(([key, quad]) => (
-          <button
-            key={key}
-            onClick={() => { playSound('click'); setFilterQuadrant(filterQuadrant === key ? null : key) }}
-            style={{
-              padding: "5px 12px",
-              background: filterQuadrant === key ? QUADRANT_COLORS[key] : "#f0f0f0",
-              color: filterQuadrant === key ? "#fff" : "#555",
-              border: "none",
-              borderRadius: 14,
-              fontSize: 10,
-              fontWeight: 600,
-              cursor: "pointer",
-              fontFamily: FONT,
-            }}
-          >
-            {quad.name.replace(" Skills", "")}
-          </button>
-        ))}
-      </div>
-
       {/* Skills in 2-column grid with circles */}
       <div style={{
         display: "grid",
@@ -3337,8 +3298,6 @@ export default function App() {
               skills={filteredSkills}
               selectedSkill={selectedSkill}
               setSelectedSkill={setSelectedSkill}
-              filterQuadrant={filterQuadrant}
-              setFilterQuadrant={setFilterQuadrant}
             />
           )}
 
