@@ -2951,7 +2951,7 @@ export default function App() {
             <div style={{
               display: "flex",
               flexWrap: "wrap",
-              gap: "2px 10px",
+              gap: "4px 20px",
               marginTop: 8,
               paddingTop: 8,
               borderTop: "1px solid rgba(0,0,0,0.06)",
